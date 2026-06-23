@@ -1,0 +1,328 @@
+.header {
+  background-color: var(--color-primary);
+  width: 100%;
+  position: relative;
+  z-index: 1000;
+  box-shadow: var(--shadow-md);
+  user-select: none;
+}
+
+.header__container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: var(--header-height);
+  padding: 0 var(--spacing-lg);
+  position: relative;
+}
+
+.header__logo {
+  display: flex;
+  align-items: center;
+  height: 100%;
+}
+
+.header__logo-img {
+  height: 60px;
+  width: auto;
+  transition: transform var(--transition-fast);
+}
+
+.header__logo-img:hover {
+  transform: scale(1.05);
+}
+
+/* Nav Menu and Tabs */
+.header__nav {
+  display: flex;
+  align-items: center;
+  height: 100%;
+  position: relative;
+  margin-left: 40px;
+  margin-right: 40px;
+  flex: 1;
+}
+
+.header__nav-list {
+  display: flex;
+  align-items: stretch; /* Estica todos os itens para terem a mesma altura */
+  list-style: none;
+  height: auto; /* Altura auto baseada no item mais alto (ex: quando quebra linha) */
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  position: relative;
+}
+
+/*
+  Linha horizontal base.
+  Fica sempre em bottom: 0 (fundo do list container).
+  Como todos os itens esticam até o fundo, a linha sempre se alinha perfeitamente com a base de todos os itens.
+*/
+/*
+  Linha horizontal base.
+  Fica sempre em bottom: 0 (fundo do list container).
+  Como todos os itens esticam até o fundo, a linha sempre se alinha perfeitamente com a base de todos os itens.
+*/
+.header__nav-list::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background-color: #ffffff; /* Linha totalmente branca */
+  z-index: 1;
+  pointer-events: none;
+  opacity: 0;
+  transform: scaleX(0); /* Começa com largura zero */
+  /* Transição simétrica (abertura e fechamento) */
+  transition: opacity 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+              transform 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Linha se expande quando o menu está aberto */
+.header__nav--dropdown-active .header__nav-list::after {
+  opacity: 1;
+  transform: scaleX(1);
+}
+
+.header__nav--origin-projects .header__nav-list::after {
+  transform-origin: 35% bottom;
+}
+
+.header__nav--origin-units .header__nav-list::after {
+  transform-origin: 65% bottom;
+}
+
+.header__nav-item {
+  position: relative;
+  margin: 0 var(--spacing-sm);
+  z-index: 2;
+  display: flex; /* Permite que o link interno estique até a altura total */
+}
+
+/* Tab link */
+.header__nav-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center; /* Centraliza horizontalmente se necessário */
+  gap: var(--spacing-xs);
+  color: rgba(255, 255, 255, 0.85);
+  font-size: var(--font-size-base);
+  font-weight: var(--font-weight-bold);
+  padding: 10px var(--spacing-lg);
+  cursor: pointer;
+  border: 2px solid transparent;
+  /* Topo fixamente arredondado em todos os links por padrão */
+  border-top-left-radius: var(--radius-lg);
+  border-top-right-radius: var(--radius-lg);
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+  height: 100%; /* Estica para ocupar a mesma altura que o item mais alto */
+  width: 100%;
+  box-sizing: border-box;
+  /* Transiciona suavemente tanto na abertura quanto no fechamento */
+  transition: color 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+              border-top-color 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+              border-left-color 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+              border-right-color 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+              background-color 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+              border-bottom-color 0s 0.35s; /* Mantém a máscara ativa durante todo o fechamento (0.35s de delay) */
+}
+
+.header__nav-link:hover {
+  color: var(--color-white);
+  border-bottom-color: transparent !important; /* garante que itens inativos não tenham borda inferior no hover */
+}
+
+.header__nav-link svg {
+  transition: transform var(--transition-fast);
+}
+
+.header__nav-link--active svg {
+  transform: rotate(180deg);
+}
+
+/* Aba ativa: bordas superior/esquerda/direita visíveis em branco puro com topo arredondado */
+.header__nav-item--active .header__nav-link {
+  color: var(--color-white);
+  background-color: var(--color-primary);
+  border-top: 2px solid #ffffff;
+  border-left: 2px solid #ffffff;
+  border-right: 2px solid #ffffff;
+  border-bottom: 2px solid var(--color-primary) !important; /* mascara a linha base */
+  border-top-left-radius: var(--radius-lg);
+  border-top-right-radius: var(--radius-lg);
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+  position: relative;
+  z-index: 3;
+  /* Transiciona as bordas e remove o delay da borda inferior ao abrir */
+  transition: border-bottom-color 0s 0s,
+              border-top-color 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+              border-left-color 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+              border-right-color 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+              background-color 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Garante que ao passar o mouse sobre o item ativo, a máscara inferior continue ativa */
+.header__nav-item--active .header__nav-link:hover {
+  border-bottom: 2px solid var(--color-primary) !important;
+}
+
+/* Dropdown Menu Containers */
+.header__dropdown {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  background-color: var(--color-primary);
+  border-top: none;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+  z-index: 99;
+  
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-8px);
+  pointer-events: none;
+  /* Transiciona suavemente em ambas as direções */
+  transition: opacity 0.3s cubic-bezier(0.4, 0, 0.2, 1), 
+              transform 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+              visibility 0.3s;
+}
+
+.header__dropdown--active {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+
+.header__dropdown-container {
+  max-width: var(--max-content-width);
+  margin: 0 auto;
+  padding: var(--spacing-xl) var(--spacing-lg);
+}
+
+/* Projects Dropdown (Centered, vertical list) */
+.header__projects-list {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--spacing-md);
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.header__projects-item {
+  width: 100%;
+  max-width: 250px;
+  text-align: center;
+}
+
+.header__projects-link {
+  display: block;
+  color: rgba(255, 255, 255, 0.8);
+  font-size: var(--font-size-base);
+  font-weight: var(--font-weight-medium);
+  padding: var(--spacing-sm) var(--spacing-md);
+  border-radius: var(--radius-md);
+  transition: all var(--transition-fast);
+}
+
+.header__projects-link:hover {
+  color: var(--color-white);
+  background-color: rgba(255, 255, 255, 0.1);
+  transform: translateY(-2px);
+}
+
+/* Units Dropdown (3 columns) */
+.header__units-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--spacing-lg);
+}
+
+.header__units-column {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-sm);
+}
+
+.header__units-link {
+  color: rgba(255, 255, 255, 0.8);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-medium);
+  padding: var(--spacing-sm) var(--spacing-md);
+  border-radius: var(--radius-md);
+  transition: all var(--transition-fast);
+}
+
+.header__units-link:hover {
+  color: var(--color-white);
+  background-color: rgba(255, 255, 255, 0.1);
+  padding-left: var(--spacing-lg);
+}
+
+/* Call to Action Button */
+.header__cta {
+  display: flex;
+  align-items: center;
+}
+
+.header__btn {
+  background-color: var(--color-white);
+  color: var(--color-primary);
+  font-weight: var(--font-weight-bold);
+  font-size: var(--font-size-sm);
+  padding: 10px 24px;
+  border-radius: var(--radius-full);
+  border: 2px solid var(--color-white);
+  transition: all var(--transition-fast);
+  box-shadow: var(--shadow-sm);
+}
+
+.header__btn:hover {
+  background-color: transparent;
+  color: var(--color-white);
+  box-shadow: 0 4px 12px rgba(255, 255, 255, 0.2);
+  transform: translateY(-1px);
+}
+
+.header__btn:active {
+  transform: translateY(0);
+}
+
+/* Mobile styles */
+.header__toggle {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  width: 30px;
+  cursor: pointer;
+}
+
+.header__toggle-bar {
+  height: 3px;
+  width: 100%;
+  background-color: var(--color-white);
+  border-radius: 2px;
+  transition: all var(--transition-base);
+}
+
+@media (max-width: 768px) {
+  .header__nav {
+    display: none;
+  }
+  
+  .header__cta {
+    margin-left: auto;
+    margin-right: var(--spacing-md);
+  }
+  
+  .header__toggle {
+    display: flex;
+  }
+}
