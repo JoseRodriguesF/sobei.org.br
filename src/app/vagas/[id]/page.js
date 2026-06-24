@@ -1,17 +1,30 @@
 'use client';
 
-import React, { useState } from 'react';
-import { useParams, useRouter } from 'next/navigation';
-import { jobsData } from '@/lib/data';
+import React, { useState, useEffect } from 'react';
+import { useParams } from 'next/navigation';
+import { fetchVagaPublica, enviarCandidatura } from '@/lib/api';
 import Link from 'next/link';
+
+const MODALIDADE_LABELS = {
+  presencial: 'Presencial',
+  hibrido: 'Híbrido',
+  remoto: 'Remoto',
+};
+
+const CONTRATO_LABELS = {
+  clt: 'CLT',
+  estagio: 'Estágio',
+  pj: 'PJ',
+  temporario: 'Temporário',
+};
 
 export default function VagaDetalhePage() {
   const params = useParams();
-  const router = useRouter();
   const id = params ? parseInt(params.id) : null;
 
-  // Find job details
-  const job = jobsData.find(j => j.id === id);
+  const [vaga, setVaga] = useState(null);
+  const [loading, setLoading] = useState(true);
+  const [notFound, setNotFound] = useState(false);
 
   // Form states
   const [formData, setFormData] = useState({
@@ -24,8 +37,36 @@ export default function VagaDetalhePage() {
   const [errors, setErrors] = useState({});
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitSuccess, setSubmitSuccess] = useState(false);
+  const [submitError, setSubmitError] = useState('');
 
-  if (!job) {
+  useEffect(() => {
+    async function loadVaga() {
+      if (!id) {
+        setNotFound(true);
+        setLoading(false);
+        return;
+      }
+      setLoading(true);
+      const data = await fetchVagaPublica(id);
+      if (!data) {
+        setNotFound(true);
+      } else {
+        setVaga(data);
+      }
+      setLoading(false);
+    }
+    loadVaga();
+  }, [id]);
+
+  if (loading) {
+    return (
+      <div className="vagas-not-found container">
+        <p>Carregando vaga...</p>
+      </div>
+    );
+  }
+
+  if (notFound || !vaga) {
     return (
       <div className="vagas-not-found container">
         <h2>Vaga não encontrada</h2>
@@ -61,7 +102,7 @@ export default function VagaDetalhePage() {
     }
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     const newErrors = {};
 
@@ -89,14 +130,31 @@ export default function VagaDetalhePage() {
     }
 
     setIsSubmitting(true);
-    // Simulate API request
-    setTimeout(() => {
-      setIsSubmitting(false);
+    setSubmitError('');
+
+    // Build FormData for multipart upload
+    const multipartData = new FormData();
+    multipartData.append('nomeCompleto', formData.name);
+    multipartData.append('email', formData.email);
+    multipartData.append('telefone', formData.phone);
+    if (formData.message.trim()) {
+      multipartData.append('cartaApresentacao', formData.message);
+    }
+    multipartData.append('curriculo', selectedFile);
+
+    const result = await enviarCandidatura(vaga.id, multipartData);
+
+    setIsSubmitting(false);
+
+    if (result.success) {
       setSubmitSuccess(true);
-    }, 1500);
+    } else {
+      setSubmitError(result.message || 'Erro ao enviar candidatura. Tente novamente.');
+    }
   };
 
-  const unitName = job.location.split(' (')[0].replace('Unidade ', '');
+  // Parse requisitos (may be newline-separated text)
+  const requisitos = (vaga.requisitos || '').split('\n').filter(r => r.trim());
 
   return (
     <div className="vaga-detail-page">
@@ -111,11 +169,11 @@ export default function VagaDetalhePage() {
             Voltar para vagas
           </Link>
           <div className="vaga-hero__info">
-            <span className="vaga-hero__dept">{job.department}</span>
-            <h1 className="vaga-hero__title">{job.title}</h1>
+            <span className="vaga-hero__dept">{vaga.departamento}</span>
+            <h1 className="vaga-hero__title">{vaga.titulo}</h1>
             <div className="vaga-hero__meta">
-              <span>📍 {unitName}</span>
-              <span>💼 {job.model} ({job.type})</span>
+              <span>📍 {vaga.unidade}</span>
+              <span>💼 {MODALIDADE_LABELS[vaga.modalidade] || vaga.modalidade} ({CONTRATO_LABELS[vaga.tipoContrato] || vaga.tipoContrato})</span>
             </div>
           </div>
         </div>
@@ -129,17 +187,25 @@ export default function VagaDetalhePage() {
           <div className="vaga-info-col">
             <div className="vaga-card">
               <h2 className="vaga-card__title">Descrição da Vaga</h2>
-              <p className="vaga-card__text">{job.description}</p>
+              <p className="vaga-card__text" style={{ whiteSpace: 'pre-wrap' }}>{vaga.descricao}</p>
               
               <h3 className="vaga-card__subtitle">Requisitos e Qualificações</h3>
               <ul className="vaga-card__list">
-                {job.requirements.map((req, i) => (
-                  <li key={i} className="vaga-card__list-item">{req}</li>
-                ))}
+                {requisitos.length > 0 ? (
+                  requisitos.map((req, i) => (
+                    <li key={i} className="vaga-card__list-item">{req}</li>
+                  ))
+                ) : (
+                  <li className="vaga-card__list-item">{vaga.requisitos}</li>
+                )}
               </ul>
 
-              <h3 className="vaga-card__subtitle">Benefícios oferecidos</h3>
-              <p className="vaga-card__text">{job.benefits}</p>
+              {vaga.beneficios && (
+                <>
+                  <h3 className="vaga-card__subtitle">Benefícios oferecidos</h3>
+                  <p className="vaga-card__text">{vaga.beneficios}</p>
+                </>
+              )}
             </div>
           </div>
 
@@ -239,6 +305,12 @@ export default function VagaDetalhePage() {
                       ></textarea>
                     </div>
 
+                    {submitError && (
+                      <div className="form-group__error" style={{ textAlign: 'center' }}>
+                        {submitError}
+                      </div>
+                    )}
+
                     {/* Submit */}
                     <button 
                       type="submit" 
@@ -258,7 +330,7 @@ export default function VagaDetalhePage() {
                   </div>
                   <h3 className="vaga-success-card__title">Inscrição Enviada!</h3>
                   <p className="vaga-success-card__text">
-                    Sua candidatura para a vaga de <strong>{job.title}</strong> foi cadastrada com sucesso. 
+                    Sua candidatura para a vaga de <strong>{vaga.titulo}</strong> foi cadastrada com sucesso. 
                   </p>
                   <p className="vaga-success-card__subtext">
                     Nosso setor de Recursos Humanos revisará as informações enviadas. Fique atento ao seu e-mail e telefone para os próximos passos.

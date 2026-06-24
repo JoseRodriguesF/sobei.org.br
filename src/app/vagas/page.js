@@ -1,39 +1,65 @@
 'use client';
 
-import React, { useState, useMemo } from 'react';
-import { jobsData, unitsData } from '@/lib/data';
+import React, { useState, useMemo, useEffect } from 'react';
+import { unitsData } from '@/lib/data';
+import { fetchVagasPublicas } from '@/lib/api';
 import Link from 'next/link';
 
+const MODALIDADE_LABELS = {
+  presencial: 'Presencial',
+  hibrido: 'Híbrido',
+  remoto: 'Remoto',
+};
+
+const CONTRATO_LABELS = {
+  clt: 'CLT',
+  estagio: 'Estágio',
+  pj: 'PJ',
+  temporario: 'Temporário',
+};
+
 export default function VagasPage() {
+  const [vagas, setVagas] = useState([]);
+  const [loading, setLoading] = useState(true);
+
   // Filter states
   const [searchQuery, setSearchQuery] = useState('');
   const [selectedDept, setSelectedDept] = useState('');
   const [selectedUnit, setSelectedUnit] = useState('');
 
+  useEffect(() => {
+    async function loadVagas() {
+      setLoading(true);
+      const data = await fetchVagasPublicas();
+      setVagas(data);
+      setLoading(false);
+    }
+    loadVagas();
+  }, []);
+
   // Get unique departments, units for filters
   const departments = useMemo(() => {
-    return [...new Set(jobsData.map(job => job.department))];
-  }, []);
+    return [...new Set(vagas.map(vaga => vaga.departamento).filter(Boolean))];
+  }, [vagas]);
 
   const units = useMemo(() => {
     return Object.values(unitsData).map(unit => unit.name);
   }, []);
 
   // Filter logic
-  const filteredJobs = useMemo(() => {
-    return jobsData.filter(job => {
+  const filteredVagas = useMemo(() => {
+    return vagas.filter(vaga => {
       const matchesSearch = 
-        job.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
-        job.description.toLowerCase().includes(searchQuery.toLowerCase());
+        (vaga.titulo || '').toLowerCase().includes(searchQuery.toLowerCase()) ||
+        (vaga.descricao || '').toLowerCase().includes(searchQuery.toLowerCase());
       
-      const matchesDept = !selectedDept || job.department === selectedDept;
+      const matchesDept = !selectedDept || vaga.departamento === selectedDept;
       
-      // Check if location string contains the selected unit name or matches
-      const matchesUnit = !selectedUnit || job.location.includes(selectedUnit.split(' ')[1]);
+      const matchesUnit = !selectedUnit || (vaga.unidade || '').includes(selectedUnit.split(' ')[1] || selectedUnit);
 
       return matchesSearch && matchesDept && matchesUnit;
     });
-  }, [searchQuery, selectedDept, selectedUnit]);
+  }, [vagas, searchQuery, selectedDept, selectedUnit]);
 
   return (
     <div>
@@ -99,8 +125,6 @@ export default function VagasPage() {
             </select>
           </div>
 
-
-
         </div>
 
         {/* Section title & divider */}
@@ -108,24 +132,27 @@ export default function VagasPage() {
         <hr className="vagas-divider" />
 
         {/* Jobs list board */}
-        <div className="jobs-list">
-          {filteredJobs.length > 0 ? (
-            filteredJobs.map((job) => {
-              const unitName = job.location.split(' (')[0].replace('Unidade ', '');
-              return (
-                <div className="job-card fade-in" key={job.id}>
+        {loading ? (
+          <div className="jobs-empty">Carregando vagas...</div>
+        ) : (
+          <div className="jobs-list">
+            {filteredVagas.length > 0 ? (
+              filteredVagas.map((vaga) => (
+                <div className="job-card fade-in" key={vaga.id}>
                   
                   {/* Job metadata and info */}
                   <div className="job-card__info">
-                    <h3 className="job-card__title">{job.title}</h3>
-                    <span className="job-card__meta">Unidade: {unitName}</span>
-                    <span className="job-card__submeta">{job.department} • {job.model} ({job.type})</span>
+                    <h3 className="job-card__title">{vaga.titulo}</h3>
+                    <span className="job-card__meta">Unidade: {vaga.unidade}</span>
+                    <span className="job-card__submeta">
+                      {vaga.departamento} • {MODALIDADE_LABELS[vaga.modalidade] || vaga.modalidade} ({CONTRATO_LABELS[vaga.tipoContrato] || vaga.tipoContrato})
+                    </span>
                   </div>
 
                   {/* Apply button */}
                   <div className="job-card__action">
                     <Link 
-                      href={`/vagas/${job.id}`}
+                      href={`/vagas/${vaga.id}`}
                       className="job-card__btn"
                     >
                       Ver detalhes
@@ -133,14 +160,14 @@ export default function VagasPage() {
                   </div>
 
                 </div>
-              );
-            })
-          ) : (
-            <div className="jobs-empty">
-              Nenhuma vaga encontrada para os filtros selecionados.
-            </div>
-          )}
-        </div>
+              ))
+            ) : (
+              <div className="jobs-empty">
+                Nenhuma vaga encontrada para os filtros selecionados.
+              </div>
+            )}
+          </div>
+        )}
 
       </section>
     </div>
