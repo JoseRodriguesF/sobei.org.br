@@ -238,11 +238,17 @@
   transform: translateY(-2px);
 }
 
-/* Units Dropdown (3 columns) */
+/* Units Dropdown (4 columns) */
 .header__units-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(4, 1fr);
   gap: var(--spacing-lg);
+}
+
+@media (max-width: 992px) {
+  .header__units-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
 }
 
 .header__units-column {

@@ -61,9 +61,9 @@ export const projectsData = {
 
 export const unitsData = {
   'araucarias': {
-    name: 'Unidade Araucárias',
-    address: 'Rua das Araucárias, 120 - Grajaú, São Paulo - SP',
-    phone: '(11) 5661-1200',
+    name: 'CEI Jardim das Araucárias',
+    address: 'Rua Carolina Reimberg, 57 - Parelheiros, São Paulo - SP - CEP: 04882-000',
+    phone: '(11) 5921-5777',
     email: 'araucarias@sobei.org.br',
     type: 'CEI / CCINTER',
     capacity: '150 atendidos',
@@ -71,9 +71,9 @@ export const unitsData = {
     image: '/images/WhatsApp Image 2026-06-19 at 11.47.44.jpeg'
   },
   'cedro': {
-    name: 'Unidade Cedro',
-    address: 'Estrada do Cedro, 450 - Parelheiros, São Paulo - SP',
-    phone: '(11) 5662-4500',
+    name: 'CEI Jardim do Cedro',
+    address: 'Rua dos Boiadeiros, 28 - Jd. Ideal, São Paulo - SP - CEP: 04846-660',
+    phone: '(11) 5528-1788',
     email: 'cedro@sobei.org.br',
     type: 'CEI / CCINTER',
     capacity: '200 atendidos',
@@ -81,19 +81,19 @@ export const unitsData = {
     image: '/images/WhatsApp Image 2026-06-19 at 11.47.45.jpeg'
   },
   'oliveiras': {
-    name: 'Unidade Oliveiras',
-    address: 'Av. das Oliveiras, 900 - Jardim Primavera, São Paulo - SP',
-    phone: '(11) 5663-9000',
+    name: 'CEI Jardim das Oliveiras',
+    address: 'Rua Rubens de Oliveira, 400 - Parque Residencial Cocaia, São Paulo - SP - CEP: 04849-210',
+    phone: '(11) 5932-8477',
     email: 'oliveiras@sobei.org.br',
     type: 'CEI / CCINTER',
     capacity: '180 atendidos',
-    description: 'A Unidade Oliveiras foca na primeira infância e no apoio psicossocial a famílias, desenvolvendo projetos lúdicos voltados à música e artes plásticas.',
+    description: 'A Unidade Oliveiras foca na primeira infância e no apoio psicossocial a famílias, developing projects lúdicos voltados à música e artes plásticas.',
     image: '/images/WhatsApp Image 2026-06-19 at 11.47.52.jpeg'
   },
   'macaubas': {
-    name: 'Unidade Macaúbas',
-    address: 'Rua Macaúbas, 55 - Cidade Dutra, São Paulo - SP',
-    phone: '(11) 5664-0055',
+    name: 'CEI Jardim das Macaúbas',
+    address: 'Rua Macauba Natal, 221 A - Vila Natal, São Paulo - SP - CEP: 04863-420',
+    phone: '(11) 5526-7339',
     email: 'macaubas@sobei.org.br',
     type: 'CEI / CCINTER',
     capacity: '140 atendidos',
@@ -101,9 +101,9 @@ export const unitsData = {
     image: '/images/WhatsApp Image 2026-06-19 at 11.48.12.jpeg'
   },
   'montanaro': {
-    name: 'Unidade Montanaro',
-    address: 'Av. Senador Teotônio Vilela, 3100 - Interlagos, São Paulo - SP',
-    phone: '(11) 5665-3100',
+    name: 'CEI Montanaro',
+    address: 'Av. Rubens Montanaro de Borba, 459 - Cidade Dutra, São Paulo - SP - CEP: 04811-120',
+    phone: '(11) 5666-5755',
     email: 'montanaro@sobei.org.br',
     type: 'CEI / CEDESP',
     capacity: '320 alunos',
@@ -111,9 +111,9 @@ export const unitsData = {
     image: '/images/WhatsApp Image 2026-06-19 at 11.48.13.jpeg'
   },
   'leblon': {
-    name: 'Unidade Leblon',
-    address: 'Rua Leblon, 230 - Veleiros, São Paulo - SP',
-    phone: '(11) 5666-2300',
+    name: 'CEI Leblon',
+    address: 'Rua Padre José Garzotti, 494 - Cidade Dutra, São Paulo - SP - CEP: 04806-000',
+    phone: '(11) 5666-5576',
     email: 'leblon@sobei.org.br',
     type: 'CEDESP',
     capacity: '240 alunos',
@@ -121,9 +121,9 @@ export const unitsData = {
     image: '/images/WhatsApp Image 2026-06-19 at 11.48.14.jpeg'
   },
   'imbuias': {
-    name: 'Unidade Imbuias',
-    address: 'Estrada das Imbuias, 1500 - Grajaú, São Paulo - SP',
-    phone: '(11) 5667-1500',
+    name: 'CEI Jardim das Imbuias',
+    address: 'Rua José Luis Monteiro, 513 - Jd. das Camélias, São Paulo - SP - CEP: 04829-240',
+    phone: '(11) 5973-6909',
     email: 'imbuias@sobei.org.br',
     type: 'CEI / CEDESP',
     capacity: '280 alunos',
@@ -131,9 +131,9 @@ export const unitsData = {
     image: '/images/WhatsApp Image 2026-06-19 at 11.47.41.jpeg'
   },
   'acacias': {
-    name: 'Unidade Acácias',
-    address: 'Rua das Acácias, 80 - Cocaia, São Paulo - SP',
-    phone: '(11) 5668-0080',
+    name: 'CEI Jardim das Acácias',
+    address: 'Av. Belmira Marin, 4826 - Parque Brasil, São Paulo - SP - CEP: 04846-000',
+    phone: '(11) 5933-2313',
     email: 'acacias@sobei.org.br',
     type: 'CEI / CEDESP',
     capacity: '190 alunos',
@@ -141,9 +141,9 @@ export const unitsData = {
     image: '/images/WhatsApp Image 2026-06-19 at 11.47.44.jpeg'
   },
   'ipes': {
-    name: 'Unidade Ipês',
-    address: 'Av. dos Ipês, 45 - Jardim Cliper, São Paulo - SP',
-    phone: '(11) 5669-0045',
+    name: 'CEI Jardim dos Ipês',
+    address: 'Rua Magdalena Roschel Gottefritz, 101 - Vila Santa Maria, São Paulo - SP - Complemento: Rua Rui Rodrigues, 10',
+    phone: '(11) 5668-9553',
     email: 'ipes@sobei.org.br',
     type: 'CEI / NCI',
     capacity: '120 idosos',
@@ -151,9 +151,9 @@ export const unitsData = {
     image: '/images/WhatsApp Image 2026-06-19 at 11.47.45.jpeg'
   },
   'bela-vista': {
-    name: 'Unidade Bela Vista',
-    address: 'Rua Bela Vista, 310 - Capela do Socorro, São Paulo - SP',
-    phone: '(11) 5670-0310',
+    name: 'CEI Jardim Bela Vista',
+    address: 'Rua Frederico René de Jaeger, 1521 - Rio Bonito, São Paulo - SP - CEP: 04826-010',
+    phone: '(11) 5928-1110',
     email: 'belavista@sobei.org.br',
     type: 'CEI / NCI',
     capacity: '100 idosos',
@@ -161,9 +161,9 @@ export const unitsData = {
     image: '/images/WhatsApp Image 2026-06-19 at 11.47.48.jpeg'
   },
   'orquideas': {
-    name: 'Unidade Orquídeas',
-    address: 'Rua das Orquídeas, 99 - Interlagos, São Paulo - SP',
-    phone: '(11) 5671-0099',
+    name: 'CEI Jardim das Orquídeas',
+    address: 'Av. das Orquídeas, 193 - Vargem Grande, São Paulo - SP - CEP: 04896-320',
+    phone: '(11) 5921-6100',
     email: 'orquideas@sobei.org.br',
     type: 'CEI / Telecentro',
     capacity: '300 usuários/mês',
@@ -171,14 +171,24 @@ export const unitsData = {
     image: '/images/WhatsApp Image 2026-06-19 at 11.47.52.jpeg'
   },
   'jacomo': {
-    name: 'Unidade Jacomo',
-    address: 'Av. Jacomo Tatto, 880 - Jardim São José, São Paulo - SP',
-    phone: '(11) 5672-0880',
-    email: 'jacomo@sobei.org.br',
-    type: 'CEI / Telecentro',
-    capacity: '250 usuários/mês',
-    description: 'Atende o Jardim São José proporcionando cursos de informática e capacitação em desenvolvimento web, além do suporte básico na educação infantil.',
+    name: 'CEI Jardim das Cerejeiras / Jacomo Tatto',
+    address: 'Av. Orfeu Paravente, s/nº - Jd. Kioto (Complemento: Rua Daniel Artterbom, 95 B) - CEP: 04832-090',
+    phone: '(11) 5924-5503',
+    email: 'cerejeiras@sobei.org.br',
+    type: 'CEI',
+    capacity: '250 atendidos',
+    description: 'A Unidade Cerejeiras / Jacomo Tatto oferece educação infantil de qualidade no contraturno e suporte às famílias da comunidade local do Jardim Kioto.',
     image: '/images/WhatsApp Image 2026-06-19 at 11.48.12.jpeg'
+  },
+  'sabias': {
+    name: 'CEI Jardim dos Sabiás',
+    address: 'Rua Constantino Bruno Di Bartolomeu, 110 - Parelheiros - CEP: 04888-050',
+    phone: '(11) 5920-8047',
+    email: 'sabias@sobei.org.br',
+    type: 'CEI',
+    capacity: '150 atendidos',
+    description: 'A Unidade Sabiás atende a comunidade de Parelheiros com foco na educação infantil integrada e no fortalecimento de vínculos familiares.',
+    image: '/images/WhatsApp Image 2026-06-19 at 11.47.45.jpeg'
   }
 };
 
