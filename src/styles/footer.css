@@ -1,9 +1,9 @@
 .footer {
-  background-color: var(--color-gray-800);
+  background-color: #000000;
   color: var(--color-gray-300);
   padding: var(--spacing-3xl) 0 var(--spacing-xl) 0;
   margin-top: auto;
-  border-top: 1px solid var(--color-gray-700);
+  border-top: 1px solid #1a1a1a;
 }
 
 .footer__container {
@@ -16,25 +16,27 @@
 .footer__about {
   display: flex;
   flex-direction: column;
+  align-items: flex-start;
   gap: var(--spacing-md);
 }
 
 .footer__logo-img {
-  height: 50px;
-  width: auto;
-  filter: brightness(0) invert(1);
+  width: 100%;
+  max-width: 400px;
+  height: auto;
 }
 
 .footer__description {
   font-size: var(--font-size-sm);
   line-height: var(--line-height-relaxed);
   max-width: 400px;
+  text-align: justify;
 }
 
 .footer__nav {
   display: flex;
   flex-direction: column;
-  gap: var(--spacing-md);
+  gap: var(--spacing-md);/* Alinha os títulos com o texto do logo da SOBEI */
 }
 
 .footer__title {
@@ -74,18 +76,36 @@
   height: 36px;
   border-radius: var(--radius-full);
   background-color: rgba(255, 255, 255, 0.05);
+  border: 1px solid var(--color-white);
   color: var(--color-gray-300);
   transition: all var(--transition-fast);
 }
 
 .footer__social-link:hover {
-  background-color: var(--color-primary-light);
-  color: var(--color-white);
+  background-color: var(--color-accent);
+  border-color: var(--color-accent);
+  color: var(--color-black);
   transform: translateY(-2px);
 }
 
+.footer__info-item {
+  font-size: var(--font-size-sm);
+  color: var(--color-gray-300);
+  line-height: var(--line-height-normal);
+}
+
+.footer__info-label {
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-white);
+  margin-right: var(--spacing-xs);
+}
+
+.footer__info-value {
+  color: var(--color-gray-300);
+}
+
 .footer__bottom {
-  border-top: 1px solid var(--color-gray-700);
+  border-top: 1px solid #1a1a1a;
   padding-top: var(--spacing-xl);
   text-align: center;
   font-size: var(--font-size-xs);
@@ -96,5 +116,9 @@
   .footer__container {
     grid-template-columns: 1fr;
     gap: var(--spacing-xl);
+  }
+
+  .footer__nav {
+    padding-top: 0; /* Reseta o espaçamento no mobile */
   }
 }
