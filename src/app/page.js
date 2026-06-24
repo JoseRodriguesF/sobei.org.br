@@ -9,7 +9,7 @@ export default function Home() {
           <Image 
             src="/images/LOGO BRANCO.png"
             alt="SOBEI"
-            width={400}
+            width={560}
             height={160}
             className="hero__logo"
             priority
