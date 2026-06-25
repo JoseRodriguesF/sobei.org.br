@@ -170,7 +170,15 @@ export default function VagaDetalhePage() {
           </Link>
           <div className="vaga-hero__info">
             <span className="vaga-hero__dept">{vaga.departamento}</span>
-            <h1 className="vaga-hero__title">{vaga.titulo}</h1>
+            <h1 className="vaga-hero__title" style={{ display: 'flex', alignItems: 'center', flexWrap: 'wrap', gap: '12px' }}>
+              {vaga.titulo}
+              {vaga.status === 'em_selecao' && (
+                <span className="vaga-badge vaga-badge--selecao" style={{ fontSize: '12px', padding: '4px 12px', margin: 0 }}>Em Seleção</span>
+              )}
+              {vaga.status === 'fechado' && (
+                <span className="vaga-badge vaga-badge--fechado" style={{ fontSize: '12px', padding: '4px 12px', margin: 0 }}>Preenchida</span>
+              )}
+            </h1>
             <div className="vaga-hero__meta">
               <span>📍 {vaga.unidade}</span>
               <span>💼 {MODALIDADE_LABELS[vaga.modalidade] || vaga.modalidade} ({CONTRATO_LABELS[vaga.tipoContrato] || vaga.tipoContrato})</span>
@@ -211,136 +219,180 @@ export default function VagaDetalhePage() {
 
           {/* Form Column */}
           <div className="vaga-form-col">
-            <div className="vaga-form-card">
-              {!submitSuccess ? (
-                <>
-                  <h2 className="vaga-form-card__title">Candidatar-se a esta vaga</h2>
-                  <p className="vaga-form-card__subtitle">Preencha os dados abaixo e anexe seu currículo para iniciar o processo seletivo.</p>
-                  
-                  <form onSubmit={handleSubmit} className="vaga-form">
-                    {/* Name */}
-                    <div className="form-group">
-                      <label className="form-group__label">Nome Completo *</label>
-                      <input 
-                        type="text" 
-                        name="name" 
-                        value={formData.name}
-                        onChange={handleInputChange}
-                        className="form-group__input"
-                        placeholder="Seu nome completo"
-                        disabled={isSubmitting}
-                      />
-                      {errors.name && <span className="form-group__error">{errors.name}</span>}
-                    </div>
-
-                    {/* Email */}
-                    <div className="form-group">
-                      <label className="form-group__label">E-mail *</label>
-                      <input 
-                        type="email" 
-                        name="email" 
-                        value={formData.email}
-                        onChange={handleInputChange}
-                        className="form-group__input"
-                        placeholder="exemplo@email.com"
-                        disabled={isSubmitting}
-                      />
-                      {errors.email && <span className="form-group__error">{errors.email}</span>}
-                    </div>
-
-                    {/* Phone */}
-                    <div className="form-group">
-                      <label className="form-group__label">Telefone *</label>
-                      <input 
-                        type="tel" 
-                        name="phone" 
-                        value={formData.phone}
-                        onChange={handleInputChange}
-                        className="form-group__input"
-                        placeholder="(11) 99999-9999"
-                        disabled={isSubmitting}
-                      />
-                      {errors.phone && <span className="form-group__error">{errors.phone}</span>}
-                    </div>
-
-                    {/* File CV */}
-                    <div className="form-group">
-                      <label className="form-group__label">Currículo (PDF, DOC ou DOCX) *</label>
-                      <div className="file-upload">
+            {vaga.status === 'ativo' ? (
+              <div className="vaga-form-card">
+                {!submitSuccess ? (
+                  <>
+                    <h2 className="vaga-form-card__title">Candidatar-se a esta vaga</h2>
+                    <p className="vaga-form-card__subtitle">Preencha os dados abaixo e anexe seu currículo para iniciar o processo seletivo.</p>
+                    
+                    <form onSubmit={handleSubmit} className="vaga-form">
+                      {/* Name */}
+                      <div className="form-group">
+                        <label className="form-group__label">Nome Completo *</label>
                         <input 
-                          type="file" 
-                          accept=".pdf,.doc,.docx"
-                          onChange={handleFileChange}
-                          className="file-upload__input"
+                          type="text" 
+                          name="name" 
+                          value={formData.name}
+                          onChange={handleInputChange}
+                          className="form-group__input"
+                          placeholder="Seu nome completo"
                           disabled={isSubmitting}
                         />
-                        <div className="file-upload__icon">
-                          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
-                            <polyline points="17 8 12 3 7 8"/>
-                            <line x1="12" y1="3" x2="12" y2="15"/>
-                          </svg>
-                        </div>
-                        <div className="file-upload__text">
-                          {selectedFile ? selectedFile.name : 'Anexe seu arquivo de currículo'}
-                        </div>
-                        <div className="file-upload__subtext">
-                          PDF ou Word de até 5MB
-                        </div>
+                        {errors.name && <span className="form-group__error">{errors.name}</span>}
                       </div>
-                      {errors.file && <span className="form-group__error">{errors.file}</span>}
-                    </div>
 
-                    {/* Message */}
-                    <div className="form-group">
-                      <label className="form-group__label">Carta de Apresentação (Opcional)</label>
-                      <textarea 
-                        name="message" 
-                        value={formData.message}
-                        onChange={handleInputChange}
-                        className="form-group__textarea"
-                        placeholder="Conte um pouco sobre sua trajetória..."
+                      {/* Email */}
+                      <div className="form-group">
+                        <label className="form-group__label">E-mail *</label>
+                        <input 
+                          type="email" 
+                          name="email" 
+                          value={formData.email}
+                          onChange={handleInputChange}
+                          className="form-group__input"
+                          placeholder="exemplo@email.com"
+                          disabled={isSubmitting}
+                        />
+                        {errors.email && <span className="form-group__error">{errors.email}</span>}
+                      </div>
+
+                      {/* Phone */}
+                      <div className="form-group">
+                        <label className="form-group__label">Telefone *</label>
+                        <input 
+                          type="tel" 
+                          name="phone" 
+                          value={formData.phone}
+                          onChange={handleInputChange}
+                          className="form-group__input"
+                          placeholder="(11) 99999-9999"
+                          disabled={isSubmitting}
+                        />
+                        {errors.phone && <span className="form-group__error">{errors.phone}</span>}
+                      </div>
+
+                      {/* File CV */}
+                      <div className="form-group">
+                        <label className="form-group__label">Currículo (PDF, DOC ou DOCX) *</label>
+                        <div className="file-upload">
+                          <input 
+                            type="file" 
+                            accept=".pdf,.doc,.docx"
+                            onChange={handleFileChange}
+                            className="file-upload__input"
+                            disabled={isSubmitting}
+                          />
+                          <div className="file-upload__icon">
+                            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                              <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+                              <polyline points="17 8 12 3 7 8"/>
+                              <line x1="12" y1="3" x2="12" y2="15"/>
+                            </svg>
+                          </div>
+                          <div className="file-upload__text">
+                            {selectedFile ? selectedFile.name : 'Anexe seu arquivo de currículo'}
+                          </div>
+                          <div className="file-upload__subtext">
+                            PDF ou Word de até 5MB
+                          </div>
+                        </div>
+                        {errors.file && <span className="form-group__error">{errors.file}</span>}
+                      </div>
+
+                      {/* Message */}
+                      <div className="form-group">
+                        <label className="form-group__label">Carta de Apresentação (Opcional)</label>
+                        <textarea 
+                          name="message" 
+                          value={formData.message}
+                          onChange={handleInputChange}
+                          className="form-group__textarea"
+                          placeholder="Conte um pouco sobre sua trajetória..."
+                          disabled={isSubmitting}
+                          rows={4}
+                        ></textarea>
+                      </div>
+
+                      {submitError && (
+                        <div className="form-group__error" style={{ textAlign: 'center' }}>
+                          {submitError}
+                        </div>
+                      )}
+
+                      {/* Submit */}
+                      <button 
+                        type="submit" 
+                        className="vaga-form__submit-btn"
                         disabled={isSubmitting}
-                        rows={4}
-                      ></textarea>
+                      >
+                        {isSubmitting ? 'Enviando...' : 'Enviar Candidatura'}
+                      </button>
+                    </form>
+                  </>
+                ) : (
+                  <div className="vaga-success-card">
+                    <div className="vaga-success-card__icon">
+                      <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round">
+                        <polyline points="20 6 9 17 4 12" />
+                      </svg>
                     </div>
-
-                    {submitError && (
-                      <div className="form-group__error" style={{ textAlign: 'center' }}>
-                        {submitError}
-                      </div>
-                    )}
-
-                    {/* Submit */}
-                    <button 
-                      type="submit" 
-                      className="vaga-form__submit-btn"
-                      disabled={isSubmitting}
-                    >
-                      {isSubmitting ? 'Enviando...' : 'Enviar Candidatura'}
-                    </button>
-                  </form>
-                </>
-              ) : (
-                <div className="vaga-success-card">
-                  <div className="vaga-success-card__icon">
-                    <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round">
-                      <polyline points="20 6 9 17 4 12" />
-                    </svg>
+                    <h3 className="vaga-success-card__title">Inscrição Enviada!</h3>
+                    <p className="vaga-success-card__text">
+                      Sua candidatura para a vaga de <strong>{vaga.titulo}</strong> foi cadastrada com sucesso. 
+                    </p>
+                    <p className="vaga-success-card__subtext">
+                      Nosso setor de Recursos Humanos revisará as informações enviadas. Fique atento ao seu e-mail e telefone para os próximos passos.
+                    </p>
+                    <Link href="/vagas" className="vaga-success-card__btn">
+                      Ver outras vagas
+                    </Link>
                   </div>
-                  <h3 className="vaga-success-card__title">Inscrição Enviada!</h3>
-                  <p className="vaga-success-card__text">
-                    Sua candidatura para a vaga de <strong>{vaga.titulo}</strong> foi cadastrada com sucesso. 
-                  </p>
-                  <p className="vaga-success-card__subtext">
-                    Nosso setor de Recursos Humanos revisará as informações enviadas. Fique atento ao seu e-mail e telefone para os próximos passos.
-                  </p>
-                  <Link href="/vagas" className="vaga-success-card__btn">
-                    Ver outras vagas
-                  </Link>
-                </div>
-              )}
-            </div>
+                )}
+              </div>
+            ) : (
+              <div className="vaga-status-notice-container">
+                {vaga.status === 'em_selecao' ? (
+                  <div className="vaga-status-notice vaga-status-notice--selecao">
+                    <div className="vaga-status-notice__icon">
+                      <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                        <circle cx="12" cy="12" r="10" />
+                        <polyline points="12 6 12 12 16 14" />
+                      </svg>
+                    </div>
+                    <h3 className="vaga-status-notice__title">Vaga em Seleção</h3>
+                    <p className="vaga-status-notice__text">
+                      Esta vaga está atualmente na etapa de <strong>Seleção e Análise Curricular</strong>.
+                    </p>
+                    <p className="vaga-status-notice__subtext">
+                      Agradecemos a todos que enviaram seus currículos. No momento, o recebimento de novas candidaturas está suspenso para esta vaga.
+                    </p>
+                    <Link href="/vagas" className="vaga-status-notice__btn">
+                      Ver outras vagas
+                    </Link>
+                  </div>
+                ) : (
+                  <div className="vaga-status-notice vaga-status-notice--fechado">
+                    <div className="vaga-status-notice__icon">
+                      <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                        <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
+                        <polyline points="22 4 12 14.01 9 11.01" />
+                      </svg>
+                    </div>
+                    <h3 className="vaga-status-notice__title">Vaga Preenchida</h3>
+                    <p className="vaga-status-notice__text">
+                      Esta vaga foi <strong>preenchida com sucesso</strong> e o processo seletivo está encerrado.
+                    </p>
+                    <p className="vaga-status-notice__subtext">
+                      Agradecemos a participação de todos os candidatos. Fique atento para novas oportunidades no futuro.
+                    </p>
+                    <Link href="/vagas" className="vaga-status-notice__btn">
+                      Ver outras vagas
+                    </Link>
+                  </div>
+                )}
+              </div>
+            )}
           </div>
 
         </div>

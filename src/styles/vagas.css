@@ -858,3 +858,119 @@
   }
 }
 
+/* Alphabetical Grouping on Public Page */
+.jobs-group {
+  margin-bottom: var(--spacing-3xl);
+}
+
+.jobs-group-title {
+  font-size: var(--font-size-xl);
+  font-weight: var(--font-weight-bold);
+  color: var(--color-primary);
+  border-bottom: 2px solid var(--color-primary);
+  padding-bottom: var(--spacing-xs);
+  margin-bottom: var(--spacing-lg);
+  display: inline-block;
+  min-width: 40px;
+  text-align: left;
+}
+
+/* Public Details Vaga Status Badges and Notices */
+.vaga-badge {
+  display: inline-block;
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-bold);
+  padding: 6px 12px;
+  border-radius: var(--radius-full);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-top: var(--spacing-xs);
+}
+
+.vaga-badge--selecao {
+  background-color: rgba(245, 158, 11, 0.15);
+  color: #d97706;
+  border: 1px solid rgba(245, 158, 11, 0.3);
+}
+
+.vaga-badge--fechado {
+  background-color: rgba(239, 68, 68, 0.15);
+  color: #dc2626;
+  border: 1px solid rgba(239, 68, 68, 0.3);
+}
+
+.vaga-status-notice {
+  background-color: var(--color-white);
+  border-radius: var(--radius-lg);
+  padding: var(--spacing-2xl);
+  box-shadow: var(--shadow-md);
+  border: 1px solid var(--color-gray-200);
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--spacing-md);
+  margin-bottom: var(--spacing-xl);
+}
+
+.vaga-status-notice--selecao {
+  border-left: 5px solid #f59e0b;
+}
+
+.vaga-status-notice--selecao .vaga-status-notice__icon {
+  color: #f59e0b;
+}
+
+.vaga-status-notice--fechado {
+  border-left: 5px solid #ef4444;
+}
+
+.vaga-status-notice--fechado .vaga-status-notice__icon {
+  color: #ef4444;
+}
+
+.vaga-status-notice__icon {
+  background-color: var(--color-gray-50);
+  padding: var(--spacing-md);
+  border-radius: var(--radius-full);
+}
+
+.vaga-status-notice__title {
+  font-size: var(--font-size-lg);
+  font-weight: var(--font-weight-bold);
+  color: var(--color-gray-900);
+  margin: 0;
+}
+
+.vaga-status-notice__text {
+  font-size: var(--font-size-sm);
+  color: var(--color-gray-700);
+  line-height: 1.6;
+  margin: 0;
+}
+
+.vaga-status-notice__subtext {
+  font-size: var(--font-size-xs);
+  color: var(--color-gray-500);
+  line-height: 1.5;
+  margin: 0;
+}
+
+.vaga-status-notice__btn {
+  display: inline-block;
+  background-color: var(--color-primary);
+  color: var(--color-white);
+  padding: 10px 24px;
+  border-radius: var(--radius-md);
+  font-weight: var(--font-weight-semibold);
+  font-size: var(--font-size-sm);
+  transition: background-color var(--transition-fast);
+  margin-top: var(--spacing-xs);
+  text-decoration: none;
+}
+
+.vaga-status-notice__btn:hover {
+  background-color: var(--color-primary-light);
+}
+
+
