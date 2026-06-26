@@ -740,12 +740,12 @@
   letter-spacing: 1px;
   transition: all var(--transition-fast);
   text-align: center;
-  box-shadow: 0 4px 10px rgba(232, 255, 0, 0.15);
+  box-shadow: 0 4px 10px rgba(255, 204, 0, 0.15);
 }
 
 .vaga-form__submit-btn:hover {
   background-color: var(--color-accent-hover);
-  box-shadow: 0 6px 15px rgba(232, 255, 0, 0.25);
+  box-shadow: 0 6px 15px rgba(255, 204, 0, 0.25);
   transform: translateY(-1px);
 }
 
@@ -770,7 +770,7 @@
 .vaga-success-card__icon {
   width: 72px;
   height: 72px;
-  background-color: rgba(232, 255, 0, 0.1);
+  background-color: rgba(255, 204, 0, 0.1);
   color: var(--color-accent);
   border-radius: var(--radius-full);
   display: flex;
