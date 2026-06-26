@@ -24,7 +24,6 @@ export default function VagasPage() {
 
   // Filter states
   const [searchQuery, setSearchQuery] = useState('');
-  const [selectedDept, setSelectedDept] = useState('');
   const [selectedUnit, setSelectedUnit] = useState('');
 
   useEffect(() => {
@@ -37,11 +36,7 @@ export default function VagasPage() {
     loadVagas();
   }, []);
 
-  // Get unique departments, units for filters
-  const departments = useMemo(() => {
-    return [...new Set(vagas.map(vaga => vaga.departamento).filter(Boolean))];
-  }, [vagas]);
-
+  // Get unique units for filters
   const units = useMemo(() => {
     return Object.values(unitsData).map(unit => unit.name);
   }, []);
@@ -54,11 +49,9 @@ export default function VagasPage() {
         (vaga.titulo || '').toLowerCase().includes(searchQuery.toLowerCase()) ||
         (vaga.descricao || '').toLowerCase().includes(searchQuery.toLowerCase());
       
-      const matchesDept = !selectedDept || vaga.departamento === selectedDept;
-      
       const matchesUnit = !selectedUnit || (vaga.unidade || '').includes(selectedUnit.split(' ')[1] || selectedUnit);
 
-      return matchesSearch && matchesDept && matchesUnit;
+      return matchesSearch && matchesUnit;
     });
 
     // 2. Sort alphabetically
@@ -83,7 +76,7 @@ export default function VagasPage() {
     });
 
     return groups;
-  }, [vagas, searchQuery, selectedDept, selectedUnit]);
+  }, [vagas, searchQuery, selectedUnit]);
 
   // Total filtered vacancies count
   const totalFilteredCount = useMemo(() => {
@@ -124,20 +117,7 @@ export default function VagasPage() {
             />
           </div>
 
-          {/* Department */}
-          <div className="filter-group">
-            <label className="filter-group__label">Área / Setor</label>
-            <select 
-              value={selectedDept} 
-              onChange={(e) => setSelectedDept(e.target.value)}
-              className="filter-group__select"
-            >
-              <option value="">Todas as áreas</option>
-              {departments.map((dept, idx) => (
-                <option key={idx} value={dept}>{dept}</option>
-              ))}
-            </select>
-          </div>
+
 
           {/* Unit / Location */}
           <div className="filter-group">
@@ -184,7 +164,7 @@ export default function VagasPage() {
                             <h3 className="job-card__title">{vaga.titulo}</h3>
                             <span className="job-card__meta">Unidade: {vaga.unidade}</span>
                             <span className="job-card__submeta">
-                              {vaga.departamento} • {MODALIDADE_LABELS[vaga.modalidade] || vaga.modalidade} ({CONTRATO_LABELS[vaga.tipoContrato] || vaga.tipoContrato})
+                              {MODALIDADE_LABELS[vaga.modalidade] || vaga.modalidade} ({CONTRATO_LABELS[vaga.tipoContrato] || vaga.tipoContrato})
                             </span>
                           </div>
 

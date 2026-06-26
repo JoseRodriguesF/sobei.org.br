@@ -169,7 +169,6 @@ export default function VagaDetalhePage() {
             Voltar para vagas
           </Link>
           <div className="vaga-hero__info">
-            <span className="vaga-hero__dept">{vaga.departamento}</span>
             <h1 className="vaga-hero__title" style={{ display: 'flex', alignItems: 'center', flexWrap: 'wrap', gap: '12px' }}>
               {vaga.titulo}
               {vaga.status === 'em_selecao' && (
