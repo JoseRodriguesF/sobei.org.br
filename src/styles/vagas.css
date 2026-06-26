@@ -602,7 +602,7 @@
   font-size: var(--font-size-xs);
   font-weight: var(--font-weight-bold);
   text-transform: uppercase;
-  color: #00C9B1;
+  color: var(--color-accent);
   letter-spacing: 1.5px;
 }
 
@@ -662,7 +662,7 @@
   left: 0;
   width: 50px;
   height: 3px;
-  background-color: #00C9B1;
+  background-color: var(--color-accent);
   border-radius: var(--radius-sm);
 }
 
@@ -730,7 +730,7 @@
 
 .vaga-form__submit-btn {
   width: 100%;
-  background-color: #00C9B1;
+  background-color: var(--color-accent);
   color: #120E45;
   padding: 14px;
   border-radius: var(--radius-md);
@@ -740,12 +740,12 @@
   letter-spacing: 1px;
   transition: all var(--transition-fast);
   text-align: center;
-  box-shadow: 0 4px 10px rgba(0, 201, 177, 0.15);
+  box-shadow: 0 4px 10px rgba(232, 255, 0, 0.15);
 }
 
 .vaga-form__submit-btn:hover {
-  background-color: #00b39e;
-  box-shadow: 0 6px 15px rgba(0, 201, 177, 0.25);
+  background-color: var(--color-accent-hover);
+  box-shadow: 0 6px 15px rgba(232, 255, 0, 0.25);
   transform: translateY(-1px);
 }
 
@@ -770,8 +770,8 @@
 .vaga-success-card__icon {
   width: 72px;
   height: 72px;
-  background-color: rgba(0, 201, 177, 0.1);
-  color: #00C9B1;
+  background-color: rgba(232, 255, 0, 0.1);
+  color: var(--color-accent);
   border-radius: var(--radius-full);
   display: flex;
   align-items: center;
