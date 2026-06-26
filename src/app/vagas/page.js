@@ -41,8 +41,8 @@ export default function VagasPage() {
     return Object.values(unitsData).map(unit => unit.name);
   }, []);
 
-  // Group, sort and filter logic
-  const groupedVagas = useMemo(() => {
+  // Sort and filter logic
+  const sortedVagas = useMemo(() => {
     // 1. Filter
     const filtered = vagas.filter(vaga => {
       const matchesSearch = 
@@ -55,33 +55,17 @@ export default function VagasPage() {
     });
 
     // 2. Sort alphabetically
-    const sorted = [...filtered].sort((a, b) => {
+    return [...filtered].sort((a, b) => {
       const titleA = (a.titulo || '').trim().toLowerCase();
       const titleB = (b.titulo || '').trim().toLowerCase();
       return titleA.localeCompare(titleB, 'pt-BR');
     });
-
-    // 3. Group by first letter
-    const groups = {};
-    sorted.forEach(vaga => {
-      const cleanTitle = (vaga.titulo || '').trim();
-      const firstChar = cleanTitle.charAt(0).toUpperCase();
-      const normalizedLetter = firstChar.normalize('NFD').replace(/[\u0300-\u036f]/g, '');
-      const letter = /^[A-Z]$/i.test(normalizedLetter) ? normalizedLetter : '#';
-      
-      if (!groups[letter]) {
-        groups[letter] = [];
-      }
-      groups[letter].push(vaga);
-    });
-
-    return groups;
   }, [vagas, searchQuery, selectedUnit]);
 
   // Total filtered vacancies count
   const totalFilteredCount = useMemo(() => {
-    return Object.values(groupedVagas).reduce((acc, curr) => acc + curr.length, 0);
-  }, [groupedVagas]);
+    return sortedVagas.length;
+  }, [sortedVagas]);
 
   return (
     <div>
@@ -146,43 +130,32 @@ export default function VagasPage() {
         ) : (
           <div className="jobs-container">
             {totalFilteredCount > 0 ? (
-              Object.keys(groupedVagas)
-                .sort((a, b) => {
-                  if (a === '#') return 1;
-                  if (b === '#') return -1;
-                  return a.localeCompare(b, 'pt-BR');
-                })
-                .map((letter) => (
-                  <div key={letter} className="jobs-group">
-                    <h3 className="jobs-group-title">{letter}</h3>
-                    <div className="jobs-list">
-                      {groupedVagas[letter].map((vaga) => (
-                        <div className="job-card fade-in" key={vaga.id}>
-                          
-                          {/* Job metadata and info */}
-                          <div className="job-card__info">
-                            <h3 className="job-card__title">{vaga.titulo}</h3>
-                            <span className="job-card__meta">Unidade: {vaga.unidade}</span>
-                            <span className="job-card__submeta">
-                              {MODALIDADE_LABELS[vaga.modalidade] || vaga.modalidade} ({CONTRATO_LABELS[vaga.tipoContrato] || vaga.tipoContrato})
-                            </span>
-                          </div>
-
-                          {/* Apply button */}
-                          <div className="job-card__action">
-                            <Link 
-                              href={`/vagas/${vaga.id}`}
-                              className="job-card__btn"
-                            >
-                              Ver detalhes
-                            </Link>
-                          </div>
-
-                        </div>
-                      ))}
+              <div className="jobs-list">
+                {sortedVagas.map((vaga) => (
+                  <div className="job-card fade-in" key={vaga.id}>
+                    
+                    {/* Job metadata and info */}
+                    <div className="job-card__info">
+                      <h3 className="job-card__title">{vaga.titulo}</h3>
+                      <span className="job-card__meta">Unidade: {vaga.unidade}</span>
+                      <span className="job-card__submeta">
+                        {MODALIDADE_LABELS[vaga.modalidade] || vaga.modalidade} ({CONTRATO_LABELS[vaga.tipoContrato] || vaga.tipoContrato})
+                      </span>
                     </div>
+
+                    {/* Apply button */}
+                    <div className="job-card__action">
+                      <Link 
+                        href={`/vagas/${vaga.id}`}
+                        className="job-card__btn"
+                      >
+                        Ver detalhes
+                      </Link>
+                    </div>
+
                   </div>
-                ))
+                ))}
+              </div>
             ) : (
               <div className="jobs-empty">
                 Nenhuma vaga encontrada para os filtros selecionados.
