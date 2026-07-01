@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState, useEffect, Suspense } from 'react';
+import React, { Suspense } from 'react';
 import { useSearchParams } from 'next/navigation';
 import Image from 'next/image';
 import Link from 'next/link';
@@ -8,15 +8,8 @@ import { projectsData } from '@/lib/data';
 
 function ProjectsContent() {
   const searchParams = useSearchParams();
-  const [activeId, setActiveId] = useState('ccinter');
-
-  // Sync state with query parameters
-  useEffect(() => {
-    const queryId = searchParams.get('id');
-    if (queryId && projectsData[queryId]) {
-      setActiveId(queryId);
-    }
-  }, [searchParams]);
+  const queryId = searchParams.get('id');
+  const activeId = (queryId && projectsData[queryId]) ? queryId : 'ccinter';
 
   const project = projectsData[activeId] || projectsData['ccinter'];
 

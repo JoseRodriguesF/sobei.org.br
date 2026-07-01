@@ -1,21 +1,14 @@
 'use client';
 
-import React, { useState, useEffect, Suspense } from 'react';
+import React, { Suspense } from 'react';
 import { useSearchParams } from 'next/navigation';
 import Image from 'next/image';
 import { unitsData } from '@/lib/data';
 
 function UnitsContent() {
   const searchParams = useSearchParams();
-  const [activeId, setActiveId] = useState('araucarias');
-
-  // Sync state with query parameters
-  useEffect(() => {
-    const queryId = searchParams.get('id');
-    if (queryId && unitsData[queryId]) {
-      setActiveId(queryId);
-    }
-  }, [searchParams]);
+  const queryId = searchParams.get('id');
+  const activeId = (queryId && unitsData[queryId]) ? queryId : 'araucarias';
 
   const unit = unitsData[activeId] || unitsData['araucarias'];
 
