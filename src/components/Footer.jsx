@@ -13,9 +13,9 @@ export default function Footer() {
             <Image 
               src="/images/LOGO BRANCO.png" 
               alt="SOBEI Logo" 
-              width={400} 
-              height={114} 
-              style={{ width: '100%', maxWidth: '400px', height: 'auto', objectFit: 'contain' }}
+              width={350} 
+              height={114}
+              style={{ width: '100%', maxWidth: '350px', height: 'auto', objectFit: 'contain' }}
               className="footer__logo-img"
             />
             <p className="footer__description">
