@@ -18,12 +18,14 @@
   flex-direction: column;
   align-items: flex-start;
   gap: var(--spacing-md);
+  max-width: 400px;
 }
 
 .footer__logo-img {
   width: 100%;
-  max-width: 400px;
+  max-width: 350px;
   height: auto;
+  align-self: center;
 }
 
 .footer__description {
