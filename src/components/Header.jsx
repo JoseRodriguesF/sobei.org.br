@@ -54,60 +54,94 @@ export default function Header() {
   return (
     <header className="header" ref={headerRef}>
       <div className="header__container">
-        
+
         {/* Logo */}
         <Link href="/" className="header__logo">
-          <Image 
-            src="/images/LOGO TRIANGULO TRANSPARENTE.png" 
-            alt="SOBEI Logo" 
-            width={60} 
-            height={60} 
+          <Image
+            src="/images/LOGO TRIANGULO TRANSPARENTE.png"
+            alt="SOBEI Logo"
+            width={60}
+            height={60}
             className="header__logo-img"
             priority
           />
         </Link>
 
         {/* Navigation Menu */}
-        <nav className={`header__nav ${activeDropdown ? 'header__nav--dropdown-active' : ''} ${lastActiveDropdown ? `header__nav--origin-${lastActiveDropdown}` : ''}`}>
+        <nav className={`header__nav ${isMobileMenuOpen ? 'header__nav--mobile-open' : ''} ${activeDropdown ? 'header__nav--dropdown-active' : ''} ${lastActiveDropdown ? `header__nav--origin-${lastActiveDropdown}` : ''}`}>
           <ul className="header__nav-list">
-            
+
+            {/* Mobile CTA inside nav */}
+            <li className="header__nav-item header__nav-item--mobile-cta">
+              <Link href="/vagas" className="header__btn" onClick={() => setIsMobileMenuOpen(false)}>
+                Trabalhe conosco
+              </Link>
+            </li>
+
             {/* Sobre a Sobei Link */}
             <li className="header__nav-item">
-              <Link href="/#sobre" className="header__nav-link">
+              <Link href="/#sobre" className="header__nav-link" onClick={() => setIsMobileMenuOpen(false)}>
                 Sobre a Sobei
               </Link>
             </li>
 
             {/* Nossos Projetos Dropdown Tab */}
-            <li 
+            <li
               className={`header__nav-item ${activeDropdown === 'projects' ? 'header__nav-item--active' : ''}`}
             >
-              <button 
-                onClick={() => handleDropdownToggle('projects')} 
+              <button
+                onClick={() => handleDropdownToggle('projects')}
                 className={`header__nav-link ${activeDropdown === 'projects' ? 'header__nav-link--active' : ''}`}
                 aria-expanded={activeDropdown === 'projects'}
               >
                 Nossos projetos
                 <svg width="10" height="6" viewBox="0 0 10 6" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M1 1L5 5L9 1" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+                  <path d="M1 1L5 5L9 1" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
                 </svg>
               </button>
+              {/* Mobile inline dropdown for projects */}
+              {activeDropdown === 'projects' && (
+                <ul className="header__mobile-dropdown">
+                  <li><Link href="/projetos?id=ccinter" className="header__mobile-dropdown-link" onClick={() => setIsMobileMenuOpen(false)}>CCINTER</Link></li>
+                  <li><Link href="/projetos?id=cedesp" className="header__mobile-dropdown-link" onClick={() => setIsMobileMenuOpen(false)}>CEDESP</Link></li>
+                  <li><Link href="/projetos?id=nci-imbuias" className="header__mobile-dropdown-link" onClick={() => setIsMobileMenuOpen(false)}>NCI IMBUIAS</Link></li>
+                  <li><Link href="/projetos?id=telecentro" className="header__mobile-dropdown-link" onClick={() => setIsMobileMenuOpen(false)}>Telecentro</Link></li>
+                </ul>
+              )}
             </li>
 
             {/* Nossas Unidades Dropdown Tab */}
-            <li 
+            <li
               className={`header__nav-item ${activeDropdown === 'units' ? 'header__nav-item--active' : ''}`}
             >
-              <button 
-                onClick={() => handleDropdownToggle('units')} 
+              <button
+                onClick={() => handleDropdownToggle('units')}
                 className={`header__nav-link ${activeDropdown === 'units' ? 'header__nav-link--active' : ''}`}
                 aria-expanded={activeDropdown === 'units'}
               >
                 Nossas unidades
                 <svg width="10" height="6" viewBox="0 0 10 6" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M1 1L5 5L9 1" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+                  <path d="M1 1L5 5L9 1" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
                 </svg>
               </button>
+              {/* Mobile inline dropdown for units */}
+              {activeDropdown === 'units' && (
+                <ul className="header__mobile-dropdown">
+                  <li><Link href="/unidades?id=araucarias" className="header__mobile-dropdown-link" onClick={() => setIsMobileMenuOpen(false)}>Araucárias</Link></li>
+                  <li><Link href="/unidades?id=cedro" className="header__mobile-dropdown-link" onClick={() => setIsMobileMenuOpen(false)}>Cedro</Link></li>
+                  <li><Link href="/unidades?id=oliveiras" className="header__mobile-dropdown-link" onClick={() => setIsMobileMenuOpen(false)}>Oliveiras</Link></li>
+                  <li><Link href="/unidades?id=macaubas" className="header__mobile-dropdown-link" onClick={() => setIsMobileMenuOpen(false)}>Macaúbas</Link></li>
+                  <li><Link href="/unidades?id=montanaro" className="header__mobile-dropdown-link" onClick={() => setIsMobileMenuOpen(false)}>Montanaro</Link></li>
+                  <li><Link href="/unidades?id=leblon" className="header__mobile-dropdown-link" onClick={() => setIsMobileMenuOpen(false)}>Leblon</Link></li>
+                  <li><Link href="/unidades?id=imbuias" className="header__mobile-dropdown-link" onClick={() => setIsMobileMenuOpen(false)}>Imbuias</Link></li>
+                  <li><Link href="/unidades?id=acacias" className="header__mobile-dropdown-link" onClick={() => setIsMobileMenuOpen(false)}>Acácias</Link></li>
+                  <li><Link href="/unidades?id=ipes" className="header__mobile-dropdown-link" onClick={() => setIsMobileMenuOpen(false)}>Ipês</Link></li>
+                  <li><Link href="/unidades?id=bela-vista" className="header__mobile-dropdown-link" onClick={() => setIsMobileMenuOpen(false)}>Bela Vista</Link></li>
+                  <li><Link href="/unidades?id=sabias" className="header__mobile-dropdown-link" onClick={() => setIsMobileMenuOpen(false)}>Sabiás</Link></li>
+                  <li><Link href="/unidades?id=orquideas" className="header__mobile-dropdown-link" onClick={() => setIsMobileMenuOpen(false)}>Orquídeas</Link></li>
+                  <li><Link href="/unidades?id=jacomo" className="header__mobile-dropdown-link" onClick={() => setIsMobileMenuOpen(false)}>Cerejeiras/Jacomo Tatto</Link></li>
+                </ul>
+              )}
             </li>
 
           </ul>
@@ -121,9 +155,14 @@ export default function Header() {
         </div>
 
         {/* Mobile menu toggle button */}
-        <button 
-          className="header__toggle" 
-          onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+        <button
+          className={`header__toggle ${isMobileMenuOpen ? 'header__toggle--active' : ''}`}
+          onClick={() => {
+            setIsMobileMenuOpen(!isMobileMenuOpen);
+            if (isMobileMenuOpen) {
+              setActiveDropdown(null);
+            }
+          }}
           aria-label="Toggle Menu"
         >
           <span className="header__toggle-bar"></span>

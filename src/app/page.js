@@ -6,7 +6,7 @@ export default function Home() {
       {/* Hero Section */}
       <section className="hero">
         <div className="hero__content">
-          <Image 
+          <Image
             src="/images/LOGO BRANCO.png"
             alt="SOBEI"
             width={560}
@@ -30,11 +30,11 @@ export default function Home() {
             </p>
           </div>
           <div className="about-section__image-wrapper">
-            <Image 
-              src="/images/WhatsApp Image 2026-06-19 at 11.47.41.jpeg" 
-              alt="Crianças brincando nas atividades da SOBEI" 
-              width={600} 
-              height={450} 
+            <Image
+              src="/images/WhatsApp Image 2026-06-19 at 11.47.41.jpeg"
+              alt="Crianças brincando nas atividades da SOBEI"
+              width={600}
+              height={450}
               className="about-section__image"
             />
           </div>
@@ -45,11 +45,11 @@ export default function Home() {
       <section className="about-section about-section--alt">
         <div className="container about-section__container">
           <div className="about-section__image-wrapper">
-            <Image 
-              src="/images/WhatsApp Image 2026-06-19 at 11.47.48.jpeg" 
-              alt="Educador social ensinando jovens" 
-              width={600} 
-              height={450} 
+            <Image
+              src="/images/WhatsApp Image 2026-06-19 at 11.47.48.jpeg"
+              alt="Educador social ensinando jovens"
+              width={600}
+              height={450}
               className="about-section__image"
             />
           </div>
