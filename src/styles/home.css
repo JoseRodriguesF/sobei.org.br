@@ -3,7 +3,7 @@
   position: relative;
   height: calc(100vh - var(--header-height));
   min-height: calc(100vh - var(--header-height));
-  background-image: linear-gradient(rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.75)), url('/images/WhatsApp%20Image%202026-06-19%20a%2011.48.13.jpeg');
+  background-image: linear-gradient(rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.75)), url('/images/hero-bg.jpg');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;

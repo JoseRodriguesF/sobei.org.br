@@ -4,7 +4,7 @@ export const projectsData = {
   'ccinter': {
     title: 'CCINTER - Centro de Convivência Intergeracional',
     tagline: 'Promovendo a convivência e o fortalecimento de vínculos entre gerações.',
-    image: '/images/WhatsApp Image 2026-06-19 at 11.45.44.jpeg',
+    image: '/images/ccinter-convivencia.jpg',
     description: 'O Centro de Convivência Intergeracional (CCINTER) é um serviço social voltado para acolher crianças, jovens, adultos e idosos. O objetivo principal é promover a troca de experiências, fortalecer vínculos familiares e comunitários, além de prevenir situações de exclusão e isolamento social.',
     benefits: [
       'Atividades intergeracionais (artes, música, teatro)',
@@ -18,7 +18,7 @@ export const projectsData = {
   'cedesp': {
     title: 'CEDESP - Centro de Desenvolvimento Social e Produtivo',
     tagline: 'Qualificação profissional gratuita e preparação para o mercado de trabalho.',
-    image: '/images/WhatsApp Image 2026-06-19 at 11.47.45.jpeg',
+    image: '/images/cedesp-qualificacao.jpg',
     description: 'O Centro de Desenvolvimento Social e Produtivo (CEDESP) oferece cursos de formação profissional básica e desenvolvimento de competências pessoais. O serviço prepara jovens de 15 a 59 anos para o ingresso no mercado de trabalho e incentiva o empreendedorismo.',
     benefits: [
       'Cursos certificados gratuitos (Administração, Logística, Tecnologia)',
@@ -32,7 +32,7 @@ export const projectsData = {
   'nci-imbuias': {
     title: 'NCI - Núcleo de Convivência de Idosos Imbuias',
     tagline: 'Qualidade de vida, saúde e bem-estar na melhor idade.',
-    image: '/images/WhatsApp Image 2026-06-19 at 11.47.52.jpeg',
+    image: '/images/nci-idosos.jpg',
     description: 'O Núcleo de Convivência de Idosos (NCI) oferece atividades planejadas especialmente para a terceira idade. O foco está na promoção do envelhecimento ativo e saudável, estimulando a autonomia, a socialização e a participação cidadã dos idosos da comunidade.',
     benefits: [
       'Aulas de ginástica funcional, alongamento e yoga',
@@ -46,8 +46,8 @@ export const projectsData = {
   'telecentro': {
     title: 'Telecentro - Inclusão Digital para Todos',
     tagline: 'Acesso gratuito à internet e capacitação em ferramentas digitais.',
-    image: '/images/WhatsApp Image 2026-06-19 at 11.48.12.jpeg',
-    description: 'O Telecentro é um ponto de acesso público e gratuito à internet, oferecendo computadores para uso da comunidade e cursos de informática básica. O objetivo é reduzir a exclusão digital e facilitar o acesso a serviços eletrônicos, governamentais e de pesquisa.',
+    image: '/images/telecentro-inclusao.jpg',
+    description: 'O Telecentro é um ponto de acesso público e gratuito à internet, offering computadores para uso da comunidade e cursos de informática básica. O objetivo é reduzir a exclusão digital e facilitar o acesso a serviços eletrônicos, governamentais e de pesquisa.',
     benefits: [
       'Acesso livre à internet para pesquisas e estudos',
       'Cursos de informática básica (Windows, Word, Excel, Internet)',
@@ -68,7 +68,7 @@ export const unitsData = {
     type: 'CEI / CCINTER',
     capacity: '150 atendidos',
     description: 'A Unidade Araucárias atende a comunidade do Grajaú oferecendo educação infantil (CEI) e projetos de convivência intergeracional (CCINTER) no período contraturno, promovendo acolhimento humanizado.',
-    image: '/images/WhatsApp Image 2026-06-19 at 11.47.44.jpeg'
+    image: '/images/cei-araucarias.jpg'
   },
   'cedro': {
     name: 'CEI Jardim do Cedro',
@@ -78,7 +78,7 @@ export const unitsData = {
     type: 'CEI / CCINTER',
     capacity: '200 atendidos',
     description: 'Localizada no distrito de Parelheiros, a Unidade Cedro destaca-se por projetos de integração com a natureza e forte envolvimento comunitário nas oficinas pedagógicas de contraturno.',
-    image: '/images/WhatsApp Image 2026-06-19 at 11.47.45.jpeg'
+    image: '/images/cedesp-qualificacao.jpg'
   },
   'oliveiras': {
     name: 'CEI Jardim das Oliveiras',
@@ -88,7 +88,7 @@ export const unitsData = {
     type: 'CEI / CCINTER',
     capacity: '180 atendidos',
     description: 'A Unidade Oliveiras foca na primeira infância e no apoio psicossocial a famílias, developing projects lúdicos voltados à música e artes plásticas.',
-    image: '/images/WhatsApp Image 2026-06-19 at 11.47.52.jpeg'
+    image: '/images/nci-idosos.jpg'
   },
   'macaubas': {
     name: 'CEI Jardim das Macaúbas',
@@ -98,7 +98,7 @@ export const unitsData = {
     type: 'CEI / CCINTER',
     capacity: '140 atendidos',
     description: 'Uma unidade histórica localizada na Cidade Dutra, com infraestrutura moderna para recreação infantil e horta comunitária ativa administrada pelos participantes.',
-    image: '/images/WhatsApp Image 2026-06-19 at 11.48.12.jpeg'
+    image: '/images/telecentro-inclusao.jpg'
   },
   'montanaro': {
     name: 'CEI Montanaro',
@@ -108,7 +108,7 @@ export const unitsData = {
     type: 'CEI / CEDESP',
     capacity: '320 alunos',
     description: 'A Unidade Montanaro é um dos grandes polos de qualificação do CEDESP, com laboratórios modernos de informática e salas voltadas para cursos administrativos e técnicos.',
-    image: '/images/WhatsApp Image 2026-06-19 at 11.48.13.jpeg'
+    image: '/images/cei-montanaro.jpg'
   },
   'leblon': {
     name: 'CEI Leblon',
@@ -118,7 +118,7 @@ export const unitsData = {
     type: 'CEDESP',
     capacity: '240 alunos',
     description: 'Focada exclusivamente na formação profissional técnica, a Unidade Leblon mantém convênio com importantes indústrias e empresas para fomento a vagas de Jovem Aprendiz.',
-    image: '/images/WhatsApp Image 2026-06-19 at 11.48.14.jpeg'
+    image: '/images/cei-leblon.jpg'
   },
   'imbuias': {
     name: 'CEI Jardim das Imbuias',
@@ -128,7 +128,7 @@ export const unitsData = {
     type: 'CEI / CEDESP',
     capacity: '280 alunos',
     description: 'Atua fortemente na capacitação de jovens na área de tecnologia e programação de computadores, além de manter um berçário integral qualificado.',
-    image: '/images/WhatsApp Image 2026-06-19 at 11.47.41.jpeg'
+    image: '/images/cei-imbuias.jpg'
   },
   'acacias': {
     name: 'CEI Jardim das Acácias',
@@ -138,7 +138,7 @@ export const unitsData = {
     type: 'CEI / CEDESP',
     capacity: '190 alunos',
     description: 'A Unidade Acácias realiza projetos educacionais criativos e estimula cursos de economia criativa e artesanato voltados à geração de renda imediata.',
-    image: '/images/WhatsApp Image 2026-06-19 at 11.47.44.jpeg'
+    image: '/images/cei-araucarias.jpg'
   },
   'ipes': {
     name: 'CEI Jardim dos Ipês',
@@ -148,7 +148,7 @@ export const unitsData = {
     type: 'CEI / NCI',
     capacity: '120 idosos',
     description: 'O polo de convivência do NCI Cliper abriga salas de jogos, ginásio para pilates e espaço cultural onde são realizados bailes e mostras artísticas da terceira idade.',
-    image: '/images/WhatsApp Image 2026-06-19 at 11.47.45.jpeg'
+    image: '/images/cedesp-qualificacao.jpg'
   },
   'bela-vista': {
     name: 'CEI Jardim Bela Vista',
@@ -158,7 +158,7 @@ export const unitsData = {
     type: 'CEI / NCI',
     capacity: '100 idosos',
     description: 'Focado em atividades físicas preventivas e lazer para a melhor idade. Possui consultório para triagem psicossocial e acompanhamento geriátrico primário.',
-    image: '/images/WhatsApp Image 2026-06-19 at 11.47.48.jpeg'
+    image: '/images/nci-bela-vista.jpg'
   },
   'orquideas': {
     name: 'CEI Jardim das Orquídeas',
@@ -168,7 +168,7 @@ export const unitsData = {
     type: 'CEI / Telecentro',
     capacity: '300 usuários/mês',
     description: 'A Unidade Orquídeas abriga um dos mais ativos Telecentros da SOBEI, com mais de 20 computadores para livre navegação da comunidade local.',
-    image: '/images/WhatsApp Image 2026-06-19 at 11.47.52.jpeg'
+    image: '/images/nci-idosos.jpg'
   },
   'jacomo': {
     name: 'CEI Jardim das Cerejeiras / Jacomo Tatto',
@@ -178,7 +178,7 @@ export const unitsData = {
     type: 'CEI',
     capacity: '250 atendidos',
     description: 'A Unidade Cerejeiras / Jacomo Tatto oferece educação infantil de qualidade no contraturno e suporte às famílias da comunidade local do Jardim Kioto.',
-    image: '/images/WhatsApp Image 2026-06-19 at 11.48.12.jpeg'
+    image: '/images/telecentro-inclusao.jpg'
   },
   'sabias': {
     name: 'CEI Jardim dos Sabiás',
@@ -188,7 +188,7 @@ export const unitsData = {
     type: 'CEI',
     capacity: '150 atendidos',
     description: 'A Unidade Sabiás atende a comunidade de Parelheiros com foco na educação infantil integrada e no fortalecimento de vínculos familiares.',
-    image: '/images/WhatsApp Image 2026-06-19 at 11.47.45.jpeg'
+    image: '/images/cedesp-qualificacao.jpg'
   }
 };
 

@@ -459,7 +459,7 @@
   position: relative;
   height: calc(100vh - var(--header-height));
   min-height: calc(100vh - var(--header-height));
-  background-image: linear-gradient(rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.75)), url('/images/WhatsApp Image 2026-06-19 at 11.48.12.jpeg');
+  background-image: linear-gradient(rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.75)), url('/images/telecentro-inclusao.jpg');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -565,7 +565,7 @@
 
 .vaga-hero {
   position: relative;
-  background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.8)), url('/images/WhatsApp Image 2026-06-19 at 11.48.12.jpeg');
+  background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.8)), url('/images/telecentro-inclusao.jpg');
   background-size: cover;
   background-position: center;
   color: var(--color-white);
