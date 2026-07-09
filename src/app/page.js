@@ -31,7 +31,7 @@ export default function Home() {
           </div>
           <div className="about-section__image-wrapper">
             <Image
-              src="/images/WhatsApp Image 2026-06-19 at 11.47.41.jpeg"
+              src="/images/cei-imbuias.jpg"
               alt="Crianças brincando nas atividades da SOBEI"
               width={600}
               height={450}
@@ -46,7 +46,7 @@ export default function Home() {
         <div className="container about-section__container">
           <div className="about-section__image-wrapper">
             <Image
-              src="/images/WhatsApp Image 2026-06-19 at 11.47.48.jpeg"
+              src="/images/nci-bela-vista.jpg"
               alt="Educador social ensinando jovens"
               width={600}
               height={450}
