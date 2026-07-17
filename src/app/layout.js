@@ -14,7 +14,7 @@ const inter = Inter({
 
 export const metadata = {
   title: "SOBEI - Sociedade Beneficente Equilíbrio de Interlagos",
-  description: "Trabalhando há mais de 40 anos por assistência social, educação e capacitação profissional em São Paulo.",
+  description: "Trabalhando há 42 anos por assistência social, educação e capacitação profissional em São Paulo.",
 };
 
 export default function RootLayout({ children }) {

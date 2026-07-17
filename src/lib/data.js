@@ -1,61 +1,101 @@
 // Mock Database for SOBEI main website
 
 export const projectsData = {
-  'ccinter': {
-    title: 'CCINTER - Centro de Convivência Intergeracional',
-    tagline: 'Promovendo a convivência e o fortalecimento de vínculos entre gerações.',
-    image: '/images/ccinter-convivencia.jpg',
-    description: 'O Centro de Convivência Intergeracional (CCINTER) é um serviço social voltado para acolher crianças, jovens, adultos e idosos. O objetivo principal é promover a troca de experiências, fortalecer vínculos familiares e comunitários, além de prevenir situações de exclusão e isolamento social.',
+  'cei': {
+    title: 'CEI - Centro de Educação Infantil',
+    tagline: 'Educação integral, proteção e desenvolvimento para a primeira infância.',
+    image: '/images/cei-imbuias.jpg',
+    description: 'Os Centros de Educação Infantil (CEIs) da SOBEI são dedicados ao atendimento integral de crianças na primeira infância. Nossa rede atende as comunidades da Zona Sul de São Paulo com capacidade de atendimento de cerca de 4.600 crianças de 0 a 4 anos e 11 meses, oferecendo educação de qualidade, acompanhamento nutricional e um ambiente acolhedor.',
     benefits: [
-      'Atividades intergeracionais (artes, música, teatro)',
-      'Acompanhamento psicossocial e comunitário',
-      'Oficinas de estimulação cognitiva para idosos',
-      'Atividades esportivas e recreativas adaptadas'
+      'Atendimento integral gratuito de 10 horas por dia',
+      'Capacidade de atendimento para cerca de 4.600 crianças',
+      'Pedagogia de qualidade com profissionais capacitados',
+      'Foco em nutrição balanceada, segurança e bem-estar',
+      'Atividades integradas de cultura, saúde e lazer'
     ],
-    ageGroup: 'Crianças, Jovens, Adultos e Idosos',
-    units: ['Araucárias', 'Cedro', 'Oliveiras', 'Macaúbas']
+    ageGroup: 'Crianças de 0 a 4 anos e 11 meses',
+    units: ['Araucárias', 'Cedro', 'Oliveiras', 'Macaúbas', 'Montanaro', 'Imbuias', 'Acácias', 'Ipês', 'Bela Vista', 'Orquídeas', 'Jacomo', 'Sabiás'],
+    capacity: '4.600 crianças'
+  },
+  'ccinter': {
+    title: 'CC Inter - Centro de Convivência Intergeracional',
+    tagline: 'Fortalecimento de vínculos familiares e comunitários entre gerações.',
+    image: '/images/ccinter-convivencia.jpg',
+    description: 'O Centro de Convivência Intergeracional (CC Inter) atende diversos bairros da Zona Sul de São Paulo, concentrando-se principalmente nas regiões de Parelheiros, Grajaú e Cidade Dutra, com capacidade de atendimento de cerca de 1.500 participantes. O projeto atende gratuitamente a comunidade, oferecendo proteção social preventiva contra situações de risco e vulnerabilidade e estimulando o protagonismo intergeracional.',
+    benefits: [
+      'Atendimento gratuito para cerca de 2.100 pessoas',
+      'Proteção social preventiva contra riscos e vulnerabilidade',
+      'Grupos heterogêneos por interesses e potencialidades',
+      'Estímulo à autonomia e ao protagonismo social',
+      'Fortalecimento dos vínculos familiares e comunitários'
+    ],
+    ageGroup: 'Intergeracional (Crianças, jovens, adultos e idosos)',
+    units: ['Araucárias', 'Cedro', 'Oliveiras', 'Macaúbas'],
+    capacity: '1.512 participantes'
   },
   'cedesp': {
     title: 'CEDESP - Centro de Desenvolvimento Social e Produtivo',
-    tagline: 'Qualificação profissional gratuita e preparação para o mercado de trabalho.',
+    tagline: 'Qualificação profissional gratuita para inserção no mercado de trabalho.',
     image: '/images/cedesp-qualificacao.jpg',
-    description: 'O Centro de Desenvolvimento Social e Produtivo (CEDESP) oferece cursos de formação profissional básica e desenvolvimento de competências pessoais. O serviço prepara jovens de 15 a 59 anos para o ingresso no mercado de trabalho e incentiva o empreendedorismo.',
+    description: 'O Centro de Desenvolvimento Social e Produtivo (CEDESP) realiza atividades focadas no desenvolvimento social e na capacitação profissional de jovens e adultos com idade de 15 a 59 anos, atendendo bairros da Capela do Socorro, Grajaú e Cidade Dutra. Com capacidade para 340 alunos, oferece formação básica profissional certificada em cursos de panificação, confeitaria, cozinha industrial e eletricista.',
     benefits: [
-      'Cursos certificados gratuitos (Administração, Logística, Tecnologia)',
-      'Orientação profissional e auxílio na elaboração de currículos',
-      'Parcerias com empresas para contratação de Jovem Aprendiz',
-      'Oficinas de cidadania e desenvolvimento socioemocional'
+      'Atendimento a 240 adolescentes, jovens e adultos',
+      'Curso de qualificação em Panificação e Confeitaria',
+      'Curso de qualificação em Cozinha Industrial',
+      'Curso de qualificação em Eletricista Instalador',
+      'Formação básica profissional voltada para a cidadania'
     ],
-    ageGroup: 'Jovens e Adultos (15 a 59 anos)',
-    units: ['Montanaro', 'Leblon', 'Imbuias', 'Acácias']
+    ageGroup: 'Adolescentes, jovens e adultos (15 a 59 anos)',
+    units: ['Montanaro', 'Leblon', 'Imbuias', 'Acácias'],
+    capacity: '340 alunos'
   },
   'nci-imbuias': {
-    title: 'NCI - Núcleo de Convivência de Idosos Imbuias',
-    tagline: 'Qualidade de vida, saúde e bem-estar na melhor idade.',
+    title: 'NCI - Núcleo de Convivência de Idosos',
+    tagline: 'Convivência, envelhecimento ativo e fortalecimento de vínculos.',
     image: '/images/nci-idosos.jpg',
-    description: 'O Núcleo de Convivência de Idosos (NCI) oferece atividades planejadas especialmente para a terceira idade. O foco está na promoção do envelhecimento ativo e saudável, estimulando a autonomia, a socialização e a participação cidadã dos idosos da comunidade.',
+    description: 'O Núcleo de Convivência de Idosos (NCI) acolhe idosos residentes no Jardim das Imbuias, Parque Residencial Cocaia e adjacências na região do Grajaú, com capacidade de atendimento de cerca de 750 idosos. Oferecemos oficinas socioculturais, atividades físicas preventivas, palestras informativas e grupos de estimulação cognitiva visando um envelhecimento ativo e saudável.',
     benefits: [
-      'Aulas de ginástica funcional, alongamento e yoga',
-      'Oficinas de artesanato, costura e pintura',
-      'Atendimento e acompanhamento com assistente social',
-      'Palestras sobre direitos dos idosos, saúde e nutrição'
+      'Capacidade de atendimento gratuito para 650 idosos',
+      'Atividades socioeducativas e de estimulação cognitiva',
+      'Práticas esportivas e recreativas adaptadas',
+      'Oficinas culturais, artísticas e intergeracionais',
+      'Apoio social e fortalecimento de laços na comunidade'
     ],
-    ageGroup: 'Idosos (a partir de 60 anos)',
-    units: ['Ipês', 'Bela Vista']
+    ageGroup: 'Idosos (idade igual ou superior a 60 anos)',
+    units: ['Ipês', 'Bela Vista'],
+    capacity: '745 idosos'
+  },
+  'orquestra': {
+    title: 'Orquestra Jovem SOBEI',
+    tagline: 'Democratização do acesso à cultura e ensino de música de concerto.',
+    image: '/images/orquestra.png',
+    description: 'A Orquestra Jovem SOBEI oportuniza o acesso gratuito à cultura musical para crianças, adolescentes, jovens e adultos da Zona Sul, com capacidade para atender 180 estudantes. Os participantes recebem aulas estruturadas de teoria musical e prática instrumental, além de se apresentarem em concertos da comunidade.',
+    benefits: [
+      'Aulas gratuitas de teoria musical e prática instrumental',
+      'Atendimento direto a cerca de 80 estudantes',
+      'Democratização e acesso à música clássica e de concerto',
+      'Participação em concertos e apresentações beneficentes',
+      'Desenvolvimento artístico, foco e disciplina'
+    ],
+    ageGroup: 'Estudantes de 11 a 25 anos',
+    units: ['Matriz'],
+    capacity: '180 estudantes'
   },
   'telecentro': {
-    title: 'Telecentro - Inclusão Digital para Todos',
-    tagline: 'Acesso gratuito à internet e capacitação em ferramentas digitais.',
+    title: 'Telecentro Comunitário',
+    tagline: 'Acesso público à internet e letramento digital gratuito.',
     image: '/images/telecentro-inclusao.jpg',
-    description: 'O Telecentro é um ponto de acesso público e gratuito à internet, offering computadores para uso da comunidade e cursos de informática básica. O objetivo é reduzir a exclusão digital e facilitar o acesso a serviços eletrônicos, governamentais e de pesquisa.',
+    description: 'O Telecentro Comunitário oferece computadores e acesso à internet banda larga de forma gratuita para a comunidade local na Cidade Dutra e no Jardim das Orquídeas, com capacidade de atendimento de cerca de 400 usuários por mês. O projeto oferece letramento digital e suporte para pesquisas acadêmicas e serviços públicos online.',
     benefits: [
-      'Acesso livre à internet para pesquisas e estudos',
-      'Cursos de informática básica (Windows, Word, Excel, Internet)',
-      'Oficinas de uso de celulares e aplicativos do cotidiano',
-      'Orientação para agendamento de serviços públicos online'
+      'Acesso livre e gratuito a computadores e internet banda larga',
+      'Promoção de inclusão digital e redução da exclusão social',
+      'Espaço de apoio para estudos, pesquisas e empreendedorismo',
+      'Letramento digital ativo com auxílio de agentes mediadores',
+      'Capacitação no uso de ferramentas digitais e serviços online'
     ],
-    ageGroup: 'Livre para todas as idades',
-    units: ['Orquídeas', 'Jacomo']
+    ageGroup: 'Livre para todas as idades (comunidade geral)',
+    units: ['Orquídeas', 'Jacomo'],
+    capacity: '400 usuários/mês'
   }
 };
 
@@ -65,9 +105,9 @@ export const unitsData = {
     address: 'Rua Carolina Reimberg, 57 - Parelheiros, São Paulo - SP - CEP: 04882-000',
     phone: '(11) 5921-5777',
     email: 'araucarias@sobei.org.br',
-    type: 'CEI / CCINTER',
-    capacity: '150 atendidos',
-    description: 'A Unidade Araucárias atende a comunidade do Grajaú oferecendo educação infantil (CEI) e projetos de convivência intergeracional (CCINTER) no período contraturno, promovendo acolhimento humanizado.',
+    type: 'CEI (Centro de Educação Infantil)',
+    capacity: '309 crianças',
+    description: 'A Unidade Araucárias é um Centro de Educação Infantil (CEI) comprometido em proporcionar uma base sólida para a primeira infância. Nossa creche atende os bairros Jardim das Araucárias, Parque Florestal e Recanto Campo Belo, fica localizada na região de Parelheiros, e atende cerca de 300 crianças. Com salas de atividades, fraldários, lactário e refeitório planejado, criamos um ambiente seguro, acolhedor e com nutrição balanceada para o pleno desenvolvimento das crianças.',
     image: '/images/cei-araucarias.jpg'
   },
   'cedro': {
@@ -75,9 +115,9 @@ export const unitsData = {
     address: 'Rua dos Boiadeiros, 28 - Jd. Ideal, São Paulo - SP - CEP: 04846-660',
     phone: '(11) 5528-1788',
     email: 'cedro@sobei.org.br',
-    type: 'CEI / CCINTER',
-    capacity: '200 atendidos',
-    description: 'Localizada no distrito de Parelheiros, a Unidade Cedro destaca-se por projetos de integração com a natureza e forte envolvimento comunitário nas oficinas pedagógicas de contraturno.',
+    type: 'CEI (Centro de Educação Infantil)',
+    capacity: '337 crianças',
+    description: 'A Unidade Cedro é uma creche de ensino integral voltada ao desenvolvimento cognitivo, social e motor na primeira infância. Nossa creche atende os bairros Jardim do Cedro, Vila Dirce e Jardim Alvorada, fica localizada na região de Parelheiros, e atende cerca de 330 crianças. Oferecemos atividades recreativas, apoio pedagógico e alimentação saudável, estimulando a criatividade e a autodescoberta em um espaço amplo e acolhedor.',
     image: '/images/cedesp-qualificacao.jpg'
   },
   'oliveiras': {
@@ -85,9 +125,9 @@ export const unitsData = {
     address: 'Rua Rubens de Oliveira, 400 - Parque Residencial Cocaia, São Paulo - SP - CEP: 04849-210',
     phone: '(11) 5932-8477',
     email: 'oliveiras@sobei.org.br',
-    type: 'CEI / CCINTER',
-    capacity: '180 atendidos',
-    description: 'A Unidade Oliveiras foca na primeira infância e no apoio psicossocial a famílias, developing projects lúdicos voltados à música e artes plásticas.',
+    type: 'CEI (Centro de Educação Infantil)',
+    capacity: '328 crianças',
+    description: 'A Unidade Oliveiras foca na educação infantil integral de qualidade, assegurando proteção, carinho e estímulo às potencialidades de cada criança. Nossa creche atende os bairros Jardim das Oliveiras, Parque Cocaia e Cantinho do Céu, fica localizada na região do Grajaú, e atende cerca de 320 crianças. A infraestrutura conta com parquinho externo, salas lúdicas e atendimento especializado para bebês.',
     image: '/images/nci-idosos.jpg'
   },
   'macaubas': {
@@ -95,9 +135,9 @@ export const unitsData = {
     address: 'Rua Macauba Natal, 221 A - Vila Natal, São Paulo - SP - CEP: 04863-420',
     phone: '(11) 5526-7339',
     email: 'macaubas@sobei.org.br',
-    type: 'CEI / CCINTER',
-    capacity: '140 atendidos',
-    description: 'Uma unidade histórica localizada na Cidade Dutra, com infraestrutura moderna para recreação infantil e horta comunitária ativa administrada pelos participantes.',
+    type: 'CEI (Centro de Educação Infantil)',
+    capacity: '459 crianças',
+    description: 'A Unidade Jardim das Macaúbas oferece ensino infantil integral em um ambiente acolhedor e estimulante. Nossa creche atende os bairros Jardim das Macaúbas, Vila Natal e Jardim Satélite, fica localizada na região da Cidade Dutra, e atende cerca de 450 crianças. Atuamos com profissionais capacitados que conduzem brincadeiras dirigidas, contação de histórias e atividades que desenvolvem a autonomia.',
     image: '/images/telecentro-inclusao.jpg'
   },
   'montanaro': {
@@ -105,9 +145,9 @@ export const unitsData = {
     address: 'Av. Rubens Montanaro de Borba, 459 - Cidade Dutra, São Paulo - SP - CEP: 04811-120',
     phone: '(11) 5666-5755',
     email: 'montanaro@sobei.org.br',
-    type: 'CEI / CEDESP',
-    capacity: '320 alunos',
-    description: 'A Unidade Montanaro é um dos grandes polos de qualificação do CEDESP, com laboratórios modernos de informática e salas voltadas para cursos administrativos e técnicos.',
+    type: 'CEI (Centro de Educação Infantil)',
+    capacity: '400 crianças',
+    description: 'A Unidade Montanaro é um Centro de Educação Infantil dedicado à excelência pedagógica na infância, proporcionando segurança e tranquilidade para as famílias. Nossa creche atende os bairros de Cidade Dutra, Interlagos e Jardim Cliper, fica localizada na região de Capela do Socorro, e atende cerca de 400 crianças. As atividades lúdicas e a alimentação diária são planejadas sob supervisão de nutricionistas.',
     image: '/images/cei-montanaro.jpg'
   },
   'leblon': {
@@ -115,9 +155,9 @@ export const unitsData = {
     address: 'Rua Padre José Garzotti, 494 - Cidade Dutra, São Paulo - SP - CEP: 04806-000',
     phone: '(11) 5666-5576',
     email: 'leblon@sobei.org.br',
-    type: 'CEDESP',
-    capacity: '240 alunos',
-    description: 'Focada exclusivamente na formação profissional técnica, a Unidade Leblon mantém convênio com importantes indústrias e empresas para fomento a vagas de Jovem Aprendiz.',
+    type: 'CEI (Centro de Educação Infantil)',
+    capacity: '305 crianças',
+    description: 'A Unidade Leblon é uma creche projetada para atender a primeira infância com dedicação e excelência pedagógica. Nossa creche atende os bairros Jardim Leblon, Jardim Zilda e Vila da Paz, fica localizada na região da Cidade Dutra, e atende cerca de 300 crianças. O espaço conta com brinquedoteca, solário, fraldários modernos e acompanhamento constante do aprendizado e socialização infantil.',
     image: '/images/cei-leblon.jpg'
   },
   'imbuias': {
@@ -125,9 +165,9 @@ export const unitsData = {
     address: 'Rua José Luis Monteiro, 513 - Jd. das Camélias, São Paulo - SP - CEP: 04829-240',
     phone: '(11) 5973-6909',
     email: 'imbuias@sobei.org.br',
-    type: 'CEI / CEDESP',
-    capacity: '280 alunos',
-    description: 'Atua fortemente na capacitação de jovens na área de tecnologia e programação de computadores, além de manter um berçário integral qualificado.',
+    type: 'CEI (Centro de Educação Infantil)',
+    capacity: '320 crianças',
+    description: 'A Unidade Jardim das Imbuias desenvolve projetos lúdicos, estimulando as habilidades de socialização e a curiosidade natural das crianças. Nossa creche atende os bairros Jardim das Imbuias, Jardim das Camélias e Parque Deizoito, fica localizada na região do Grajaú, e atende cerca de 320 crianças. Garantimos ensino integral estruturado, carinho e total segurança na rotina diária.',
     image: '/images/cei-imbuias.jpg'
   },
   'acacias': {
@@ -135,9 +175,9 @@ export const unitsData = {
     address: 'Av. Belmira Marin, 4826 - Parque Brasil, São Paulo - SP - CEP: 04846-000',
     phone: '(11) 5933-2313',
     email: 'acacias@sobei.org.br',
-    type: 'CEI / CEDESP',
-    capacity: '190 alunos',
-    description: 'A Unidade Acácias realiza projetos educacionais criativos e estimula cursos de economia criativa e artesanato voltados à geração de renda imediata.',
+    type: 'CEI (Centro de Educação Infantil)',
+    capacity: '417 crianças',
+    description: 'A Unidade Acácias acolhe e educa crianças com base em metodologias ativas que despertam o amor pelo aprendizado. Nossa creche atende os bairros Jardim das Acácias, Parque Brasil e Jardim Lucélia, fica localizada na região do Grajaú, e atende cerca de 410 crianças. A creche oferece parquinho adaptado, refeitório com refeições frescas diárias e acompanhamento por equipe multidisciplinar.',
     image: '/images/cei-araucarias.jpg'
   },
   'ipes': {
@@ -145,9 +185,9 @@ export const unitsData = {
     address: 'Rua Magdalena Roschel Gottefritz, 101 - Vila Santa Maria, São Paulo - SP - Complemento: Rua Rui Rodrigues, 10',
     phone: '(11) 5668-9553',
     email: 'ipes@sobei.org.br',
-    type: 'CEI / NCI',
-    capacity: '120 idosos',
-    description: 'O polo de convivência do NCI Cliper abriga salas de jogos, ginásio para pilates e espaço cultural onde são realizados bailes e mostras artísticas da terceira idade.',
+    type: 'CEI (Centro de Educação Infantil)',
+    capacity: '220 crianças',
+    description: 'A Unidade Jardim dos Ipês é um espaço dedicado ao atendimento de educação infantil em período integral, proporcionando segurança e atividades construtivas. Nossa creche atende as comunidades da Vila Santa Maria, Jardim dos Ipês e adjacências na Zona Sul, atendendo cerca de 200 crianças. Dispomos de refeitório completo, salas de descanso adequadas e educadores comprometidos.',
     image: '/images/cedesp-qualificacao.jpg'
   },
   'bela-vista': {
@@ -155,9 +195,9 @@ export const unitsData = {
     address: 'Rua Frederico René de Jaeger, 1521 - Rio Bonito, São Paulo - SP - CEP: 04826-010',
     phone: '(11) 5928-1110',
     email: 'belavista@sobei.org.br',
-    type: 'CEI / NCI',
-    capacity: '100 idosos',
-    description: 'Focado em atividades físicas preventivas e lazer para a melhor idade. Possui consultório para triagem psicossocial e acompanhamento geriátrico primário.',
+    type: 'CEI (Centro de Educação Infantil)',
+    capacity: '485 crianças',
+    description: 'A Unidade Jardim Bela Vista oferece educação infantil integral de alta qualidade. Nossa creche atende os bairros Jardim Bela Vista, Rio Bonito e Jardim Orion, fica localizada na região de Cidade Dutra, e atende cerca de 480 crianças. Oferecemos salas de estimulação sensorial, solário, alimentação balanceada e uma rotina pedagógica pautada no afeto e na autonomia.',
     image: '/images/nci-bela-vista.jpg'
   },
   'orquideas': {
@@ -165,9 +205,9 @@ export const unitsData = {
     address: 'Av. das Orquídeas, 193 - Vargem Grande, São Paulo - SP - CEP: 04896-320',
     phone: '(11) 5921-6100',
     email: 'orquideas@sobei.org.br',
-    type: 'CEI / Telecentro',
-    capacity: '300 usuários/mês',
-    description: 'A Unidade Orquídeas abriga um dos mais ativos Telecentros da SOBEI, com mais de 20 computadores para livre navegação da comunidade local.',
+    type: 'CEI (Centro de Educação Infantil)',
+    capacity: '793 crianças',
+    description: 'A Unidade Jardim das Orquídeas é um amplo centro educacional voltado para a infância, estimulando a imaginação e a socialização. Nossa creche atende os bairros Jardim das Orquídeas, Vargem Grande e Jardim Colônia, fica localizada na região de Parelheiros, e atende cerca de 790 crianças. O espaço possui pátio coberto para recreação, salas multiuso e acompanhamento nutricional individualizado.',
     image: '/images/nci-idosos.jpg'
   },
   'jacomo': {
@@ -175,9 +215,9 @@ export const unitsData = {
     address: 'Av. Orfeu Paravente, s/nº - Jd. Kioto (Complemento: Rua Daniel Artterbom, 95 B) - CEP: 04832-090',
     phone: '(11) 5924-5503',
     email: 'cerejeiras@sobei.org.br',
-    type: 'CEI',
-    capacity: '250 atendidos',
-    description: 'A Unidade Cerejeiras / Jacomo Tatto oferece educação infantil de qualidade no contraturno e suporte às famílias da comunidade local do Jardim Kioto.',
+    type: 'CEI (Centro de Educação Infantil)',
+    capacity: '256 crianças',
+    description: 'A Unidade Jardim das Cerejeiras / Jacomo Tatto assegura educação integral de qualidade, com foco no desenvolvimento intelectual e na socialização. Nossa creche atende os bairros Jardim das Cerejeiras, Jardim Kioto e Jardim da Represa, fica localizada na região da Cidade Dutra, e atende cerca de 250 crianças. O espaço dispõe de biblioteca infantil, brinquedos pedagógicos e refeições nutritivas planejadas.',
     image: '/images/telecentro-inclusao.jpg'
   },
   'sabias': {
@@ -185,9 +225,9 @@ export const unitsData = {
     address: 'Rua Constantino Bruno Di Bartolomeu, 110 - Parelheiros - CEP: 04888-050',
     phone: '(11) 5920-8047',
     email: 'sabias@sobei.org.br',
-    type: 'CEI',
-    capacity: '150 atendidos',
-    description: 'A Unidade Sabiás atende a comunidade de Parelheiros com foco na educação infantil integrada e no fortalecimento de vínculos familiares.',
+    type: 'CEI (Centro de Educação Infantil)',
+    capacity: '297 crianças',
+    description: 'A Unidade Jardim dos Sabiás desenvolve projetos educacionais voltados à primeira infância, promovendo a integração entre a escola e as famílias. Nossa creche atende os bairros Jardim dos Sabiás, Jardim Roschel e Parque Santa Fé, fica localizada na região de Parelheiros, e atende cerca de 290 crianças. O atendimento conta com solários, horta pedagógica e berçários totalmente equipados.',
     image: '/images/cedesp-qualificacao.jpg'
   }
 };
