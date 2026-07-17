@@ -104,7 +104,8 @@ export default function Header() {
                 <ul className="header__mobile-dropdown">
                   <li><Link href="/projetos?id=ccinter" className="header__mobile-dropdown-link" onClick={() => setIsMobileMenuOpen(false)}>CCINTER</Link></li>
                   <li><Link href="/projetos?id=cedesp" className="header__mobile-dropdown-link" onClick={() => setIsMobileMenuOpen(false)}>CEDESP</Link></li>
-                  <li><Link href="/projetos?id=nci-imbuias" className="header__mobile-dropdown-link" onClick={() => setIsMobileMenuOpen(false)}>NCI IMBUIAS</Link></li>
+                  <li><Link href="/projetos?id=nci-imbuias" className="header__mobile-dropdown-link" onClick={() => setIsMobileMenuOpen(false)}>NCI</Link></li>
+                  <li><Link href="/projetos?id=orquestra" className="header__mobile-dropdown-link" onClick={() => setIsMobileMenuOpen(false)}>Orquestra Jovem</Link></li>
                   <li><Link href="/projetos?id=telecentro" className="header__mobile-dropdown-link" onClick={() => setIsMobileMenuOpen(false)}>Telecentro</Link></li>
                 </ul>
               )}
@@ -183,7 +184,10 @@ export default function Header() {
               <Link href="/projetos?id=cedesp" className="header__projects-link">CEDESP</Link>
             </li>
             <li>
-              <Link href="/projetos?id=nci-imbuias" className="header__projects-link">NCI IMBUIAS</Link>
+              <Link href="/projetos?id=nci-imbuias" className="header__projects-link">NCI</Link>
+            </li>
+            <li>
+              <Link href="/projetos?id=orquestra" className="header__projects-link">Orquestra Jovem</Link>
             </li>
             <li>
               <Link href="/projetos?id=telecentro" className="header__projects-link">Telecentro</Link>
