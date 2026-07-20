@@ -11,13 +11,7 @@ export default function Header() {
   const headerRef = useRef(null);
   const pathname = usePathname();
 
-  // Sync state with pathname changes during render to avoid useEffect set-state warning
-  const [prevPathname, setPrevPathname] = useState(pathname);
-  if (pathname !== prevPathname) {
-    setPrevPathname(pathname);
-    setActiveDropdown(null);
-    setIsMobileMenuOpen(false);
-  }
+
 
   // Handle clicking outside to close dropdowns
   useEffect(() => {
@@ -32,16 +26,18 @@ export default function Header() {
     };
   }, []);
 
-  const [lastActiveDropdown, setLastActiveDropdown] = useState(null);
-  const [prevActiveDropdown, setPrevActiveDropdown] = useState(activeDropdown);
+  useEffect(() => {
+    setActiveDropdown(null);
+    setIsMobileMenuOpen(false);
+  }, [pathname]);
 
-  // Mantém memória do último menu ativo para que a linha encolha de volta para o mesmo item
-  if (activeDropdown !== prevActiveDropdown) {
-    setPrevActiveDropdown(activeDropdown);
+  const [lastActiveDropdown, setLastActiveDropdown] = useState(null);
+
+  useEffect(() => {
     if (activeDropdown) {
       setLastActiveDropdown(activeDropdown);
     }
-  }
+  }, [activeDropdown]);
 
   const handleDropdownToggle = (type) => {
     if (activeDropdown === type) {
