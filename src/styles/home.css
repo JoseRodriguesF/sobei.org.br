@@ -387,15 +387,32 @@
 @media (max-width: 992px) {
   .about-row {
     grid-template-columns: 1fr;
-    gap: var(--spacing-2xl);
+    row-gap: var(--spacing-base);
   }
 
   .about-row--reverse {
     direction: ltr;
   }
 
-  .about-row--reverse .about-row__image-wrapper {
-    order: -1;
+  .about-row__text {
+    display: contents;
+  }
+
+  .about-row__heading {
+    order: 1;
+  }
+
+  .about-row__paragraph:first-of-type {
+    order: 2;
+  }
+
+  .about-row__image-wrapper {
+    order: 3;
+    margin: var(--spacing-sm) 0;
+  }
+
+  .about-row__paragraph:last-of-type {
+    order: 4;
   }
 
   .events-grid {
