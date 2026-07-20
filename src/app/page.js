@@ -48,7 +48,7 @@ export default function Home() {
             <br />
             na Zona Sul de São Paulo há 42 anos.
           </p>
-          <a href="#" className="hero__button">
+          <a href="#inicio" className="hero__button">
             Conheça nossa história
             <svg
               width="16"
@@ -68,7 +68,7 @@ export default function Home() {
       </section>
 
       {/* Nossa História Section */}
-      <section className="about-section">
+      <section className="about-section" id="sobre">
         {/* Section Header */}
         <div className="container about-header">
           <h2 className="about-header__title">Nossa História</h2>
@@ -76,7 +76,7 @@ export default function Home() {
         {/* Story Block 1 — Text Left, Image Right */}
         <div className="container about-row">
           <div className="about-row__text">
-            <h3 className="about-row__heading">O início de tudo</h3>
+            <h3 className="about-row__heading" id="inicio">O início de tudo</h3>
             <p className="about-row__paragraph">
               Fundada em 31 de março de 1984 por membros da Loja Maçônica Fé, Equilíbrio e Luz nº 270, a SOBEI nasceu do desejo de amparar famílias em situação de vulnerabilidade social na Zona Sul de São Paulo, iniciando sua trajetória com uma creche comunitária voltada para 33 crianças da região.
             </p>
