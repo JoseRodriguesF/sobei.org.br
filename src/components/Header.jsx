@@ -76,7 +76,7 @@ export default function Header() {
 
             {/* Sobre a Sobei Link */}
             <li className="header__nav-item">
-              <Link href="/#sobre" className="header__nav-link" onClick={() => setIsMobileMenuOpen(false)}>
+              <Link href="/" className="header__nav-link" onClick={() => setIsMobileMenuOpen(false)}>
                 Sobre a Sobei
               </Link>
             </li>
