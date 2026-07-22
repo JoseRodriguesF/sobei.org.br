@@ -4,7 +4,7 @@ export const projectsData = {
   'cei': {
     title: 'CEI - Centro de Educação Infantil',
     tagline: 'Educação integral, proteção e desenvolvimento para a primeira infância.',
-    image: '/images/cei-imbuias.jpg',
+    image: '/images/projetos/cei.jpeg',
     description: 'Os Centros de Educação Infantil (CEIs) da SOBEI são dedicados ao atendimento integral de crianças na primeira infância. Nossa rede atende as comunidades da Zona Sul de São Paulo com capacidade de atendimento de cerca de 4.600 crianças de 0 a 4 anos e 11 meses, oferecendo educação de qualidade, acompanhamento nutricional e um ambiente acolhedor.',
     benefits: [
       'Atendimento integral gratuito de 10 horas por dia',
@@ -20,7 +20,7 @@ export const projectsData = {
   'ccinter': {
     title: 'CC Inter - Centro de Convivência Intergeracional',
     tagline: 'Fortalecimento de vínculos familiares e comunitários entre gerações.',
-    image: '/images/ccinter-convivencia.jpg',
+    image: '/images/projetos/foto_ccinter.jpeg',
     description: 'O Centro de Convivência Intergeracional (CC Inter) atende diversos bairros da Zona Sul de São Paulo, concentrando-se principalmente nas regiões de Parelheiros, Grajaú e Cidade Dutra, com capacidade de atendimento de cerca de 1.500 participantes. O projeto atende gratuitamente a comunidade, oferecendo proteção social preventiva contra situações de risco e vulnerabilidade e estimulando o protagonismo intergeracional.',
     benefits: [
       'Atendimento gratuito para cerca de 2.100 pessoas',
@@ -36,7 +36,7 @@ export const projectsData = {
   'cedesp': {
     title: 'CEDESP - Centro de Desenvolvimento Social e Produtivo',
     tagline: 'Qualificação profissional gratuita para inserção no mercado de trabalho.',
-    image: '/images/cedesp-qualificacao.jpg',
+    image: '/images/projetos/foto_cedesp.jpeg',
     description: 'O Centro de Desenvolvimento Social e Produtivo (CEDESP) realiza atividades focadas no desenvolvimento social e na capacitação profissional de jovens e adultos com idade de 15 a 59 anos, atendendo bairros da Capela do Socorro, Grajaú e Cidade Dutra. Com capacidade para 340 alunos, oferece formação básica profissional certificada em cursos de panificação, confeitaria, cozinha industrial e eletricista.',
     benefits: [
       'Atendimento a 240 adolescentes, jovens e adultos',
@@ -52,7 +52,7 @@ export const projectsData = {
   'nci-imbuias': {
     title: 'NCI - Núcleo de Convivência de Idosos',
     tagline: 'Convivência, envelhecimento ativo e fortalecimento de vínculos.',
-    image: '/images/nci-idosos.jpg',
+    image: '/images/projetos/NCI.jpeg',
     description: 'O Núcleo de Convivência de Idosos (NCI) acolhe idosos residentes no Jardim das Imbuias, Parque Residencial Cocaia e adjacências na região do Grajaú, com capacidade de atendimento de cerca de 750 idosos. Oferecemos oficinas socioculturais, atividades físicas preventivas, palestras informativas e grupos de estimulação cognitiva visando um envelhecimento ativo e saudável.',
     benefits: [
       'Capacidade de atendimento gratuito para 650 idosos',
@@ -68,7 +68,7 @@ export const projectsData = {
   'orquestra': {
     title: 'Orquestra Jovem SOBEI',
     tagline: 'Democratização do acesso à cultura e ensino de música de concerto.',
-    image: '/images/orquestra.png',
+    image: '/images/projetos/orquestra.jpeg',
     description: 'A Orquestra Jovem SOBEI oportuniza o acesso gratuito à cultura musical para crianças, adolescentes, jovens e adultos da Zona Sul, com capacidade para atender 180 estudantes. Os participantes recebem aulas estruturadas de teoria musical e prática instrumental, além de se apresentarem em concertos da comunidade.',
     benefits: [
       'Aulas gratuitas de teoria musical e prática instrumental',
@@ -84,7 +84,7 @@ export const projectsData = {
   'telecentro': {
     title: 'Telecentro Comunitário',
     tagline: 'Acesso público à internet e letramento digital gratuito.',
-    image: '/images/telecentro-inclusao.jpg',
+    image: '/images/projetos/telecentro.jpeg',
     description: 'O Telecentro Comunitário oferece computadores e acesso à internet banda larga de forma gratuita para a comunidade local na Cidade Dutra e no Jardim das Orquídeas, com capacidade de atendimento de cerca de 400 usuários por mês. O projeto oferece letramento digital e suporte para pesquisas acadêmicas e serviços públicos online.',
     benefits: [
       'Acesso livre e gratuito a computadores e internet banda larga',
@@ -108,7 +108,7 @@ export const unitsData = {
     type: 'CEI (Centro de Educação Infantil)',
     capacity: '309 crianças',
     description: 'A Unidade Araucárias é um Centro de Educação Infantil (CEI) comprometido em proporcionar uma base sólida para a primeira infância. Nossa creche atende os bairros Jardim das Araucárias, Parque Florestal e Recanto Campo Belo, fica localizada na região de Parelheiros, e atende cerca de 300 crianças. Com salas de atividades, fraldários, lactário e refeitório planejado, criamos um ambiente seguro, acolhedor e com nutrição balanceada para o pleno desenvolvimento das crianças.',
-    image: '/images/cei-araucarias.jpg'
+    image: '/images/unidades/araucarias.jpeg'
   },
   'cedro': {
     name: 'CEI Jardim do Cedro',
@@ -118,7 +118,7 @@ export const unitsData = {
     type: 'CEI (Centro de Educação Infantil)',
     capacity: '337 crianças',
     description: 'A Unidade Cedro é uma creche de ensino integral voltada ao desenvolvimento cognitivo, social e motor na primeira infância. Nossa creche atende os bairros Jardim do Cedro, Vila Dirce e Jardim Alvorada, fica localizada na região de Parelheiros, e atende cerca de 330 crianças. Oferecemos atividades recreativas, apoio pedagógico e alimentação saudável, estimulando a criatividade e a autodescoberta em um espaço amplo e acolhedor.',
-    image: '/images/cedesp-qualificacao.jpg'
+    image: '/images/unidades/cedro.jpeg'
   },
   'oliveiras': {
     name: 'CEI Jardim das Oliveiras',
@@ -128,7 +128,7 @@ export const unitsData = {
     type: 'CEI (Centro de Educação Infantil)',
     capacity: '328 crianças',
     description: 'A Unidade Oliveiras foca na educação infantil integral de qualidade, assegurando proteção, carinho e estímulo às potencialidades de cada criança. Nossa creche atende os bairros Jardim das Oliveiras, Parque Cocaia e Cantinho do Céu, fica localizada na região do Grajaú, e atende cerca de 320 crianças. A infraestrutura conta com parquinho externo, salas lúdicas e atendimento especializado para bebês.',
-    image: '/images/nci-idosos.jpg'
+    image: '/images/unidades/oliveiras.jpeg'
   },
   'macaubas': {
     name: 'CEI Jardim das Macaúbas',
@@ -138,7 +138,7 @@ export const unitsData = {
     type: 'CEI (Centro de Educação Infantil)',
     capacity: '459 crianças',
     description: 'A Unidade Jardim das Macaúbas oferece ensino infantil integral em um ambiente acolhedor e estimulante. Nossa creche atende os bairros Jardim das Macaúbas, Vila Natal e Jardim Satélite, fica localizada na região da Cidade Dutra, e atende cerca de 450 crianças. Atuamos com profissionais capacitados que conduzem brincadeiras dirigidas, contação de histórias e atividades que desenvolvem a autonomia.',
-    image: '/images/telecentro-inclusao.jpg'
+    image: '/images/unidades/macaubas.jpeg'
   },
   'montanaro': {
     name: 'CEI Montanaro',
@@ -148,7 +148,7 @@ export const unitsData = {
     type: 'CEI (Centro de Educação Infantil)',
     capacity: '400 crianças',
     description: 'A Unidade Montanaro é um Centro de Educação Infantil dedicado à excelência pedagógica na infância, proporcionando segurança e tranquilidade para as famílias. Nossa creche atende os bairros de Cidade Dutra, Interlagos e Jardim Cliper, fica localizada na região de Capela do Socorro, e atende cerca de 400 crianças. As atividades lúdicas e a alimentação diária são planejadas sob supervisão de nutricionistas.',
-    image: '/images/cei-montanaro.jpg'
+    image: '/images/unidades/montanaro.jpeg'
   },
   'leblon': {
     name: 'CEI Leblon',
@@ -158,7 +158,7 @@ export const unitsData = {
     type: 'CEI (Centro de Educação Infantil)',
     capacity: '305 crianças',
     description: 'A Unidade Leblon é uma creche projetada para atender a primeira infância com dedicação e excelência pedagógica. Nossa creche atende os bairros Jardim Leblon, Jardim Zilda e Vila da Paz, fica localizada na região da Cidade Dutra, e atende cerca de 300 crianças. O espaço conta com brinquedoteca, solário, fraldários modernos e acompanhamento constante do aprendizado e socialização infantil.',
-    image: '/images/cei-leblon.jpg'
+    image: '/images/unidades/leblon.jpeg'
   },
   'imbuias': {
     name: 'CEI Jardim das Imbuias',
@@ -168,7 +168,7 @@ export const unitsData = {
     type: 'CEI (Centro de Educação Infantil)',
     capacity: '320 crianças',
     description: 'A Unidade Jardim das Imbuias desenvolve projetos lúdicos, estimulando as habilidades de socialização e a curiosidade natural das crianças. Nossa creche atende os bairros Jardim das Imbuias, Jardim das Camélias e Parque Deizoito, fica localizada na região do Grajaú, e atende cerca de 320 crianças. Garantimos ensino integral estruturado, carinho e total segurança na rotina diária.',
-    image: '/images/cei-imbuias.jpg'
+    image: '/images/unidades/imbuias.jpeg'
   },
   'acacias': {
     name: 'CEI Jardim das Acácias',
@@ -178,7 +178,7 @@ export const unitsData = {
     type: 'CEI (Centro de Educação Infantil)',
     capacity: '417 crianças',
     description: 'A Unidade Acácias acolhe e educa crianças com base em metodologias ativas que despertam o amor pelo aprendizado. Nossa creche atende os bairros Jardim das Acácias, Parque Brasil e Jardim Lucélia, fica localizada na região do Grajaú, e atende cerca de 410 crianças. A creche oferece parquinho adaptado, refeitório com refeições frescas diárias e acompanhamento por equipe multidisciplinar.',
-    image: '/images/cei-araucarias.jpg'
+    image: '/images/unidades/acacias.jpeg'
   },
   'ipes': {
     name: 'CEI Jardim dos Ipês',
@@ -188,7 +188,7 @@ export const unitsData = {
     type: 'CEI (Centro de Educação Infantil)',
     capacity: '220 crianças',
     description: 'A Unidade Jardim dos Ipês é um espaço dedicado ao atendimento de educação infantil em período integral, proporcionando segurança e atividades construtivas. Nossa creche atende as comunidades da Vila Santa Maria, Jardim dos Ipês e adjacências na Zona Sul, atendendo cerca de 200 crianças. Dispomos de refeitório completo, salas de descanso adequadas e educadores comprometidos.',
-    image: '/images/cedesp-qualificacao.jpg'
+    image: '/images/unidades/ipes.jpeg'
   },
   'bela-vista': {
     name: 'CEI Jardim Bela Vista',
@@ -198,7 +198,7 @@ export const unitsData = {
     type: 'CEI (Centro de Educação Infantil)',
     capacity: '485 crianças',
     description: 'A Unidade Jardim Bela Vista oferece educação infantil integral de alta qualidade. Nossa creche atende os bairros Jardim Bela Vista, Rio Bonito e Jardim Orion, fica localizada na região de Cidade Dutra, e atende cerca de 480 crianças. Oferecemos salas de estimulação sensorial, solário, alimentação balanceada e uma rotina pedagógica pautada no afeto e na autonomia.',
-    image: '/images/nci-bela-vista.jpg'
+    image: '/images/unidades/Bela_vista.jpeg'
   },
   'orquideas': {
     name: 'CEI Jardim das Orquídeas',
@@ -208,7 +208,7 @@ export const unitsData = {
     type: 'CEI (Centro de Educação Infantil)',
     capacity: '793 crianças',
     description: 'A Unidade Jardim das Orquídeas é um amplo centro educacional voltado para a infância, estimulando a imaginação e a socialização. Nossa creche atende os bairros Jardim das Orquídeas, Vargem Grande e Jardim Colônia, fica localizada na região de Parelheiros, e atende cerca de 790 crianças. O espaço possui pátio coberto para recreação, salas multiuso e acompanhamento nutricional individualizado.',
-    image: '/images/nci-idosos.jpg'
+    image: '/images/unidades/orquideas.jpeg'
   },
   'jacomo': {
     name: 'CEI Jardim das Cerejeiras / Jacomo Tatto',
@@ -218,7 +218,7 @@ export const unitsData = {
     type: 'CEI (Centro de Educação Infantil)',
     capacity: '256 crianças',
     description: 'A Unidade Jardim das Cerejeiras / Jacomo Tatto assegura educação integral de qualidade, com foco no desenvolvimento intelectual e na socialização. Nossa creche atende os bairros Jardim das Cerejeiras, Jardim Kioto e Jardim da Represa, fica localizada na região da Cidade Dutra, e atende cerca de 250 crianças. O espaço dispõe de biblioteca infantil, brinquedos pedagógicos e refeições nutritivas planejadas.',
-    image: '/images/telecentro-inclusao.jpg'
+    image: '/images/unidades/cerejeiras.jpeg'
   },
   'sabias': {
     name: 'CEI Jardim dos Sabiás',
@@ -228,7 +228,7 @@ export const unitsData = {
     type: 'CEI (Centro de Educação Infantil)',
     capacity: '297 crianças',
     description: 'A Unidade Jardim dos Sabiás desenvolve projetos educacionais voltados à primeira infância, promovendo a integração entre a escola e as famílias. Nossa creche atende os bairros Jardim dos Sabiás, Jardim Roschel e Parque Santa Fé, fica localizada na região de Parelheiros, e atende cerca de 290 crianças. O atendimento conta com solários, horta pedagógica e berçários totalmente equipados.',
-    image: '/images/cedesp-qualificacao.jpg'
+    image: '/images/unidades/sabias.jpeg'
   }
 };
 

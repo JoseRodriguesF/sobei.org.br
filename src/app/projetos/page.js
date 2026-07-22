@@ -2,7 +2,7 @@
 
 import React, { Suspense } from 'react';
 import { useSearchParams } from 'next/navigation';
-import Image from 'next/image';
+import VacantImage from '@/components/VacantImage';
 import Link from 'next/link';
 import { projectsData } from '@/lib/data';
 
@@ -25,12 +25,10 @@ function ProjectsContent() {
               
               {/* Left Column: Photo */}
               <div className="unit-detail__image-wrapper">
-                <Image
+                <VacantImage
                   src={project.image}
                   alt={project.title}
-                  fill
                   className="unit-detail__image"
-                  priority
                 />
               </div>
 
