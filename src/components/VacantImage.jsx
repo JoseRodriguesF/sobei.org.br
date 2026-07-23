@@ -3,15 +3,23 @@
 import React, { useState, useEffect } from 'react';
 import Image from 'next/image';
 
-export default function VacantImage({ src, alt, className = '' }) {
+export default function VacantImage({
+  src,
+  alt,
+  className = '',
+  priority = false,
+  sizes = '(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 600px',
+}) {
   const [currentSrc, setCurrentSrc] = useState(src);
   const [attemptIndex, setAttemptIndex] = useState(0);
   const [hasError, setHasError] = useState(false);
+  const [isLoaded, setIsLoaded] = useState(false);
 
   useEffect(() => {
     setCurrentSrc(src);
     setAttemptIndex(0);
     setHasError(false);
+    setIsLoaded(false);
   }, [src]);
 
   const handleError = () => {
@@ -62,14 +70,21 @@ export default function VacantImage({ src, alt, className = '' }) {
   }
 
   return (
-    <Image
-      key={currentSrc}
-      src={currentSrc}
-      alt={alt || 'Imagem'}
-      fill
-      className={className}
-      priority
-      onError={handleError}
-    />
+    <>
+      {!isLoaded && (
+        <div className="vacant-image-skeleton" />
+      )}
+      <Image
+        key={currentSrc}
+        src={currentSrc}
+        alt={alt || 'Imagem'}
+        fill
+        sizes={sizes}
+        className={`${className} ${isLoaded ? 'vacant-image--loaded' : 'vacant-image--loading'}`}
+        priority={priority}
+        onLoad={() => setIsLoaded(true)}
+        onError={handleError}
+      />
+    </>
   );
 }
