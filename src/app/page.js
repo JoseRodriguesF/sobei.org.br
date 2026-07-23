@@ -1,5 +1,6 @@
 import Image from 'next/image';
 import { Fragment } from 'react';
+import EventVideo from '@/components/EventVideo';
 
 export default function Home() {
   const subtitleText = "Dedicando o melhor de cada um para o melhor de todos";
@@ -180,15 +181,7 @@ export default function Home() {
             {/* Event 1 */}
             <div className="event-card">
               <div className="event-card__video-wrapper">
-                <video
-                  controls
-                  preload="none"
-                  poster="/images/cedesp-qualificacao.jpg"
-                  className="event-card__video"
-                >
-                  <source src="https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerBlazes.mp4" type="video/mp4" />
-                  Seu navegador não suporta vídeos.
-                </video>
+                <EventVideo src="/videos/Churrasco.mp4" />
               </div>
               <div className="event-card__content">
                 <h4 className="event-card__title">Churrasco</h4>
@@ -201,15 +194,7 @@ export default function Home() {
             {/* Event 2 */}
             <div className="event-card">
               <div className="event-card__video-wrapper">
-                <video
-                  controls
-                  preload="none"
-                  poster="/images/ccinter-convivencia.jpg"
-                  className="event-card__video"
-                >
-                  <source src="https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerEscapes.mp4" type="video/mp4" />
-                  Seu navegador não suporta vídeos.
-                </video>
+                <EventVideo src="/videos/Feijoada.mp4" />
               </div>
               <div className="event-card__content">
                 <h4 className="event-card__title">Feijoada</h4>
@@ -222,15 +207,7 @@ export default function Home() {
             {/* Event 3 */}
             <div className="event-card">
               <div className="event-card__video-wrapper">
-                <video
-                  controls
-                  preload="none"
-                  poster="/images/nci-idosos.jpg"
-                  className="event-card__video"
-                >
-                  <source src="https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerFun.mp4" type="video/mp4" />
-                  Seu navegador não suporta vídeos.
-                </video>
+                <EventVideo src="/videos/FestaJunina.mp4" />
               </div>
               <div className="event-card__content">
                 <h4 className="event-card__title">Festa Junina</h4>
@@ -243,15 +220,7 @@ export default function Home() {
             {/* Event 4 */}
             <div className="event-card">
               <div className="event-card__video-wrapper">
-                <video
-                  controls
-                  preload="none"
-                  poster="/images/orquestra.png"
-                  className="event-card__video"
-                >
-                  <source src="https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerJoyrides.mp4" type="video/mp4" />
-                  Seu navegador não suporta vídeos.
-                </video>
+                <EventVideo src="/videos/BrooklinFest.mp4" />
               </div>
               <div className="event-card__content">
                 <h4 className="event-card__title">Brooklin Fest</h4>
