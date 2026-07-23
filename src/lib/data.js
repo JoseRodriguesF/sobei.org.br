@@ -4,7 +4,7 @@ export const projectsData = {
   'cei': {
     title: 'CEI - Centro de Educação Infantil',
     tagline: 'Educação integral, proteção e desenvolvimento para a primeira infância.',
-    image: '/images/projetos/cei.jpeg',
+    image: '/images/projetos/cei.jpg',
     description: 'Os Centros de Educação Infantil (CEIs) da SOBEI são dedicados ao atendimento integral de crianças na primeira infância. Nossa rede atende as comunidades da Zona Sul de São Paulo com capacidade de atendimento de cerca de 4.600 crianças de 0 a 4 anos e 11 meses, oferecendo educação de qualidade, acompanhamento nutricional e um ambiente acolhedor.',
     benefits: [
       'Atendimento integral gratuito de 10 horas por dia',

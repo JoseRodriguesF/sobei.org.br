@@ -91,6 +91,7 @@ export default function Home() {
               alt="Crianças brincando nas atividades da SOBEI"
               width={600}
               height={450}
+              sizes="(max-width: 768px) 100vw, 600px"
               className="about-row__image"
               priority
             />
@@ -114,6 +115,7 @@ export default function Home() {
               alt="Educador social ensinando jovens"
               width={600}
               height={450}
+              sizes="(max-width: 768px) 100vw, 600px"
               className="about-row__image"
             />
           </div>
@@ -142,6 +144,7 @@ export default function Home() {
               alt="Qualificação profissional no CEDESP"
               width={600}
               height={450}
+              sizes="(max-width: 768px) 100vw, 600px"
               className="about-row__image"
             />
           </div>
@@ -163,6 +166,7 @@ export default function Home() {
               alt="CEI Leblon — atividades com crianças"
               width={600}
               height={450}
+              sizes="(max-width: 768px) 100vw, 600px"
               className="about-row__image"
             />
           </div>
