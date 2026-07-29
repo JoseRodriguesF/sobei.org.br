@@ -51,3 +51,25 @@ export async function enviarCandidatura(vagaId, formData) {
     return { success: false, message: 'Erro de conexão com o servidor' };
   }
 }
+
+export async function enviarMensagemUnidade(data) {
+  try {
+    const response = await fetch(`${API_BASE_URL}/public/mensagens-unidade`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(data),
+    });
+
+    if (!response.ok) {
+      const err = await response.json().catch(() => ({}));
+      return { success: false, message: err.message || 'Erro ao enviar mensagem' };
+    }
+
+    return { success: true, data: await response.json() };
+  } catch (error) {
+    return { success: false, message: 'Erro de conexão com o servidor' };
+  }
+}
+
