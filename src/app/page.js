@@ -188,6 +188,7 @@ export default function Home() {
                 <EventVideo src="/videos/Churrasco.mp4" />
               </div>
               <div className="event-card__content">
+                <span className="event-card__badge">Ação Solidária</span>
                 <h4 className="event-card__title">Churrasco Beneficente</h4>
                 <p className="event-card__text">
                   Um momento especial de celebração e fraternidade que reúne voluntários, parceiros e a comunidade em uma grande festa gastronômica. Cada adesão ajuda a manter a excelência no atendimento gratuito das nossas creches e projetos sociais.
@@ -196,11 +197,12 @@ export default function Home() {
             </div>
 
             {/* Event 2 */}
-            <div className="event-card">
+            <div className="event-card event-card--reverse">
               <div className="event-card__video-wrapper">
                 <EventVideo src="/videos/Feijoada.mp4" />
               </div>
               <div className="event-card__content">
+                <span className="event-card__badge">Gastronomia & União</span>
                 <h4 className="event-card__title">Feijoada Solidária</h4>
                 <p className="event-card__text">
                   Uma tradição repleta de sabor, afeto e união. Nossa feijoada mobiliza a comunidade em prol do desenvolvimento humano e da garantia de direitos para mais de 7 mil pessoas assistidas diariamente.
@@ -214,6 +216,7 @@ export default function Home() {
                 <EventVideo src="/videos/FestaJunina.mp4" />
               </div>
               <div className="event-card__content">
+                <span className="event-card__badge">Celebração Cultural</span>
                 <h4 className="event-card__title">Grande Festa Junina</h4>
                 <p className="event-card__text">
                   A celebração mais calorosa do ano! Com quadrilhas animadas, barracas de brincadeiras e pratos típicos preparados com muito carinho, este evento celebra a cultura popular e fortalece os laços comunitários.
@@ -222,11 +225,12 @@ export default function Home() {
             </div>
 
             {/* Event 4 */}
-            <div className="event-card">
+            <div className="event-card event-card--reverse">
               <div className="event-card__video-wrapper">
                 <EventVideo src="/videos/BrooklinFest.mp4" />
               </div>
               <div className="event-card__content">
+                <span className="event-card__badge">Integração Comunidade</span>
                 <h4 className="event-card__title">SOBEI no BrooklinFest</h4>
                 <p className="event-card__text">
                   Nossa presença marcante em um dos maiores festivais multiculturais de São Paulo. Apresentamos à cidade o impacto dos nossos programas sociais e a rica produção artesanal desenvolvida em nossas oficinas comunitárias.
