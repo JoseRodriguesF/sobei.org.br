@@ -110,7 +110,7 @@ function ProjectsContent() {
                   />
                 </div>
                 <button type="submit" className="form-submit-btn">
-                  Registrar Intenção de Vaga
+                  Enviar mensagem
                 </button>
               </form>
             </div>
