@@ -18,8 +18,9 @@ const stopCurrentScroll = () => {
   }
 };
 
-// Curva de desaceleração suave e natural (Ease-Out Cubic)
-const easeOutCubic = (t) => --t * t * t + 1;
+// Curva de aceleração e desaceleração suave (Ease-In-Out Cubic)
+const easeInOutCubic = (t) =>
+  t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2;
 
 const smoothScrollTo = (targetElement) => {
   if (!targetElement) return;
@@ -41,10 +42,10 @@ const smoothScrollTo = (targetElement) => {
 
   if (Math.abs(distance) < 5) return;
 
-  // Duração dinâmica ultrarrápida no mobile (250ms a 450ms) e fluida no desktop (350ms a 650ms)
+  // Duração em meio-termo equilibrado: elegante e confortável (600ms-1000ms no mobile, 750ms-1300ms no desktop)
   const duration = isMobile
-    ? Math.min(450, Math.max(250, Math.abs(distance) * 0.25))
-    : Math.min(650, Math.max(350, Math.abs(distance) * 0.35));
+    ? Math.min(1000, Math.max(600, Math.abs(distance) * 0.55))
+    : Math.min(1300, Math.max(750, Math.abs(distance) * 0.65));
 
   let startTime = null;
 
@@ -79,7 +80,7 @@ const smoothScrollTo = (targetElement) => {
     if (startTime === null) startTime = currentTime;
     const timeElapsed = currentTime - startTime;
     const progress = Math.min(timeElapsed / duration, 1);
-    const easeProgress = easeOutCubic(progress);
+    const easeProgress = easeInOutCubic(progress);
 
     const currentPos = startPosition + distance * easeProgress;
     window.scrollTo(0, currentPos);
