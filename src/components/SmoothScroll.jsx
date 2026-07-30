@@ -3,35 +3,95 @@
 import { useEffect } from 'react';
 import { usePathname } from 'next/navigation';
 
-const easeInOutQuad = (t, b, c, d) => {
-  t /= d / 2;
-  if (t < 1) return (c / 2) * t * t + b;
-  t--;
-  return (-c / 2) * (t * (t - 2) - 1) + b;
+// Variáveis globais para rastreamento e cancelamento instantâneo da rolagem automática
+let currentAnimationId = null;
+let cleanupInterruptListeners = null;
+
+const stopCurrentScroll = () => {
+  if (currentAnimationId !== null) {
+    cancelAnimationFrame(currentAnimationId);
+    currentAnimationId = null;
+  }
+  if (cleanupInterruptListeners) {
+    cleanupInterruptListeners();
+    cleanupInterruptListeners = null;
+  }
 };
 
-const smoothScrollTo = (targetElement, duration = 2000) => {
+// Curva de desaceleração suave e natural (Ease-Out Cubic)
+const easeOutCubic = (t) => --t * t * t + 1;
+
+const smoothScrollTo = (targetElement) => {
   if (!targetElement) return;
-  // Margem de respiro no topo para o título não bater no teto da tela
-  const offset = 40;
-  const targetPosition = targetElement.getBoundingClientRect().top + window.pageYOffset - offset;
+
+  // Interrompe imediatamente qualquer animação ativa anterior
+  stopCurrentScroll();
+
+  const isMobile = window.innerWidth <= 768;
+  const headerHeight = document.querySelector('.header')?.offsetHeight || 0;
+  // Margem de respiro ajustada para mobile e desktop
+  const offset = isMobile ? 16 : 40;
+
+  const targetPosition = Math.max(
+    0,
+    targetElement.getBoundingClientRect().top + window.pageYOffset - offset - (isMobile ? headerHeight : 0)
+  );
   const startPosition = window.pageYOffset;
   const distance = targetPosition - startPosition;
+
+  if (Math.abs(distance) < 5) return;
+
+  // Duração dinâmica ultrarrápida no mobile (250ms a 450ms) e fluida no desktop (350ms a 650ms)
+  const duration = isMobile
+    ? Math.min(450, Math.max(250, Math.abs(distance) * 0.25))
+    : Math.min(650, Math.max(350, Math.abs(distance) * 0.35));
+
   let startTime = null;
+
+  // Desativa temporariamente o scroll-behavior CSS para evitar conflitos de animação dupla
+  const docStyle = document.documentElement.style;
+  const originalScrollBehavior = docStyle.scrollBehavior;
+  docStyle.scrollBehavior = 'auto';
+
+  const finishScroll = () => {
+    stopCurrentScroll();
+    docStyle.scrollBehavior = originalScrollBehavior;
+  };
+
+  // Eventos de toque, drag, scroll e teclado que indicam intervenção do usuário
+  const interruptEvents = ['touchstart', 'touchmove', 'wheel', 'pointerdown', 'keydown'];
+
+  const onUserInterrupt = () => {
+    finishScroll();
+  };
+
+  interruptEvents.forEach((evt) => {
+    window.addEventListener(evt, onUserInterrupt, { passive: true, once: true });
+  });
+
+  cleanupInterruptListeners = () => {
+    interruptEvents.forEach((evt) => {
+      window.removeEventListener(evt, onUserInterrupt);
+    });
+  };
 
   const animation = (currentTime) => {
     if (startTime === null) startTime = currentTime;
     const timeElapsed = currentTime - startTime;
-    const run = easeInOutQuad(timeElapsed, startPosition, distance, duration);
-    window.scrollTo(0, run);
-    if (timeElapsed < duration) {
-      requestAnimationFrame(animation);
+    const progress = Math.min(timeElapsed / duration, 1);
+    const easeProgress = easeOutCubic(progress);
+
+    const currentPos = startPosition + distance * easeProgress;
+    window.scrollTo(0, currentPos);
+
+    if (progress < 1) {
+      currentAnimationId = requestAnimationFrame(animation);
     } else {
-      window.scrollTo(0, targetPosition);
+      finishScroll();
     }
   };
 
-  requestAnimationFrame(animation);
+  currentAnimationId = requestAnimationFrame(animation);
 };
 
 export default function SmoothScroll() {
@@ -66,7 +126,7 @@ export default function SmoothScroll() {
         const element = document.getElementById(id);
         if (element) {
           e.preventDefault();
-          smoothScrollTo(element, 3000);
+          smoothScrollTo(element);
           window.history.pushState(null, '', targetHash);
         }
       }
@@ -86,7 +146,7 @@ export default function SmoothScroll() {
       const timer = setTimeout(() => {
         const element = document.getElementById(id);
         if (element) {
-          smoothScrollTo(element, 3000);
+          smoothScrollTo(element);
         }
       }, 300);
       return () => clearTimeout(timer);
