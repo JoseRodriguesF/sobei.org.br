@@ -416,8 +416,8 @@
   transition: transform var(--transition-base), box-shadow var(--transition-base), border-color var(--transition-base);
   min-height: 300px;
   border: 1px solid rgba(27, 20, 100, 0.08);
-  padding: var(--spacing-xl);
-  gap: var(--spacing-xl);
+  padding: 2.25rem 3rem;
+  gap: 3rem;
 }
 
 .event-card:hover {
@@ -427,7 +427,8 @@
 }
 
 .event-card__video-wrapper {
-  width: 38%;
+  width: 36%;
+  flex-shrink: 0;
   position: relative;
   border-radius: var(--radius-lg);
   overflow: hidden;
@@ -494,6 +495,7 @@
   flex-direction: column;
   justify-content: center;
   gap: var(--spacing-xs);
+  padding-right: 1.5rem;
 }
 
 .event-card__title {
@@ -525,9 +527,10 @@
 .event-card__text {
   font-size: 0.975rem;
   color: var(--color-gray-800);
-  line-height: 1.7;
+  line-height: 1.75;
   margin: 0;
   margin-top: 0.35rem;
+  text-align: justify;
 }
 
 .event-card--reverse {
