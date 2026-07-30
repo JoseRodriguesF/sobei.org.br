@@ -416,7 +416,6 @@
   transition: transform var(--transition-base), box-shadow var(--transition-base), border-color var(--transition-base);
   min-height: 300px;
   border: 1px solid rgba(27, 20, 100, 0.08);
-  border-left: 5px solid var(--color-accent);
   padding: var(--spacing-xl);
   gap: var(--spacing-xl);
 }
@@ -425,7 +424,6 @@
   transform: translateY(-6px);
   box-shadow: 0 16px 36px rgba(27, 20, 100, 0.12);
   border-color: rgba(27, 20, 100, 0.15);
-  border-left-color: var(--color-accent-hover);
 }
 
 .event-card__video-wrapper {
@@ -495,22 +493,6 @@
   flex-direction: column;
   justify-content: center;
   gap: var(--spacing-xs);
-}
-
-.event-card__badge {
-  display: inline-flex;
-  align-items: center;
-  align-self: flex-start;
-  font-size: 0.75rem;
-  font-weight: var(--font-weight-bold);
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  color: var(--color-primary);
-  background-color: rgba(255, 204, 0, 0.22);
-  padding: 0.25rem 0.85rem;
-  border-radius: var(--radius-full);
-  border: 1px solid rgba(255, 204, 0, 0.5);
-  margin-bottom: 0.25rem;
 }
 
 .event-card__title {
