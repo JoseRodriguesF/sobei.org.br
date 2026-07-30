@@ -5,6 +5,7 @@ import { useSearchParams } from 'next/navigation';
 import VacantImage from '@/components/VacantImage';
 import { unitsData } from '@/lib/data';
 import { enviarMensagemUnidade } from '@/lib/api';
+import { IconCheckCircle } from '@/components/Icons';
 
 function UnitsContent() {
   const searchParams = useSearchParams();
@@ -105,14 +106,11 @@ function UnitsContent() {
               
               {submitted ? (
                 <div style={{ 
-                  backgroundColor: '#f0fdf4', 
-                  border: '1px solid #bbf7d0', 
-                  borderRadius: '12px', 
                   padding: '24px', 
                   textAlign: 'center',
                   color: '#166534'
                 }}>
-                  <span style={{ fontSize: '36px', display: 'block', marginBottom: '8px' }}>✅</span>
+                  <IconCheckCircle size={36} style={{ color: '#166534' }} />
                   <h4 style={{ fontSize: '18px', fontWeight: 'bold', marginBottom: '8px' }}>Mensagem enviada com sucesso!</h4>
                   <p style={{ fontSize: '14px', lineHeight: '1.5', margin: '0 0 16px 0' }}>
                     Sua mensagem / intenção de vaga foi registrada e direcionada à coordenação da unidade <strong>{unit.name}</strong>.

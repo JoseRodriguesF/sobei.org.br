@@ -4,6 +4,7 @@ import React, { useState, useEffect } from 'react';
 import { useParams } from 'next/navigation';
 import { fetchVagaPublica, enviarCandidatura } from '@/lib/api';
 import Link from 'next/link';
+import { IconMapPin, IconBriefcase } from '@/components/Icons';
 
 const MODALIDADE_LABELS = {
   presencial: 'Presencial',
@@ -179,8 +180,8 @@ export default function VagaDetalhePage() {
               )}
             </h1>
             <div className="vaga-hero__meta">
-              <span>📍 {vaga.unidade}</span>
-              <span>💼 {MODALIDADE_LABELS[vaga.modalidade] || vaga.modalidade} ({CONTRATO_LABELS[vaga.tipoContrato] || vaga.tipoContrato})</span>
+              <span><IconMapPin size={16} /> {vaga.unidade}</span>
+              <span><IconBriefcase size={16} /> {MODALIDADE_LABELS[vaga.modalidade] || vaga.modalidade} ({CONTRATO_LABELS[vaga.tipoContrato] || vaga.tipoContrato})</span>
             </div>
           </div>
         </div>
