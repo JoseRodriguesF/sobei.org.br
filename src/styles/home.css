@@ -499,7 +499,7 @@
 .event-card__title {
   font-size: 1.4rem;
   font-weight: var(--font-weight-extrabold);
-  color: var(--color-black);
+  color: var(--color-primary);
   margin: 0;
   position: relative;
   padding-bottom: 0.65rem;
