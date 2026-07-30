@@ -179,7 +179,7 @@ function UnitsContent() {
                   )}
 
                   <button type="submit" className="form-submit-btn" disabled={sending}>
-                    {sending ? 'Enviando mensagem...' : 'Registrar Intenção de Vaga'}
+                    {sending ? 'Enviando mensagem...' : 'Enviar mensagem'}
                   </button>
                 </form>
               )}
