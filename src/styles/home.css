@@ -432,13 +432,14 @@
   border-radius: var(--radius-lg);
   overflow: hidden;
   aspect-ratio: 16 / 9;
-  box-shadow: var(--shadow-sm);
-  border: 2px solid rgba(27, 20, 100, 0.08);
-  transition: border-color var(--transition-base);
+  box-shadow: 0 4px 16px rgba(27, 20, 100, 0.2);
+  border: 2.5px solid rgba(27, 20, 100, 0.35);
+  transition: border-color var(--transition-base), box-shadow var(--transition-base);
 }
 
 .event-card:hover .event-card__video-wrapper {
-  border-color: rgba(255, 204, 0, 0.6);
+  border-color: var(--color-primary);
+  box-shadow: 0 8px 24px rgba(27, 20, 100, 0.4);
 }
 
 .event-card__video {
@@ -498,7 +499,7 @@
 .event-card__title {
   font-size: 1.4rem;
   font-weight: var(--font-weight-extrabold);
-  color: var(--color-primary);
+  color: var(--color-black);
   margin: 0;
   position: relative;
   padding-bottom: 0.65rem;
