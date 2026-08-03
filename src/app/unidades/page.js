@@ -163,11 +163,11 @@ function UnitsContent() {
                     />
                   </div>
                   <div className="form-group form-group--full">
-                    <label htmlFor="message" className="form-label">Mensagem (Intenção de Vaga) *</label>
+                    <label htmlFor="message" className="form-label">Mensagem *</label>
                     <textarea
                       id="message"
                       className="form-textarea"
-                      placeholder="Escreva sua mensagem ou detalhes sobre a intenção de vaga..."
+                      placeholder="Escreva sua mensagem..."
                       value={message}
                       onChange={(e) => setMessage(e.target.value)}
                       required
