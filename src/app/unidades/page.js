@@ -113,7 +113,7 @@ function UnitsContent() {
                   <IconCheckCircle size={36} style={{ color: '#166534' }} />
                   <h4 style={{ fontSize: '18px', fontWeight: 'bold', marginBottom: '8px' }}>Mensagem enviada com sucesso!</h4>
                   <p style={{ fontSize: '14px', lineHeight: '1.5', margin: '0 0 16px 0' }}>
-                    Sua mensagem / intenção de vaga foi registrada e direcionada à coordenação da unidade <strong>{unit.name}</strong>.
+                    Sua mensagem foi registrada e direcionada à coordenação da unidade <strong>{unit.name}</strong>.
                   </p>
                   <button 
                     type="button" 
