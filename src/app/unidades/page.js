@@ -200,7 +200,7 @@ function UnitsContent() {
               }}>
                 <IconInfo size={20} style={{ color: '#0284c7', marginTop: '2px' }} />
                 <div>
-                  <strong>Atenção:</strong> Este formulário é destinado exclusivamente para comunicação direta com a escola sobre dúvidas ou assuntos diversos da unidade. <strong>Não utilize este formulário para se candidatar a vagas de emprego</strong> — para enviar seu currículo, acesse a nossa página de <Link href="/vagas" style={{ color: '#0284c7', fontWeight: 'bold', textDecoration: 'underline' }}>Trabalhe Conosco / Vagas</Link>.
+                  <strong>Atenção:</strong> Este formulário pode ser utilizado para comunicação com a escola, tirar dúvidas ou registrar a <strong>intenção de vaga para as crianças</strong> (a equipe da unidade entrará em contato). <strong>Não utilize este formulário para candidatar-se a vagas de emprego</strong> — para enviar seu currículo profissional, acesse a nossa página de <Link href="/vagas" style={{ color: '#0284c7', fontWeight: 'bold', textDecoration: 'underline' }}>Trabalhe Conosco / Vagas</Link>.
                 </div>
               </div>
             </div>
