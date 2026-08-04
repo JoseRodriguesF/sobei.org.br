@@ -115,7 +115,8 @@ export default function SmoothScroll() {
 
       // Normaliza caminhos
       const normalizePath = (path) => {
-        if (!path || path === '/' || path === '') return '/';
+        if (!path || path === '') return window.location.pathname.replace(/\/$/, '') || '/';
+        if (path === '/') return '/';
         return path.replace(/\/$/, '');
       };
 
