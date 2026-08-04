@@ -2,10 +2,11 @@
 
 import React, { useState, Suspense } from 'react';
 import { useSearchParams } from 'next/navigation';
+import Link from 'next/link';
 import VacantImage from '@/components/VacantImage';
 import { unitsData } from '@/lib/data';
 import { enviarMensagemUnidade } from '@/lib/api';
-import { IconCheckCircle } from '@/components/Icons';
+import { IconCheckCircle, IconInfo } from '@/components/Icons';
 
 function UnitsContent() {
   const searchParams = useSearchParams();
@@ -183,6 +184,25 @@ function UnitsContent() {
                   </button>
                 </form>
               )}
+
+              <div style={{
+                marginTop: '20px',
+                padding: '14px 16px',
+                backgroundColor: '#f0f9ff',
+                border: '1px solid #bae6fd',
+                borderRadius: '8px',
+                display: 'flex',
+                alignItems: 'flex-start',
+                gap: '12px',
+                fontSize: '13px',
+                lineHeight: '1.5',
+                color: '#0369a1'
+              }}>
+                <IconInfo size={20} style={{ color: '#0284c7', marginTop: '2px' }} />
+                <div>
+                  <strong>Atenção:</strong> Este formulário pode ser utilizado para comunicação com a escola, tirar dúvidas ou registrar a <strong>intenção de vaga para as crianças</strong> (a equipe da unidade entrará em contato). <strong>Não utilize este formulário para candidatar-se a vagas de emprego</strong> — para enviar seu currículo profissional, acesse a nossa página de <Link href="/vagas" style={{ color: '#0284c7', fontWeight: 'bold', textDecoration: 'underline' }}>Trabalhe Conosco / Vagas</Link>.
+                </div>
+              </div>
             </div>
           </main>
 

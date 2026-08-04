@@ -26,18 +26,21 @@ export default function Header() {
     };
   }, []);
 
-  useEffect(() => {
+  const [prevPathname, setPrevPathname] = useState(pathname);
+  if (prevPathname !== pathname) {
+    setPrevPathname(pathname);
     setActiveDropdown(null);
     setIsMobileMenuOpen(false);
-  }, [pathname]);
+  }
 
   const [lastActiveDropdown, setLastActiveDropdown] = useState(null);
-
-  useEffect(() => {
+  const [prevActiveDropdown, setPrevActiveDropdown] = useState(activeDropdown);
+  if (prevActiveDropdown !== activeDropdown) {
+    setPrevActiveDropdown(activeDropdown);
     if (activeDropdown) {
       setLastActiveDropdown(activeDropdown);
     }
-  }, [activeDropdown]);
+  }
 
   const handleDropdownToggle = (type) => {
     if (activeDropdown === type) {
