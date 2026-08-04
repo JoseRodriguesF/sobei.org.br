@@ -4,6 +4,7 @@ import React, { useState, useMemo, useEffect } from 'react';
 import { unitsData } from '@/lib/data';
 import { fetchVagasPublicas } from '@/lib/api';
 import Link from 'next/link';
+import CustomSelect from '@/components/CustomSelect';
 
 const MODALIDADE_LABELS = {
   presencial: 'Presencial',
@@ -36,9 +37,12 @@ export default function VagasPage() {
     loadVagas();
   }, []);
 
-  // Get unique units for filters
-  const units = useMemo(() => {
-    return Object.values(unitsData).map(unit => unit.name);
+  // Get unique units for filters (as options for CustomSelect)
+  const unitOptions = useMemo(() => {
+    return Object.values(unitsData).map(unit => ({
+      value: unit.name,
+      label: unit.name,
+    }));
   }, []);
 
   // Sort and filter logic
@@ -66,6 +70,9 @@ export default function VagasPage() {
   const totalFilteredCount = useMemo(() => {
     return sortedVagas.length;
   }, [sortedVagas]);
+
+  // Whether any filter is active
+  const hasActiveFilters = searchQuery || selectedUnit;
 
   return (
     <div>
@@ -101,21 +108,16 @@ export default function VagasPage() {
             />
           </div>
 
-
-
-          {/* Unit / Location */}
+          {/* Unit / Location — CustomSelect padronizado */}
           <div className="filter-group">
             <label className="filter-group__label">Unidade</label>
-            <select 
-              value={selectedUnit} 
-              onChange={(e) => setSelectedUnit(e.target.value)}
-              className="filter-group__select"
-            >
-              <option value="">Todas as unidades</option>
-              {units.map((unit, idx) => (
-                <option key={idx} value={unit}>{unit}</option>
-              ))}
-            </select>
+            <CustomSelect
+              value={selectedUnit}
+              onChange={(val) => setSelectedUnit(val)}
+              options={unitOptions}
+              defaultOption="Todas as unidades"
+              className="filter-group__custom-select"
+            />
           </div>
 
         </div>
@@ -157,8 +159,15 @@ export default function VagasPage() {
                 ))}
               </div>
             ) : (
-              <div className="jobs-empty">
-                Nenhuma vaga encontrada para os filtros selecionados.
+              <div className="jobs-empty-state fade-in">
+
+
+                <h3 className="jobs-empty-state__title">Nenhuma vaga encontrada</h3>
+                <p className="jobs-empty-state__text">
+                  {hasActiveFilters 
+                    ? 'Não encontramos vagas para os filtros selecionados.'
+                    : 'No momento não há vagas disponíveis. Fique atento, novas oportunidades podem surgir a qualquer momento!'}
+                </p>
               </div>
             )}
           </div>
