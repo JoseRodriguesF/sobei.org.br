@@ -18,7 +18,7 @@ export const projectsData = {
     capacity: '4.600 crianças'
   },
   'ccinter': {
-    title: 'CC Inter - Centro de Convivência Intergeracional',
+    title: 'CCINTER - Centro de Convivência Intergeracional',
     tagline: 'Fortalecimento de vínculos familiares e comunitários entre gerações.',
     image: '/images/projetos/foto_ccinter.jpeg',
     description: 'O Centro de Convivência Intergeracional (CC Inter) atende diversos bairros da Zona Sul de São Paulo, concentrando-se principalmente nas regiões de Parelheiros, Grajaú e Cidade Dutra, com capacidade de atendimento de cerca de 1.500 participantes. O projeto atende gratuitamente a comunidade, oferecendo proteção social preventiva contra situações de risco e vulnerabilidade e estimulando o protagonismo intergeracional.',
