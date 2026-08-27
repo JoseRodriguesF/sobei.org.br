@@ -142,7 +142,7 @@ export const unitsData = {
   },
   'montanaro': {
     name: 'CEI Montanaro',
-    address: 'Av. Rubens Montanaro de Borba, 459 - Cidade Dutra, São Paulo - SP - CEP: 04811-120',
+    address: 'Av. Rubens Montanaro de Borba, 477 - Cidade Dutra, São Paulo - SP - CEP: 04811-120',
     phone: '(11) 5666-5755',
     email: 'montanaro@sobei.org.br',
     type: 'CEI (Centro de Educação Infantil)',
