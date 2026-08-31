@@ -15,14 +15,12 @@ export default function VacantImage({
   const [hasError, setHasError] = useState(false);
   const [isLoaded, setIsLoaded] = useState(false);
 
-  const [prevSrc, setPrevSrc] = useState(src);
-  if (prevSrc !== src) {
-    setPrevSrc(src);
+  useEffect(() => {
     setCurrentSrc(src);
     setAttemptIndex(0);
     setHasError(false);
     setIsLoaded(false);
-  }
+  }, [src]);
 
   const handleError = () => {
     const candidates = [];
