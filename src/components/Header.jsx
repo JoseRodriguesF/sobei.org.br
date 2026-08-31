@@ -26,21 +26,20 @@ export default function Header() {
     };
   }, []);
 
-  const [prevPathname, setPrevPathname] = useState(pathname);
-  if (prevPathname !== pathname) {
-    setPrevPathname(pathname);
+  // Fechar dropdowns e menu mobile ao mudar de rota
+  useEffect(() => {
     setActiveDropdown(null);
     setIsMobileMenuOpen(false);
-  }
+  }, [pathname]);
 
   const [lastActiveDropdown, setLastActiveDropdown] = useState(null);
-  const [prevActiveDropdown, setPrevActiveDropdown] = useState(activeDropdown);
-  if (prevActiveDropdown !== activeDropdown) {
-    setPrevActiveDropdown(activeDropdown);
+
+  // Rastrear último dropdown ativo para animações de saída
+  useEffect(() => {
     if (activeDropdown) {
       setLastActiveDropdown(activeDropdown);
     }
-  }
+  }, [activeDropdown]);
 
   const handleDropdownToggle = (type) => {
     if (activeDropdown === type) {
