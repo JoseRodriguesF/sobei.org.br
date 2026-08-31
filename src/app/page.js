@@ -16,6 +16,7 @@ export default function Home() {
             alt="SOBEI"
             width={560}
             height={160}
+            style={{ width: 'auto', height: 'auto', maxWidth: '100%' }}
             className="hero__logo"
             priority
           />
