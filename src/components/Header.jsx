@@ -28,17 +28,31 @@ export default function Header() {
 
   // Fechar dropdowns e menu mobile ao mudar de rota
   useEffect(() => {
-    setActiveDropdown(null);
-    setIsMobileMenuOpen(false);
+    let active = true;
+    Promise.resolve().then(() => {
+      if (active) {
+        setActiveDropdown(null);
+        setIsMobileMenuOpen(false);
+      }
+    });
+    return () => {
+      active = false;
+    };
   }, [pathname]);
 
   const [lastActiveDropdown, setLastActiveDropdown] = useState(null);
 
   // Rastrear último dropdown ativo para animações de saída
   useEffect(() => {
-    if (activeDropdown) {
-      setLastActiveDropdown(activeDropdown);
-    }
+    let active = true;
+    Promise.resolve().then(() => {
+      if (active && activeDropdown) {
+        setLastActiveDropdown(activeDropdown);
+      }
+    });
+    return () => {
+      active = false;
+    };
   }, [activeDropdown]);
 
   const handleDropdownToggle = (type) => {

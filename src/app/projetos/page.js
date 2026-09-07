@@ -84,9 +84,6 @@ function ProjectsContent() {
                     <ul className="detail-card__list" style={{ marginTop: '5px', marginBottom: '0' }}>
                       {project.benefits.map((benefit, index) => (
                         <li key={index} className="detail-card__list-item">
-                          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" style={{ marginTop: '2px' }}>
-                            <polyline points="20 6 9 17 4 12" />
-                          </svg>
                           <span style={{ fontSize: '13px', fontWeight: '500' }}>{benefit}</span>
                         </li>
                       ))}
