@@ -189,14 +189,14 @@
   color: var(--color-gray-500);
 }
 
-.custom-select-trigger:hover {
+.custom-select-trigger:hover,
+.custom-select-trigger--open,
+.custom-select-trigger:focus,
+.custom-select-trigger:focus-visible {
   border-color: var(--color-primary-light);
   background-color: var(--color-white);
-}
-
-.custom-select-trigger--open {
-  border-color: var(--color-primary-light);
-  box-shadow: 0 0 0 3px rgba(27, 20, 100, 0.1);
+  box-shadow: none !important;
+  outline: none !important;
 }
 
 .custom-select-icon {
