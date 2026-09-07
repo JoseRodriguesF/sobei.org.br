@@ -4,10 +4,10 @@
 
 :root {
   /* ---- Cores Primárias ---- */
-  --color-primary: #1B1464;         /* Azul escuro/roxo principal da SOBEI */
-  --color-primary-dark: #120E45;
-  --color-primary-deeper: #0D0A33;
-  --color-primary-light: #2A1F8A;
+  --color-primary: #13234B;         /* Azul escuro principal da SOBEI */
+  --color-primary-dark: #0D1936;
+  --color-primary-deeper: #081023;
+  --color-primary-light: #1D336B;
 
   /* ---- Cores de Destaque ---- */
   --color-accent: #FFCC00;          /* Amarelo vibrante */
