@@ -71,15 +71,19 @@ export default function Home() {
             </p>
           </div>
           <div className="about-row__image-wrapper">
-            <Image
-              src="/images/cei-imbuias.jpg"
-              alt="Crianças brincando nas atividades da SOBEI"
-              width={600}
-              height={450}
-              sizes="(max-width: 768px) 100vw, 600px"
-              className="about-row__image"
-              priority
-            />
+            <div className="about-row__card about-row__card--back" aria-hidden="true" />
+            <div className="about-row__card about-row__card--front" aria-hidden="true" />
+            <div className="about-row__photo-container">
+              <Image
+                src="/images/cei-imbuias.jpg"
+                alt="Crianças brincando nas atividades da SOBEI"
+                width={600}
+                height={450}
+                sizes="(max-width: 768px) 100vw, 600px"
+                className="about-row__image"
+                priority
+              />
+            </div>
           </div>
         </div>
 
@@ -95,14 +99,18 @@ export default function Home() {
             </p>
           </div>
           <div className="about-row__image-wrapper">
-            <Image
-              src="/images/nci-bela-vista.jpg"
-              alt="Educador social ensinando jovens"
-              width={600}
-              height={450}
-              sizes="(max-width: 768px) 100vw, 600px"
-              className="about-row__image"
-            />
+            <div className="about-row__card about-row__card--back" aria-hidden="true" />
+            <div className="about-row__card about-row__card--front" aria-hidden="true" />
+            <div className="about-row__photo-container">
+              <Image
+                src="/images/nci-bela-vista.jpg"
+                alt="Educador social ensinando jovens"
+                width={600}
+                height={450}
+                sizes="(max-width: 768px) 100vw, 600px"
+                className="about-row__image"
+              />
+            </div>
           </div>
         </div>
       </section>
@@ -124,14 +132,18 @@ export default function Home() {
             </p>
           </div>
           <div className="about-row__image-wrapper">
-            <Image
-              src="/images/cedesp-qualificacao.jpg"
-              alt="Qualificação profissional no CEDESP"
-              width={600}
-              height={450}
-              sizes="(max-width: 768px) 100vw, 600px"
-              className="about-row__image"
-            />
+            <div className="about-row__card about-row__card--back" aria-hidden="true" />
+            <div className="about-row__card about-row__card--front" aria-hidden="true" />
+            <div className="about-row__photo-container">
+              <Image
+                src="/images/cedesp-qualificacao.jpg"
+                alt="Qualificação profissional no CEDESP"
+                width={600}
+                height={450}
+                sizes="(max-width: 768px) 100vw, 600px"
+                className="about-row__image"
+              />
+            </div>
           </div>
         </div>
 
@@ -146,14 +158,18 @@ export default function Home() {
             </p>
           </div>
           <div className="about-row__image-wrapper">
-            <Image
-              src="/images/cei-leblon.jpg"
-              alt="CEI Leblon — atividades com crianças"
-              width={600}
-              height={450}
-              sizes="(max-width: 768px) 100vw, 600px"
-              className="about-row__image"
-            />
+            <div className="about-row__card about-row__card--back" aria-hidden="true" />
+            <div className="about-row__card about-row__card--front" aria-hidden="true" />
+            <div className="about-row__photo-container">
+              <Image
+                src="/images/cei-leblon.jpg"
+                alt="CEI Leblon — atividades com crianças"
+                width={600}
+                height={450}
+                sizes="(max-width: 768px) 100vw, 600px"
+                className="about-row__image"
+              />
+            </div>
           </div>
         </div>
       </section>

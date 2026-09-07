@@ -16,10 +16,18 @@ export default function VacantImage({
   const [isLoaded, setIsLoaded] = useState(false);
 
   useEffect(() => {
-    setCurrentSrc(src);
-    setAttemptIndex(0);
-    setHasError(false);
-    setIsLoaded(false);
+    let active = true;
+    Promise.resolve().then(() => {
+      if (active) {
+        setCurrentSrc(src);
+        setAttemptIndex(0);
+        setHasError(false);
+        setIsLoaded(false);
+      }
+    });
+    return () => {
+      active = false;
+    };
   }, [src]);
 
   const handleError = () => {
