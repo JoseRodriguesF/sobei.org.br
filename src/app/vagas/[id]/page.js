@@ -154,8 +154,6 @@ export default function VagaDetalhePage() {
     }
   };
 
-  // Parse requisitos (may be newline-separated text)
-  const requisitos = (vaga.requisitos || '').split('\n').filter(r => r.trim());
 
   return (
     <div className="vaga-detail-page">
@@ -212,20 +210,12 @@ export default function VagaDetalhePage() {
               <p className="vaga-card__text" style={{ whiteSpace: 'pre-wrap' }}>{vaga.descricao}</p>
               
               <h3 className="vaga-card__subtitle">Requisitos e Qualificações</h3>
-              <ul className="vaga-card__list">
-                {requisitos.length > 0 ? (
-                  requisitos.map((req, i) => (
-                    <li key={i} className="vaga-card__list-item">{req}</li>
-                  ))
-                ) : (
-                  <li className="vaga-card__list-item">{vaga.requisitos}</li>
-                )}
-              </ul>
+              <p className="vaga-card__text" style={{ whiteSpace: 'pre-wrap' }}>{vaga.requisitos}</p>
 
               {vaga.beneficios && (
                 <>
                   <h3 className="vaga-card__subtitle">Benefícios oferecidos</h3>
-                  <p className="vaga-card__text">{vaga.beneficios}</p>
+                  <p className="vaga-card__text" style={{ whiteSpace: 'pre-wrap' }}>{vaga.beneficios}</p>
                 </>
               )}
             </div>
