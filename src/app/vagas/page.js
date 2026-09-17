@@ -138,25 +138,7 @@ export default function VagasPage() {
                     
                     {/* Job metadata and info */}
                     <div className="job-card__info">
-                      <h3 className="job-card__title">
-                        {vaga.titulo}
-                        {vaga.titulo?.includes('(PCD)') && (
-                          <span style={{
-                            marginLeft: '8px',
-                            fontSize: '11px',
-                            fontWeight: '700',
-                            padding: '2px 8px',
-                            borderRadius: '4px',
-                            background: 'rgba(46, 49, 146, 0.1)',
-                            color: '#1b1464',
-                            border: '1px solid rgba(46, 49, 146, 0.2)',
-                            verticalAlign: 'middle',
-                            display: 'inline-block'
-                          }}>
-                            PCD
-                          </span>
-                        )}
-                      </h3>
+                      <h3 className="job-card__title">{vaga.titulo}</h3>
                       <span className="job-card__meta">Unidade: {vaga.unidade}</span>
                       <span className="job-card__submeta">
                         {MODALIDADE_LABELS[vaga.modalidade] || vaga.modalidade} ({CONTRATO_LABELS[vaga.tipoContrato] || vaga.tipoContrato})

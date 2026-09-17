@@ -170,20 +170,6 @@ export default function VagaDetalhePage() {
           <div className="vaga-hero__info">
             <h1 className="vaga-hero__title" style={{ display: 'flex', alignItems: 'center', flexWrap: 'wrap', gap: '12px' }}>
               {vaga.titulo}
-              {vaga.titulo?.includes('(PCD)') && (
-                <span style={{
-                  fontSize: '12px',
-                  fontWeight: '700',
-                  padding: '4px 10px',
-                  borderRadius: '4px',
-                  background: 'rgba(255, 255, 255, 0.2)',
-                  color: '#fff',
-                  border: '1px solid rgba(255, 255, 255, 0.4)',
-                  margin: 0
-                }}>
-                  Vaga PCD
-                </span>
-              )}
               {vaga.status === 'em_selecao' && (
                 <span className="vaga-badge vaga-badge--selecao" style={{ fontSize: '12px', padding: '4px 12px', margin: 0 }}>Em Seleção</span>
               )}
