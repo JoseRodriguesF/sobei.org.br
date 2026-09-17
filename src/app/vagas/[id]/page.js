@@ -154,8 +154,6 @@ export default function VagaDetalhePage() {
     }
   };
 
-  // Parse requisitos (may be newline-separated text)
-  const requisitos = (vaga.requisitos || '').split('\n').filter(r => r.trim());
 
   return (
     <div className="vaga-detail-page">
@@ -172,20 +170,6 @@ export default function VagaDetalhePage() {
           <div className="vaga-hero__info">
             <h1 className="vaga-hero__title" style={{ display: 'flex', alignItems: 'center', flexWrap: 'wrap', gap: '12px' }}>
               {vaga.titulo}
-              {vaga.titulo?.includes('(PCD)') && (
-                <span style={{
-                  fontSize: '12px',
-                  fontWeight: '700',
-                  padding: '4px 10px',
-                  borderRadius: '4px',
-                  background: 'rgba(255, 255, 255, 0.2)',
-                  color: '#fff',
-                  border: '1px solid rgba(255, 255, 255, 0.4)',
-                  margin: 0
-                }}>
-                  Vaga PCD
-                </span>
-              )}
               {vaga.status === 'em_selecao' && (
                 <span className="vaga-badge vaga-badge--selecao" style={{ fontSize: '12px', padding: '4px 12px', margin: 0 }}>Em Seleção</span>
               )}
@@ -212,20 +196,12 @@ export default function VagaDetalhePage() {
               <p className="vaga-card__text" style={{ whiteSpace: 'pre-wrap' }}>{vaga.descricao}</p>
               
               <h3 className="vaga-card__subtitle">Requisitos e Qualificações</h3>
-              <ul className="vaga-card__list">
-                {requisitos.length > 0 ? (
-                  requisitos.map((req, i) => (
-                    <li key={i} className="vaga-card__list-item">{req}</li>
-                  ))
-                ) : (
-                  <li className="vaga-card__list-item">{vaga.requisitos}</li>
-                )}
-              </ul>
+              <p className="vaga-card__text" style={{ whiteSpace: 'pre-wrap' }}>{vaga.requisitos}</p>
 
               {vaga.beneficios && (
                 <>
                   <h3 className="vaga-card__subtitle">Benefícios oferecidos</h3>
-                  <p className="vaga-card__text">{vaga.beneficios}</p>
+                  <p className="vaga-card__text" style={{ whiteSpace: 'pre-wrap' }}>{vaga.beneficios}</p>
                 </>
               )}
             </div>
