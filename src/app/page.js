@@ -75,7 +75,7 @@ export default function Home() {
             <div className="about-row__card about-row__card--front" aria-hidden="true" />
             <div className="about-row__photo-container">
               <Image
-                src="/images/cei-imbuias.jpg"
+                src="/images/cei-imbuias.avif"
                 alt="Crianças brincando nas atividades da SOBEI"
                 width={600}
                 height={450}
@@ -103,7 +103,7 @@ export default function Home() {
             <div className="about-row__card about-row__card--front" aria-hidden="true" />
             <div className="about-row__photo-container">
               <Image
-                src="/images/nci-bela-vista.jpg"
+                src="/images/nci-bela-vista.avif"
                 alt="Educador social ensinando jovens"
                 width={600}
                 height={450}
@@ -136,7 +136,7 @@ export default function Home() {
             <div className="about-row__card about-row__card--front" aria-hidden="true" />
             <div className="about-row__photo-container">
               <Image
-                src="/images/cedesp-qualificacao.jpg"
+                src="/images/cedesp-qualificacao.avif"
                 alt="Qualificação profissional no CEDESP"
                 width={600}
                 height={450}
@@ -162,7 +162,7 @@ export default function Home() {
             <div className="about-row__card about-row__card--front" aria-hidden="true" />
             <div className="about-row__photo-container">
               <Image
-                src="/images/cei-leblon.jpg"
+                src="/images/cei-leblon.avif"
                 alt="CEI Leblon — atividades com crianças"
                 width={600}
                 height={450}
