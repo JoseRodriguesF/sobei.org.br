@@ -34,11 +34,21 @@ export default function VacantImage({
     const candidates = [];
     if (src) {
       if (src.endsWith('.jpg')) {
+        candidates.push(src.replace(/\.jpg$/, '.avif'));
         candidates.push(src.replace(/\.jpg$/, '.jpeg'));
         candidates.push(src.replace(/\.jpg$/, '.png'));
       } else if (src.endsWith('.jpeg')) {
+        candidates.push(src.replace(/\.jpeg$/, '.avif'));
         candidates.push(src.replace(/\.jpeg$/, '.jpg'));
         candidates.push(src.replace(/\.jpeg$/, '.png'));
+      } else if (src.endsWith('.avif')) {
+        candidates.push(src.replace(/\.avif$/, '.jpg'));
+        candidates.push(src.replace(/\.avif$/, '.jpeg'));
+        candidates.push(src.replace(/\.avif$/, '.png'));
+      } else if (src.endsWith('.png')) {
+        candidates.push(src.replace(/\.png$/, '.avif'));
+        candidates.push(src.replace(/\.png$/, '.jpg'));
+        candidates.push(src.replace(/\.png$/, '.jpeg'));
       }
     }
 
