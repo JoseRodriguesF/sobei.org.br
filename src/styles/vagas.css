@@ -41,11 +41,17 @@
   transition: all var(--transition-fast);
 }
 
+.filter-group__input:hover,
+.filter-group__select:hover {
+  border-color: var(--color-primary);
+  box-shadow: none;
+}
+
 .filter-group__input:focus,
 .filter-group__select:focus {
   outline: none;
-  border-color: var(--color-primary-light);
-  box-shadow: 0 0 0 3px rgba(27, 20, 100, 0.1);
+  border-color: var(--color-primary);
+  box-shadow: none;
 }
 
 /* Vagas Layout Sections */
@@ -487,11 +493,17 @@
   min-height: 100px;
 }
 
+.form-group__input:hover,
+.form-group__textarea:hover {
+  border-color: var(--color-primary);
+  box-shadow: none;
+}
+
 .form-group__input:focus,
 .form-group__textarea:focus {
   outline: none;
-  border-color: var(--color-primary-light);
-  box-shadow: 0 0 0 3px rgba(27, 20, 100, 0.1);
+  border-color: var(--color-primary);
+  box-shadow: none;
 }
 
 .form-group__error {
@@ -676,23 +688,24 @@
 
 .page-hero__btn {
   display: inline-block;
-  background-color: var(--color-accent);
+  background-color: var(--color-white);
   color: var(--color-primary);
   font-weight: var(--font-weight-bold);
   font-size: var(--font-size-sm);
   padding: 10px 24px;
   border-radius: var(--radius-full);
-  border: 2px solid var(--color-accent);
+  border: 2px solid var(--color-white);
   transition: all var(--transition-fast);
   margin-top: var(--spacing-md);
-  box-shadow: var(--shadow-sm);
+  box-shadow: none;
   text-transform: uppercase;
 }
 
 .page-hero__btn:hover {
   background-color: transparent;
-  color: var(--color-accent);
-  box-shadow: 0 4px 12px rgba(232, 255, 0, 0.2);
+  color: var(--color-white);
+  border-color: var(--color-white);
+  box-shadow: none;
   transform: translateY(-1px);
 }
 

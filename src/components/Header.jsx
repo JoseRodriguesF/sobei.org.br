@@ -70,7 +70,7 @@ export default function Header() {
         {/* Logo */}
         <Link href="/" className="header__logo">
           <Image
-            src="/images/LOGO TRIANGULO TRANSPARENTE.png"
+            src="/images/logo-header.webp"
             alt="SOBEI Logo"
             width={60}
             height={60}
@@ -80,7 +80,11 @@ export default function Header() {
         </Link>
 
         {/* Navigation Menu */}
-        <nav className={`header__nav ${isMobileMenuOpen ? 'header__nav--mobile-open' : ''} ${activeDropdown ? 'header__nav--dropdown-active' : ''} ${lastActiveDropdown ? `header__nav--origin-${lastActiveDropdown}` : ''}`}>
+        <nav 
+          id="header-main-nav"
+          aria-label="Navegação principal"
+          className={`header__nav ${isMobileMenuOpen ? 'header__nav--mobile-open' : ''} ${activeDropdown ? 'header__nav--dropdown-active' : ''} ${lastActiveDropdown ? `header__nav--origin-${lastActiveDropdown}` : ''}`}
+        >
           <ul className="header__nav-list">
 
             {/* Mobile CTA inside nav */}
@@ -102,18 +106,21 @@ export default function Header() {
               className={`header__nav-item ${activeDropdown === 'projects' ? 'header__nav-item--active' : ''}`}
             >
               <button
+                type="button"
                 onClick={() => handleDropdownToggle('projects')}
                 className={`header__nav-link ${activeDropdown === 'projects' ? 'header__nav-link--active' : ''}`}
                 aria-expanded={activeDropdown === 'projects'}
+                aria-haspopup="true"
+                aria-controls="dropdown-projects"
               >
                 Nossos projetos
-                <svg width="10" height="6" viewBox="0 0 10 6" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <svg width="10" height="6" viewBox="0 0 10 6" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
                   <path d="M1 1L5 5L9 1" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
                 </svg>
               </button>
               {/* Mobile inline dropdown for projects */}
               {activeDropdown === 'projects' && (
-                <ul className="header__mobile-dropdown">
+                <ul className="header__mobile-dropdown" id="dropdown-projects-mobile">
                   <li><Link href="/projetos?id=ccinter" className="header__mobile-dropdown-link" onClick={() => setIsMobileMenuOpen(false)}>CCINTER</Link></li>
                   <li><Link href="/projetos?id=cedesp" className="header__mobile-dropdown-link" onClick={() => setIsMobileMenuOpen(false)}>CEDESP</Link></li>
                   <li><Link href="/projetos?id=nci-imbuias" className="header__mobile-dropdown-link" onClick={() => setIsMobileMenuOpen(false)}>NCI</Link></li>
@@ -128,18 +135,21 @@ export default function Header() {
               className={`header__nav-item ${activeDropdown === 'units' ? 'header__nav-item--active' : ''}`}
             >
               <button
+                type="button"
                 onClick={() => handleDropdownToggle('units')}
                 className={`header__nav-link ${activeDropdown === 'units' ? 'header__nav-link--active' : ''}`}
                 aria-expanded={activeDropdown === 'units'}
+                aria-haspopup="true"
+                aria-controls="dropdown-units"
               >
                 Nossas unidades
-                <svg width="10" height="6" viewBox="0 0 10 6" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <svg width="10" height="6" viewBox="0 0 10 6" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
                   <path d="M1 1L5 5L9 1" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
                 </svg>
               </button>
               {/* Mobile inline dropdown for units */}
               {activeDropdown === 'units' && (
-                <ul className="header__mobile-dropdown">
+                <ul className="header__mobile-dropdown" id="dropdown-units-mobile">
                   <li><Link href="/unidades?id=araucarias" className="header__mobile-dropdown-link" onClick={() => setIsMobileMenuOpen(false)}>Araucárias</Link></li>
                   <li><Link href="/unidades?id=cedro" className="header__mobile-dropdown-link" onClick={() => setIsMobileMenuOpen(false)}>Cedro</Link></li>
                   <li><Link href="/unidades?id=oliveiras" className="header__mobile-dropdown-link" onClick={() => setIsMobileMenuOpen(false)}>Oliveiras</Link></li>
@@ -169,6 +179,7 @@ export default function Header() {
 
         {/* Mobile menu toggle button */}
         <button
+          type="button"
           className={`header__toggle ${isMobileMenuOpen ? 'header__toggle--active' : ''}`}
           onClick={() => {
             setIsMobileMenuOpen(!isMobileMenuOpen);
@@ -176,7 +187,9 @@ export default function Header() {
               setActiveDropdown(null);
             }
           }}
-          aria-label="Toggle Menu"
+          aria-label={isMobileMenuOpen ? "Fechar menu de navegação" : "Abrir menu de navegação"}
+          aria-expanded={isMobileMenuOpen}
+          aria-controls="header-main-nav"
         >
           <span className="header__toggle-bar"></span>
           <span className="header__toggle-bar"></span>
@@ -186,7 +199,11 @@ export default function Header() {
       </div>
 
       {/* --- Projects Dropdown --- */}
-      <div className={`header__dropdown ${activeDropdown === 'projects' ? 'header__dropdown--active' : ''}`}>
+      <div 
+        id="dropdown-projects"
+        className={`header__dropdown ${activeDropdown === 'projects' ? 'header__dropdown--active' : ''}`}
+        aria-hidden={activeDropdown !== 'projects'}
+      >
         <div className="header__dropdown-container">
           <ul className="header__projects-list">
             <li>
@@ -209,7 +226,11 @@ export default function Header() {
       </div>
 
       {/* --- Units Dropdown --- */}
-      <div className={`header__dropdown ${activeDropdown === 'units' ? 'header__dropdown--active' : ''}`}>
+      <div 
+        id="dropdown-units"
+        className={`header__dropdown ${activeDropdown === 'units' ? 'header__dropdown--active' : ''}`}
+        aria-hidden={activeDropdown !== 'units'}
+      >
         <div className="header__dropdown-container">
           <div className="header__units-grid">
             {/* Col 1 */}

@@ -10,6 +10,18 @@ export default function Home() {
     <div>
       {/* Hero Section */}
       <section className="hero">
+        <div className="hero__bg-wrapper">
+          <Image
+            src="/images/foto-sobei.avif"
+            alt="Atividades e comunidade da SOBEI"
+            fill
+            priority
+            quality={80}
+            sizes="100vw"
+            className="hero__bg-img"
+          />
+          <div className="hero__overlay" aria-hidden="true" />
+        </div>
         <div className="hero__content">
           <Image
             src="/images/LOGO BRANCO.png"
@@ -20,7 +32,7 @@ export default function Home() {
             className="hero__logo"
             priority
           />
-          <p className="hero__subtitle">
+          <h1 className="hero__subtitle">
             {words.map((word, wordIdx) => {
               const previousCharsCount = words.slice(0, wordIdx).join(' ').length + (wordIdx > 0 ? 1 : 0);
               return (
@@ -44,7 +56,7 @@ export default function Home() {
                 </Fragment>
               );
             })}
-          </p>
+          </h1>
           <p className="hero__description">
             Transformando vidas por meio da educação, acolhimento e desenvolvimento social
             <br />
@@ -81,7 +93,6 @@ export default function Home() {
                 height={450}
                 sizes="(max-width: 768px) 100vw, 600px"
                 className="about-row__image"
-                priority
               />
             </div>
           </div>
@@ -186,7 +197,11 @@ export default function Home() {
             {/* Event 1 */}
             <div className="event-card">
               <div className="event-card__video-wrapper">
-                <EventVideo src="/videos/Churrasco.mp4" />
+                <EventVideo 
+                  src="/videos/Churrasco.mp4" 
+                  poster="/images/Churrasco-poster.webp"
+                  title="Churrasco Beneficente da SOBEI" 
+                />
               </div>
               <div className="event-card__content">
                 <h4 className="event-card__title">Churrasco Beneficente</h4>
@@ -199,7 +214,11 @@ export default function Home() {
             {/* Event 2 */}
             <div className="event-card">
               <div className="event-card__video-wrapper">
-                <EventVideo src="/videos/Feijoada.mp4" />
+                <EventVideo 
+                  src="/videos/Feijoada.mp4" 
+                  poster="/images/Feijoada-poster.webp"
+                  title="Feijoada Solidária da SOBEI" 
+                />
               </div>
               <div className="event-card__content">
                 <h4 className="event-card__title">Feijoada Solidária</h4>
@@ -212,7 +231,11 @@ export default function Home() {
             {/* Event 3 */}
             <div className="event-card">
               <div className="event-card__video-wrapper">
-                <EventVideo src="/videos/FestaJunina.mp4" />
+                <EventVideo 
+                  src="/videos/FestaJunina.mp4" 
+                  poster="/images/FestaJunina-poster.webp"
+                  title="Grande Festa Junina da SOBEI" 
+                />
               </div>
               <div className="event-card__content">
                 <h4 className="event-card__title">Grande Festa Junina</h4>
@@ -225,7 +248,11 @@ export default function Home() {
             {/* Event 4 */}
             <div className="event-card">
               <div className="event-card__video-wrapper">
-                <EventVideo src="/videos/BrooklinFest.mp4" />
+                <EventVideo 
+                  src="/videos/BrooklinFest.mp4" 
+                  poster="/images/BrooklinFest-poster.webp"
+                  title="SOBEI no BrooklinFest" 
+                />
               </div>
               <div className="event-card__content">
                 <h4 className="event-card__title">SOBEI no BrooklinFest</h4>

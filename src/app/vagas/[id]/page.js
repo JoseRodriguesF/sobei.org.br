@@ -6,6 +6,8 @@ import { fetchVagaPublica, enviarCandidatura } from '@/lib/api';
 import Link from 'next/link';
 import { IconMapPin, IconBriefcase } from '@/components/Icons';
 
+import { formatPhone, isValidEmail } from '@/lib/formatters';
+
 const MODALIDADE_LABELS = {
   presencial: 'Presencial',
   hibrido: 'Híbrido',
@@ -32,7 +34,8 @@ export default function VagaDetalhePage() {
     name: '',
     email: '',
     phone: '',
-    message: ''
+    message: '',
+    lgpdConsent: false
   });
   const [selectedFile, setSelectedFile] = useState(null);
   const [errors, setErrors] = useState({});
@@ -61,15 +64,15 @@ export default function VagaDetalhePage() {
 
   if (loading) {
     return (
-      <div className="vagas-not-found container">
-        <p>Carregando vaga...</p>
+      <div className="vagas-not-found container" role="status" aria-live="polite">
+        <p>Carregando informações da vaga...</p>
       </div>
     );
   }
 
   if (notFound || !vaga) {
     return (
-      <div className="vagas-not-found container">
+      <div className="vagas-not-found container" role="alert">
         <h2>Vaga não encontrada</h2>
         <p>A vaga que você está procurando não existe ou já foi preenchida.</p>
         <Link href="/vagas" className="vaga-detail__back-link">
@@ -80,8 +83,9 @@ export default function VagaDetalhePage() {
   }
 
   const handleInputChange = (e) => {
-    const { name, value } = e.target;
-    setFormData(prev => ({ ...prev, [name]: value }));
+    const { name, value, type, checked } = e.target;
+    const finalValue = name === 'phone' ? formatPhone(value) : (type === 'checkbox' ? checked : value);
+    setFormData(prev => ({ ...prev, [name]: finalValue }));
     if (errors[name]) {
       setErrors(prev => ({ ...prev, [name]: '' }));
     }
@@ -111,18 +115,23 @@ export default function VagaDetalhePage() {
     
     if (!formData.email.trim()) {
       newErrors.email = 'E-mail é obrigatório';
-    } else if (!/\S+@\S+\.\S+/.test(formData.email)) {
+    } else if (!isValidEmail(formData.email)) {
       newErrors.email = 'Insira um e-mail válido';
     }
     
-    if (!formData.phone.trim()) {
+    const cleanPhone = formData.phone.replace(/\D/g, '');
+    if (!cleanPhone) {
       newErrors.phone = 'Telefone é obrigatório';
-    } else if (!/^\(?\d{2}\)?\s?\d{4,5}-?\d{4}$/.test(formData.phone.replace(/\s/g, ''))) {
-      newErrors.phone = 'Telefone inválido (Ex: 11 99999-9999)';
+    } else if (cleanPhone.length < 10) {
+      newErrors.phone = 'Telefone incompleto (informe o DDD e número)';
     }
 
     if (!selectedFile) {
       newErrors.file = 'Currículo em formato PDF/Word é obrigatório';
+    }
+
+    if (!formData.lgpdConsent) {
+      newErrors.lgpdConsent = 'É necessário concordar com os termos da LGPD para enviar seu currículo';
     }
 
     if (Object.keys(newErrors).length > 0) {
@@ -135,11 +144,11 @@ export default function VagaDetalhePage() {
 
     // Build FormData for multipart upload
     const multipartData = new FormData();
-    multipartData.append('nomeCompleto', formData.name);
-    multipartData.append('email', formData.email);
-    multipartData.append('telefone', formData.phone);
+    multipartData.append('nomeCompleto', formData.name.trim());
+    multipartData.append('email', formData.email.trim());
+    multipartData.append('telefone', formData.phone.trim());
     if (formData.message.trim()) {
-      multipartData.append('cartaApresentacao', formData.message);
+      multipartData.append('cartaApresentacao', formData.message.trim());
     }
     multipartData.append('curriculo', selectedFile);
 
@@ -154,9 +163,40 @@ export default function VagaDetalhePage() {
     }
   };
 
+  const jobPostingSchema = vaga ? {
+    "@context": "https://schema.org/",
+    "@type": "JobPosting",
+    "title": vaga.titulo,
+    "description": vaga.descricao || vaga.titulo,
+    "datePosted": vaga.createdAt ? new Date(vaga.createdAt).toISOString() : new Date().toISOString(),
+    "employmentType": vaga.regime === 'clt' ? 'FULL_TIME' : vaga.regime === 'estagio' ? 'INTERN' : 'OTHER',
+    "hiringOrganization": {
+      "@type": "Organization",
+      "name": "SOBEI - Sociedade Beneficente Equilíbrio de Interlagos",
+      "sameAs": "https://sobei.org.br",
+      "logo": "https://sobei.org.br/images/LOGO%20BRANCO.png"
+    },
+    "jobLocation": {
+      "@type": "Place",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": vaga.unidade || "Av. Rubens Montanaro de Borba, 477",
+        "addressLocality": "São Paulo",
+        "addressRegion": "SP",
+        "addressCountry": "BR"
+      }
+    }
+  } : null;
 
   return (
     <div className="vaga-detail-page">
+      {jobPostingSchema && (
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jobPostingSchema) }}
+        />
+      )}
+
       {/* Dynamic Hero Section */}
       <section className="vaga-hero">
         <div className="container">
@@ -216,7 +256,7 @@ export default function VagaDetalhePage() {
                     <h2 className="vaga-form-card__title">Candidatar-se a esta vaga</h2>
                     <p className="vaga-form-card__subtitle">Preencha os dados abaixo e anexe seu currículo para iniciar o processo seletivo.</p>
                     
-                    <form onSubmit={handleSubmit} className="vaga-form">
+                    <form onSubmit={handleSubmit} className="vaga-form" noValidate>
                       {/* Name */}
                       <div className="form-group">
                         <label className="form-group__label">Nome Completo *</label>
@@ -228,6 +268,7 @@ export default function VagaDetalhePage() {
                           className="form-group__input"
                           placeholder="Seu nome completo"
                           disabled={isSubmitting}
+                          autoComplete="name"
                         />
                         {errors.name && <span className="form-group__error">{errors.name}</span>}
                       </div>
@@ -243,13 +284,14 @@ export default function VagaDetalhePage() {
                           className="form-group__input"
                           placeholder="exemplo@email.com"
                           disabled={isSubmitting}
+                          autoComplete="email"
                         />
                         {errors.email && <span className="form-group__error">{errors.email}</span>}
                       </div>
 
                       {/* Phone */}
                       <div className="form-group">
-                        <label className="form-group__label">Telefone *</label>
+                        <label className="form-group__label">Telefone / WhatsApp *</label>
                         <input 
                           type="tel" 
                           name="phone" 
@@ -258,6 +300,7 @@ export default function VagaDetalhePage() {
                           className="form-group__input"
                           placeholder="(11) 99999-9999"
                           disabled={isSubmitting}
+                          autoComplete="tel"
                         />
                         {errors.phone && <span className="form-group__error">{errors.phone}</span>}
                       </div>
@@ -304,8 +347,26 @@ export default function VagaDetalhePage() {
                         ></textarea>
                       </div>
 
+                      {/* LGPD Consent */}
+                      <div className="form-group" style={{ marginTop: '4px' }}>
+                        <label style={{ display: 'flex', alignItems: 'flex-start', gap: '10px', fontSize: '12.5px', color: '#4b5563', cursor: 'pointer', lineHeight: '1.4' }}>
+                          <input
+                            type="checkbox"
+                            name="lgpdConsent"
+                            checked={formData.lgpdConsent}
+                            onChange={handleInputChange}
+                            style={{ marginTop: '2px', accentColor: '#1B1464' }}
+                            disabled={isSubmitting}
+                          />
+                          <span>
+                            Concordo com o tratamento dos meus dados pessoais pela SOBEI exclusivamente para fins deste processo seletivo, em conformidade com a <strong>LGPD (Lei Geral de Proteção de Dados)</strong>.
+                          </span>
+                        </label>
+                        {errors.lgpdConsent && <span className="form-group__error">{errors.lgpdConsent}</span>}
+                      </div>
+
                       {submitError && (
-                        <div className="form-group__error" style={{ textAlign: 'center' }}>
+                        <div className="form-group__error" style={{ textAlign: 'center' }} role="alert" aria-live="assertive">
                           {submitError}
                         </div>
                       )}
@@ -315,13 +376,14 @@ export default function VagaDetalhePage() {
                         type="submit" 
                         className="vaga-form__submit-btn"
                         disabled={isSubmitting}
+                        aria-busy={isSubmitting}
                       >
-                        {isSubmitting ? 'Enviando...' : 'Enviar Candidatura'}
+                        {isSubmitting ? 'Enviando candidatura...' : 'Enviar Candidatura'}
                       </button>
                     </form>
                   </>
                 ) : (
-                  <div className="vaga-success-card">
+                  <div className="vaga-success-card" role="status" aria-live="polite">
                     <div className="vaga-success-card__icon">
                       <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round">
                         <polyline points="20 6 9 17 4 12" />
@@ -341,7 +403,7 @@ export default function VagaDetalhePage() {
                 )}
               </div>
             ) : (
-              <div className="vaga-status-notice-container">
+              <div className="vaga-status-notice-container" role="status">
                 {vaga.status === 'em_selecao' ? (
                   <div className="vaga-status-notice vaga-status-notice--selecao">
                     <div className="vaga-status-notice__icon">

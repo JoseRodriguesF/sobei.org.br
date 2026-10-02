@@ -373,7 +373,7 @@
   left: 0;
   width: 40px;
   height: 3px;
-  background-color: var(--color-accent-active);
+  background-color: var(--color-accent);
   border-radius: var(--radius-sm);
 }
 
@@ -547,10 +547,15 @@
   transition: border-color var(--transition-base), box-shadow var(--transition-base);
 }
 
+.form-input:hover, .form-textarea:hover {
+  border-color: var(--color-primary);
+  box-shadow: none;
+}
+
 .form-input:focus, .form-textarea:focus {
   outline: none;
   border-color: var(--color-primary);
-  box-shadow: 0 0 0 3px rgba(27, 20, 100, 0.1);
+  box-shadow: none;
 }
 
 .form-textarea {

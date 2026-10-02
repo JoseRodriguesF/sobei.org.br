@@ -4,7 +4,7 @@ export const projectsData = {
   'cei': {
     title: 'CEI - Centro de Educação Infantil',
     tagline: 'Educação integral, proteção e desenvolvimento para a primeira infância.',
-    image: '/images/projetos/cei-araucarias.avif',
+    image: '/images/cei-araucarias.avif',
     description: 'Os Centros de Educação Infantil (CEIs) da SOBEI são dedicados ao atendimento integral de crianças na primeira infância. Nossa rede atende as comunidades da Zona Sul de São Paulo com capacidade de atendimento de cerca de 4.600 crianças de 0 a 4 anos e 11 meses, oferecendo educação de qualidade, acompanhamento nutricional e um ambiente acolhedor.',
     benefits: [
       'Atendimento integral gratuito de 10 horas por dia',
@@ -20,7 +20,7 @@ export const projectsData = {
   'ccinter': {
     title: 'CCINTER - Centro de Convivência Intergeracional',
     tagline: 'Fortalecimento de vínculos familiares e comunitários entre gerações.',
-    image: '/images/projetos/ccinter-convivencia.avif',
+    image: '/images/ccinter-convivencia.avif',
     description: 'O Centro de Convivência Intergeracional (CC Inter) atende diversos bairros da Zona Sul de São Paulo, concentrando-se principalmente nas regiões de Parelheiros, Grajaú e Cidade Dutra, com capacidade de atendimento de cerca de 1.500 participantes. O projeto atende gratuitamente a comunidade, oferecendo proteção social preventiva contra situações de risco e vulnerabilidade e estimulando o protagonismo intergeracional.',
     benefits: [
       'Atendimento gratuito para cerca de 2.100 pessoas',
@@ -36,7 +36,7 @@ export const projectsData = {
   'cedesp': {
     title: 'CEDESP - Centro de Desenvolvimento Social e Produtivo',
     tagline: 'Qualificação profissional gratuita para inserção no mercado de trabalho.',
-    image: '/images/projetos/cedesp-qualificacao.avif',
+    image: '/images/cedesp-qualificacao.avif',
     description: 'O Centro de Desenvolvimento Social e Produtivo (CEDESP) realiza atividades focadas no desenvolvimento social e na capacitação profissional de jovens e adultos com idade de 15 a 59 anos, atendendo bairros da Capela do Socorro, Grajaú e Cidade Dutra. Com capacidade para 340 alunos, oferece formação básica profissional certificada em cursos de panificação, confeitaria, cozinha industrial e eletricista.',
     benefits: [
       'Atendimento a 240 adolescentes, jovens e adultos',
@@ -52,7 +52,7 @@ export const projectsData = {
   'nci-imbuias': {
     title: 'NCI - Núcleo de Convivência de Idosos',
     tagline: 'Convivência, envelhecimento ativo e fortalecimento de vínculos.',
-    image: '/images/projetos/nci-idosos.avif',
+    image: '/images/nci-idosos.avif',
     description: 'O Núcleo de Convivência de Idosos (NCI) acolhe idosos residentes no Jardim das Imbuias, Parque Residencial Cocaia e adjacências na região do Grajaú, com capacidade de atendimento de cerca de 750 idosos. Oferecemos oficinas socioculturais, atividades físicas preventivas, palestras informativas e grupos de estimulação cognitiva visando um envelhecimento ativo e saudável.',
     benefits: [
       'Capacidade de atendimento gratuito para 650 idosos',
@@ -68,7 +68,7 @@ export const projectsData = {
   'orquestra': {
     title: 'Orquestra Jovem SOBEI',
     tagline: 'Democratização do acesso à cultura e ensino de música de concerto.',
-    image: '/images/projetos/orquestra.avif',
+    image: '/images/orquestra.avif',
     description: 'A Orquestra Jovem SOBEI oportuniza o acesso gratuito à cultura musical para crianças, adolescentes, jovens e adultos da Zona Sul, com capacidade para atender 180 estudantes. Os participantes recebem aulas estruturadas de teoria musical e prática instrumental, além de se apresentarem em concertos da comunidade.',
     benefits: [
       'Aulas gratuitas de teoria musical e prática instrumental',
@@ -84,7 +84,7 @@ export const projectsData = {
   'telecentro': {
     title: 'Telecentro Comunitário',
     tagline: 'Acesso público à internet e letramento digital gratuito.',
-    image: '/images/projetos/telecentro-inclusao.avif',
+    image: '/images/telecentro-inclusao.avif',
     description: 'O Telecentro Comunitário oferece computadores e acesso à internet banda larga de forma gratuita para a comunidade local na Cidade Dutra e no Jardim das Orquídeas, com capacidade de atendimento de cerca de 400 usuários por mês. O projeto oferece letramento digital e suporte para pesquisas acadêmicas e serviços públicos online.',
     benefits: [
       'Acesso livre e gratuito a computadores e internet banda larga',

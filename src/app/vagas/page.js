@@ -53,7 +53,11 @@ export default function VagasPage() {
         (vaga.titulo || '').toLowerCase().includes(searchQuery.toLowerCase()) ||
         (vaga.descricao || '').toLowerCase().includes(searchQuery.toLowerCase());
       
-      const matchesUnit = !selectedUnit || (vaga.unidade || '').includes(selectedUnit.split(' ')[1] || selectedUnit);
+      const matchesUnit = !selectedUnit || (() => {
+        const normVaga = (vaga.unidade || '').toLowerCase();
+        const normSelected = selectedUnit.toLowerCase().replace(/^cei\s+/, '').trim();
+        return normVaga.includes(normSelected) || selectedUnit.toLowerCase().includes(normVaga);
+      })();
 
       return matchesSearch && matchesUnit;
     });
@@ -128,13 +132,25 @@ export default function VagasPage() {
 
         {/* Jobs list board */}
         {loading ? (
-          <div className="jobs-empty">Carregando vagas...</div>
+          <div className="jobs-container" role="status" aria-live="polite">
+            <div className="jobs-list">
+              {[1, 2, 3].map((n) => (
+                <div key={n} className="job-card" style={{ opacity: 0.6, pointerEvents: 'none' }}>
+                  <div className="job-card__info" style={{ width: '100%' }}>
+                    <div style={{ width: '50%', height: '20px', backgroundColor: '#e2e8f0', borderRadius: '4px', marginBottom: '10px' }} />
+                    <div style={{ width: '35%', height: '14px', backgroundColor: '#edf2f7', borderRadius: '4px', marginBottom: '8px' }} />
+                    <div style={{ width: '25%', height: '14px', backgroundColor: '#edf2f7', borderRadius: '4px' }} />
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
         ) : (
           <div className="jobs-container">
             {totalFilteredCount > 0 ? (
-              <div className="jobs-list">
+              <div className="jobs-list" role="feed" aria-busy={loading}>
                 {sortedVagas.map((vaga) => (
-                  <div className="job-card fade-in" key={vaga.id}>
+                  <article className="job-card fade-in" key={vaga.id}>
                     
                     {/* Job metadata and info */}
                     <div className="job-card__info">
@@ -150,18 +166,17 @@ export default function VagasPage() {
                       <Link 
                         href={`/vagas/${vaga.id}`}
                         className="job-card__btn"
+                        aria-label={`Ver detalhes da vaga ${vaga.titulo}`}
                       >
                         Ver detalhes
                       </Link>
                     </div>
 
-                  </div>
+                  </article>
                 ))}
               </div>
             ) : (
-              <div className="jobs-empty-state fade-in">
-
-
+              <div className="jobs-empty-state fade-in" role="status">
                 <h3 className="jobs-empty-state__title">Nenhuma vaga encontrada</h3>
                 <p className="jobs-empty-state__text">
                   {hasActiveFilters 
