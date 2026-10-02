@@ -113,6 +113,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="pt-BR" className={inter.variable}>
       <head>
+        <link rel="alternate" type="text/markdown" href="/llms.txt" title="llms.txt" />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLdData) }}

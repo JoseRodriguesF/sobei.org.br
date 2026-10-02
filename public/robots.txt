@@ -1,0 +1,37 @@
+# robots.txt para https://sobei.org.br
+
+# Permissões gerais de indexação
+User-agent: *
+Allow: /
+
+# Rastreadores de mecanismos de busca
+User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+# Rastreadores e indexadores de inteligência artificial (LLMs)
+User-agent: GPTBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: CCBot
+Allow: /
+
+User-agent: Applebot-Extended
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+# Localização do Sitemap
+Sitemap: https://sobei.org.br/sitemap.xml
