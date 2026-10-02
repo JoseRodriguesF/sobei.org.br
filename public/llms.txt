@@ -1,0 +1,59 @@
+# SOBEI - Sociedade Beneficente Equilíbrio de Interlagos
+
+> A SOBEI (Sociedade Beneficente Equilíbrio de Interlagos) é uma organização da sociedade civil e filantrópica sem fins lucrativos fundada em 1984, dedicada à assistência social, educação infantil integral de qualidade, qualificação profissional e proteção comunitária na Zona Sul de São Paulo, atendendo diretamente mais de 7.000 pessoas diariamente.
+
+Fundada em 31 de março de 1984 por membros da Loja Maçônica Fé, Equilíbrio e Luz nº 270, a SOBEI iniciou sua atuação acolhendo 33 crianças em uma creche comunitária. Ao longo de mais de 42 anos de atuação ininterrupta, tornou-se uma referência em políticas públicas integradas, gerindo 13 Centros de Educação Infantil (CEIs) e projetos voltados a todas as faixas etárias nas regiões de Cidade Dutra, Interlagos, Grajaú e Parelheiros.
+
+## Páginas Principais
+
+- [Página Inicial](https://sobei.org.br/): Apresentação da entidade, trajetória histórica, valores institucionais e agenda de eventos tradicionais beneficentes.
+- [Projetos Sociais](https://sobei.org.br/projetos): Panorama completo dos programas educacionais, capacitação técnica e convivência intergeracional.
+- [Unidades de Atendimento](https://sobei.org.br/unidades): Localização, contatos diretos (e-mail, telefone) e capacidade de atendimento das 13 creches e polos da entidade.
+- [Vagas de Emprego](https://sobei.org.br/vagas): Oportunidades de trabalho abertas na organização em áreas pedagógicas, operacionais, nutricionais e administrativas.
+
+## Projetos Sociais da SOBEI
+
+- [CEI - Centro de Educação Infantil](https://sobei.org.br/projetos#cei): Rede de creches integrais gratuitas (10 horas diárias) atendendo cerca de 4.600 crianças de 0 a 4 anos e 11 meses, com alimentação planejada por nutricionistas e equipe multidisciplinar.
+- [CCINTER - Centro de Convivência Intergeracional](https://sobei.org.br/projetos#ccinter): Convivência e fortalecimento de laços afetivos e comunitários entre crianças, jovens, adultos e idosos para cerca de 1.500 pessoas nas regiões de Parelheiros, Grajaú e Cidade Dutra.
+- [CEDESP - Centro de Desenvolvimento Social e Produtivo](https://sobei.org.br/projetos#cedesp): Cursos profissionalizantes gratuitos para jovens e adultos de 15 a 59 anos (Panificação, Confeitaria, Cozinha Industrial e Eletricista Instalador).
+- [NCI - Núcleo de Convivência de Idosos](https://sobei.org.br/projetos#nci-imbuias): Estimulação cognitiva, saúde preventiva, oficinas culturais e integração social para mais de 740 pessoas idosas (60+ anos) no Grajaú.
+- [Orquestra Jovem SOBEI](https://sobei.org.br/projetos#orquestra): Ensino de música erudita, teoria musical e prática instrumental coletiva para crianças e jovens da periferia da Zona Sul paulistana.
+- [Telecentro Comunitário](https://sobei.org.br/projetos#telecentro): Ponto de inclusão e letramento digital com internet de alta velocidade e mediação educacional gratuita para a comunidade local.
+
+## Unidades Educacionais e Polos (Zona Sul de São Paulo)
+
+- [CEI Jardim das Araucárias](https://sobei.org.br/unidades#araucarias): Rua Carolina Reimberg, 57 - Parelheiros, SP (Capacidade: 309 crianças).
+- [CEI Jardim do Cedro](https://sobei.org.br/unidades#cedro): Rua dos Boiadeiros, 28 - Jd. Ideal / Parelheiros, SP (Capacidade: 337 crianças).
+- [CEI Jardim das Oliveiras](https://sobei.org.br/unidades#oliveiras): Rua Rubens de Oliveira, 400 - Pq. Res. Cocaia / Grajaú, SP (Capacidade: 328 crianças).
+- [CEI Jardim das Macaúbas](https://sobei.org.br/unidades#macaubas): Rua Macauba Natal, 221 A - Vila Natal / Cidade Dutra, SP (Capacidade: 459 crianças).
+- [CEI Montanaro](https://sobei.org.br/unidades#montanaro): Av. Rubens Montanaro de Borba, 477 - Cidade Dutra / Interlagos, SP (Capacidade: 400 crianças).
+- [CEI Leblon](https://sobei.org.br/unidades#leblon): Rua Padre José Garzotti, 494 - Cidade Dutra, SP (Capacidade: 305 crianças).
+- [CEI Jardim das Imbuias](https://sobei.org.br/unidades#imbuias): Rua José Luis Monteiro, 513 - Grajaú, SP (Capacidade: 320 crianças).
+- [CEI Jardim das Acácias](https://sobei.org.br/unidades#acacias): Av. Belmira Marin, 4826 - Grajaú, SP (Capacidade: 417 crianças).
+- [CEI Jardim dos Ipês](https://sobei.org.br/unidades#ipes): Rua Magdalena Roschel Gottefritz, 101 - Vila Santa Maria, SP (Capacidade: 220 crianças).
+- [CEI Jardim Bela Vista](https://sobei.org.br/unidades#bela-vista): Rua Frederico René de Jaeger, 1521 - Cidade Dutra, SP (Capacidade: 485 crianças).
+- [CEI Jardim das Orquídeas](https://sobei.org.br/unidades#orquideas): Av. das Orquídeas, 193 - Parelheiros, SP (Capacidade: 793 crianças).
+- [CEI Jardim das Cerejeiras / Jacomo Tatto](https://sobei.org.br/unidades#jacomo): Av. Orfeu Paravente, s/nº - Cidade Dutra, SP (Capacidade: 256 crianças).
+- [CEI Jardim dos Sabiás](https://sobei.org.br/unidades#sabias): Rua Constantino Bruno Di Bartolomeu, 110 - Parelheiros, SP (Capacidade: 297 crianças).
+
+## Eventos Beneficentes Anuais
+
+- [Churrasco Beneficente da SOBEI](https://sobei.org.br/#sobre): Evento de confraternização e captação de recursos com apoiadores e comunidade.
+- [Feijoada Solidária](https://sobei.org.br/#sobre): Almoço beneficente em apoio aos serviços de acolhimento e nutrição infantil.
+- [Grande Festa Junina](https://sobei.org.br/#sobre): Comemoração cultural popular com quadrilhas, gastronomia e arrecadação comunitária.
+- [SOBEI no BrooklinFest](https://sobei.org.br/#sobre): Apresentação dos projetos e artesanato da SOBEI no festival de rua da Zona Sul.
+
+## Dados Institucionais e Contato
+
+- **Razão Social**: Sociedade Beneficente Equilíbrio de Interlagos (SOBEI)
+- **CNPJ**: Entidade filantrópica sem fins lucrativos
+- **Data de Fundação**: 31 de março de 1984
+- **Endereço da Sede**: Av. Rubens Montanaro de Borba, 477 - Jardim Regis / Cidade Dutra, São Paulo - SP, CEP: 04811-180
+- **Telefone**: +55 (11) 5667-2785
+- **E-mail de Contato**: sobei@sobei.org.br
+- **Instagram Oficial**: https://www.instagram.com/sobeimatriz/
+- **Facebook Oficial**: https://www.facebook.com/sobeimatriz?locale=pt_BR
+
+## Versão Completa (Full Text)
+
+- [Conteúdo Completo em Texto para LLMs](https://sobei.org.br/llms-full.txt): Documento unificado com a descrição exata e aprofundada de todas as unidades, vagas e projetos para treinamento e contexto direto.
