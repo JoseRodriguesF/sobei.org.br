@@ -41,11 +41,17 @@
   transition: all var(--transition-fast);
 }
 
+.filter-group__input:hover,
+.filter-group__select:hover {
+  border-color: var(--color-primary);
+  box-shadow: none;
+}
+
 .filter-group__input:focus,
 .filter-group__select:focus {
   outline: none;
-  border-color: var(--color-primary-light);
-  box-shadow: 0 0 0 3px rgba(27, 20, 100, 0.1);
+  border-color: var(--color-primary);
+  box-shadow: none;
 }
 
 /* Vagas Layout Sections */
@@ -85,6 +91,203 @@
   border: 1px solid var(--color-gray-200);
   color: var(--color-gray-500);
   font-size: var(--font-size-base);
+}
+
+/* ---- Enhanced Empty State ---- */
+.jobs-empty-state {
+  text-align: center;
+  padding: var(--spacing-4xl) var(--spacing-xl);
+  background-color: var(--color-white);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-sm);
+  border: 1px solid var(--color-gray-200);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--spacing-md);
+  margin-bottom: var(--spacing-4xl);
+  min-height: 320px;
+  justify-content: center;
+}
+
+.jobs-empty-state__icon {
+  width: 80px;
+  height: 80px;
+  border-radius: var(--radius-full);
+  background: linear-gradient(135deg, rgba(27, 20, 100, 0.06), rgba(27, 20, 100, 0.12));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-primary-light);
+  margin-bottom: var(--spacing-sm);
+  animation: emptyIconPulse 2.5s ease-in-out infinite;
+}
+
+@keyframes emptyIconPulse {
+  0%, 100% { transform: scale(1); opacity: 1; }
+  50% { transform: scale(1.05); opacity: 0.85; }
+}
+
+.jobs-empty-state__title {
+  font-size: var(--font-size-xl);
+  font-weight: var(--font-weight-bold);
+  color: var(--color-gray-800);
+  margin: 0;
+}
+
+.jobs-empty-state__text {
+  font-size: var(--font-size-sm);
+  color: var(--color-gray-500);
+  max-width: 440px;
+  line-height: var(--line-height-relaxed);
+  margin: 0;
+}
+
+.jobs-empty-state__btn {
+  margin-top: var(--spacing-md);
+  display: inline-flex;
+  align-items: center;
+  gap: var(--spacing-xs);
+  background-color: var(--color-primary);
+  color: var(--color-white);
+  font-weight: var(--font-weight-bold);
+  font-size: var(--font-size-sm);
+  padding: 10px 24px;
+  border-radius: var(--radius-full);
+  border: 2px solid var(--color-primary);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.jobs-empty-state__btn:hover {
+  background-color: var(--color-primary-light);
+  border-color: var(--color-primary-light);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(27, 20, 100, 0.2);
+}
+
+/* ---- CustomSelect (Padronizado cross-platform) ---- */
+.custom-select-container {
+  position: relative;
+  width: 100%;
+}
+
+.custom-select-trigger {
+  width: 100%;
+  padding: 10px 14px;
+  padding-right: var(--spacing-2xl);
+  background-color: var(--color-white);
+  border: 1px solid var(--color-gray-300);
+  border-radius: var(--radius-md);
+  font-family: inherit;
+  font-size: var(--font-size-sm);
+  color: var(--color-gray-800);
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  user-select: none;
+  min-height: 42px;
+  transition: all var(--transition-fast);
+}
+
+.custom-select-trigger--placeholder {
+  color: var(--color-gray-500);
+}
+
+.custom-select-trigger:hover,
+.custom-select-trigger--open,
+.custom-select-trigger:focus,
+.custom-select-trigger:focus-visible {
+  border-color: var(--color-primary-light);
+  background-color: var(--color-white);
+  box-shadow: none !important;
+  outline: none !important;
+}
+
+.custom-select-icon {
+  position: absolute;
+  right: 14px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--color-gray-500);
+  transition: transform var(--transition-base), color var(--transition-fast);
+  pointer-events: none;
+}
+
+.custom-select-trigger:hover .custom-select-icon,
+.custom-select-trigger--open .custom-select-icon {
+  color: var(--color-primary);
+}
+
+.custom-select-icon--open {
+  transform: translateY(-50%) rotate(180deg);
+}
+
+.custom-select-dropdown {
+  position: absolute;
+  top: calc(100% + 6px);
+  left: 0;
+  width: 100%;
+  background-color: rgba(255, 255, 255, 0.96);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(27, 20, 100, 0.1);
+  border-radius: var(--radius-lg);
+  box-shadow: 0 10px 25px -5px rgba(27, 20, 100, 0.1), 0 8px 10px -6px rgba(27, 20, 100, 0.1);
+  z-index: 50;
+  max-height: 250px;
+  overflow-y: auto;
+  padding: var(--spacing-xs) 0;
+  animation: dropdownAppear 200ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Custom dropdown scrollbar */
+.custom-select-dropdown::-webkit-scrollbar {
+  width: 6px;
+}
+.custom-select-dropdown::-webkit-scrollbar-track {
+  background: transparent;
+}
+.custom-select-dropdown::-webkit-scrollbar-thumb {
+  background-color: var(--color-gray-300);
+  border-radius: var(--radius-full);
+}
+.custom-select-dropdown::-webkit-scrollbar-thumb:hover {
+  background-color: var(--color-gray-400);
+}
+
+@keyframes dropdownAppear {
+  from {
+    opacity: 0;
+    transform: translateY(-8px) scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.custom-select-option {
+  padding: 10px 16px;
+  margin: 2px 6px;
+  border-radius: var(--radius-sm);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-medium);
+  color: var(--color-gray-700);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.custom-select-option:hover {
+  background-color: rgba(27, 20, 100, 0.04);
+  color: var(--color-primary);
+  transform: translateX(4px);
+}
+
+.custom-select-option--selected {
+  background-color: rgba(27, 20, 100, 0.08);
+  color: var(--color-primary);
+  font-weight: var(--font-weight-bold);
 }
 
 /* Job Card (Centered layout) */
@@ -290,11 +493,17 @@
   min-height: 100px;
 }
 
+.form-group__input:hover,
+.form-group__textarea:hover {
+  border-color: var(--color-primary);
+  box-shadow: none;
+}
+
 .form-group__input:focus,
 .form-group__textarea:focus {
   outline: none;
-  border-color: var(--color-primary-light);
-  box-shadow: 0 0 0 3px rgba(27, 20, 100, 0.1);
+  border-color: var(--color-primary);
+  box-shadow: none;
 }
 
 .form-group__error {
@@ -427,39 +636,12 @@
   line-height: var(--line-height-relaxed);
 }
 
-/* Mobile responsive layout */
-@media (max-width: 992px) {
-  .jobs-list {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-
-@media (max-width: 768px) {
-  .filter-bar {
-    flex-direction: column;
-    align-items: stretch;
-  }
-  
-  .jobs-list {
-    grid-template-columns: 1fr;
-    gap: var(--spacing-lg);
-  }
-  
-  .job-card {
-    padding: var(--spacing-lg);
-  }
-  
-  .job-card__btn {
-    width: 100%;
-  }
-}
-
-/* Custom Vagas Hero Modifier */
+/* Custom Vagas Hero Modifier (Desktop) */
 .page-hero--vagas {
   position: relative;
   height: calc(100vh - var(--header-height));
   min-height: calc(100vh - var(--header-height));
-  background-image: linear-gradient(rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.75)), url('/images/telecentro-inclusao.jpg');
+  background-image: linear-gradient(rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.75)), url('/images/telecentro-inclusao.avif');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -506,23 +688,24 @@
 
 .page-hero__btn {
   display: inline-block;
-  background-color: var(--color-accent);
+  background-color: var(--color-white);
   color: var(--color-primary);
   font-weight: var(--font-weight-bold);
   font-size: var(--font-size-sm);
   padding: 10px 24px;
   border-radius: var(--radius-full);
-  border: 2px solid var(--color-accent);
+  border: 2px solid var(--color-white);
   transition: all var(--transition-fast);
   margin-top: var(--spacing-md);
-  box-shadow: var(--shadow-sm);
+  box-shadow: none;
   text-transform: uppercase;
 }
 
 .page-hero__btn:hover {
   background-color: transparent;
-  color: var(--color-accent);
-  box-shadow: 0 4px 12px rgba(232, 255, 0, 0.2);
+  color: var(--color-white);
+  border-color: var(--color-white);
+  box-shadow: none;
   transform: translateY(-1px);
 }
 
@@ -530,27 +713,112 @@
   transform: translateY(0);
 }
 
+/* Mobile responsive layout */
+@media (max-width: 992px) {
+  .jobs-list {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
 @media (max-width: 768px) {
+  .filter-bar {
+    flex-direction: column;
+    align-items: stretch;
+    padding: 1.5rem;
+    gap: 1.25rem;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+  }
+  
+  .filter-group {
+    flex: none;
+    width: 100%;
+    gap: 6px;
+  }
+  
+  .vagas-title-sec {
+    font-size: 1.5rem;
+    margin-top: 2rem;
+    margin-bottom: 0.5rem;
+  }
+  
+  .vagas-divider {
+    margin: 0 auto 2rem auto;
+  }
+  
+  .jobs-list {
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
+    margin-bottom: 3rem;
+  }
+  
+  .job-card {
+    padding: 1.5rem;
+    gap: 1.25rem;
+  }
+  
+  .job-card__btn {
+    width: 100%;
+  }
+
   .page-hero--vagas {
-    height: calc(100vh - var(--header-height));
-    min-height: calc(100vh - var(--header-height));
+    height: auto;
+    min-height: calc(85vh - var(--header-height));
+    padding: 4rem 0 3.5rem;
   }
   
   .page-hero__pretitle {
-    font-size: 2rem;
+    font-size: 1.85rem;
+    line-height: 1.1;
   }
   
   .page-hero__maintitle {
-    font-size: 3.5rem;
+    font-size: 3.25rem;
+    line-height: 1;
+    margin-top: 0.25rem;
+    margin-bottom: 0.75rem;
   }
   
   .page-hero__desc {
-    font-size: var(--font-size-base);
-    margin-bottom: var(--spacing-md);
+    font-size: 1rem;
+    margin-bottom: 1.25rem;
   }
   
   .page-hero__btn {
     padding: 12px 24px;
+    font-size: 0.85rem;
+  }
+}
+
+@media (max-width: 576px) {
+  .filter-bar {
+    padding: 1.25rem 1rem;
+    gap: 1rem;
+    margin-top: 1.5rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .page-hero--vagas {
+    padding: 3.5rem 0 3rem;
+  }
+
+  .page-hero__pretitle {
+    font-size: 1.35rem;
+  }
+
+  .page-hero__maintitle {
+    font-size: 2.5rem;
+    letter-spacing: -0.5px;
+  }
+
+  .page-hero__desc {
+    font-size: 0.95rem;
+  }
+
+  .page-hero__btn {
+    width: 100%;
+    text-align: center;
+    padding: 12px 20px;
   }
 }
 
@@ -565,7 +833,7 @@
 
 .vaga-hero {
   position: relative;
-  background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.8)), url('/images/telecentro-inclusao.jpg');
+  background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.8)), url('/images/telecentro-inclusao.avif');
   background-size: cover;
   background-position: center;
   color: var(--color-white);
@@ -678,6 +946,8 @@
   font-size: var(--font-size-base);
   color: var(--color-gray-700);
   line-height: var(--line-height-relaxed);
+  white-space: pre-wrap;
+  word-break: break-word;
 }
 
 .vaga-card__list {

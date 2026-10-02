@@ -1,66 +1,266 @@
 import Image from 'next/image';
+import { Fragment } from 'react';
+import EventVideo from '@/components/EventVideo';
 
 export default function Home() {
+  const subtitleText = "Dedicando o melhor de cada um para o melhor de todos";
+  const words = subtitleText.split(' ');
+
   return (
     <div>
       {/* Hero Section */}
       <section className="hero">
+        <div className="hero__bg-wrapper">
+          <Image
+            src="/images/foto-sobei.avif"
+            alt="Atividades e comunidade da SOBEI"
+            fill
+            priority
+            quality={80}
+            sizes="100vw"
+            className="hero__bg-img"
+          />
+          <div className="hero__overlay" aria-hidden="true" />
+        </div>
         <div className="hero__content">
           <Image
             src="/images/LOGO BRANCO.png"
             alt="SOBEI"
             width={560}
             height={160}
+            style={{ width: 'auto', height: 'auto', maxWidth: '100%' }}
             className="hero__logo"
             priority
           />
+          <h1 className="hero__subtitle">
+            {words.map((word, wordIdx) => {
+              const previousCharsCount = words.slice(0, wordIdx).join(' ').length + (wordIdx > 0 ? 1 : 0);
+              return (
+                <Fragment key={wordIdx}>
+                  <span className="hero__subtitle-word">
+                    {word.split('').map((char, charIdx) => {
+                      const globalIdx = previousCharsCount + charIdx;
+                      return (
+                        <span
+                          key={charIdx}
+                          className="hero__subtitle-char"
+                          style={{ animationDelay: `${0.8 + globalIdx * 0.03}s` }}
+                        >
+                          {char}
+                        </span>
+                      );
+                    })}
+                  </span>
+                  {/* Espaço após a palavra, exceto se for a última */}
+                  {wordIdx < words.length - 1 && ' '}
+                </Fragment>
+              );
+            })}
+          </h1>
+          <p className="hero__description">
+            Transformando vidas por meio da educação, acolhimento e desenvolvimento social
+            <br />
+            na Zona Sul de São Paulo há 42 anos.
+          </p>
         </div>
       </section>
 
       {/* Nossa História Section */}
-      <section id="sobre" className="about-section">
-        <div className="container about-section__container">
-          <div className="about-section__content">
-            <h2 className="about-section__title">Nossa história</h2>
-            <p className="about-section__text">
-              Fundada em 1984, a SOBEI (Sociedade Beneficente Equilíbrio de Interlagos) nasceu do sonho de moradores da zona sul de São Paulo de criar um espaço de acolhimento e desenvolvimento para a comunidade local. No início, as ações eram voltadas para o apoio básico a famílias em situação de vulnerabilidade extrema.
+      <section className="about-section" id="sobre">
+        {/* Section Header */}
+        <div className="container about-header">
+          <h2 className="about-header__title">Nossa História</h2>
+        </div>
+        {/* Story Block 1 — Text Left, Image Right */}
+        <div className="container about-row">
+          <div className="about-row__text">
+            <h3 className="about-row__heading" id="inicio">O início de tudo</h3>
+            <p className="about-row__paragraph">
+              Fundada em 31 de março de 1984 por membros da Loja Maçônica Fé, Equilíbrio e Luz nº 270, a SOBEI nasceu do desejo de amparar famílias em situação de vulnerabilidade social na Zona Sul de São Paulo, iniciando sua trajetória com uma creche comunitária voltada para 33 crianças da região.
             </p>
-            <p className="about-section__text">
-              Ao longo das últimas quatro décadas, a organização expandiu suas atividades, tornando-se uma das instituições sociais mais respeitadas e atuantes da região metropolitana. Hoje, a SOBEI gerencia diversas creches (CEIs), centros de desenvolvimento social e capacitação profissional, beneficiando milhares de crianças, jovens e adultos diariamente.
+            <p className="about-row__paragraph">
+              A partir desse início simples, a instituição cresceu e expandiu sua infraestrutura para acompanhar as demandas locais. Hoje, mais de quatro décadas depois, preservamos a mesma essência acolhedora e o foco na dignidade humana que guiaram os nossos primeiros passos.
             </p>
           </div>
-          <div className="about-section__image-wrapper">
-            <Image
-              src="/images/cei-imbuias.jpg"
-              alt="Crianças brincando nas atividades da SOBEI"
-              width={600}
-              height={450}
-              className="about-section__image"
-            />
+          <div className="about-row__image-wrapper">
+            <div className="about-row__card about-row__card--back" aria-hidden="true" />
+            <div className="about-row__card about-row__card--front" aria-hidden="true" />
+            <div className="about-row__photo-container">
+              <Image
+                src="/images/cei-imbuias.avif"
+                alt="Crianças brincando nas atividades da SOBEI"
+                width={600}
+                height={450}
+                sizes="(max-width: 768px) 100vw, 600px"
+                className="about-row__image"
+              />
+            </div>
+          </div>
+        </div>
+
+        {/* Story Block 2 — Image Left, Text Right */}
+        <div className="container about-row about-row--reverse">
+          <div className="about-row__text">
+            <h3 className="about-row__heading">Impacto que transforma</h3>
+            <p className="about-row__paragraph">
+              Hoje, a SOBEI atua como um pilar de apoio e desenvolvimento que atende diretamente cerca de 7 mil pessoas todos os dias. Gerenciamos 13 Centros de Educação Infantil (CEIs) que oferecem ensino integral e nutrição para 4.500 crianças, além de coordenarmos outros 5 projetos focados em inclusão, formação técnica e apoio intergeracional.
+            </p>
+            <p className="about-row__paragraph">
+              Com uma atuação presente em Cidade Dutra, Vila São José, Grajaú e Parelheiros, nossos 18 serviços e projetos promovem autonomia e criam oportunidades de desenvolvimento para todas as idades, auxiliando a comunidade local a construir uma trajetória com dignidade e cidadania.
+            </p>
+          </div>
+          <div className="about-row__image-wrapper">
+            <div className="about-row__card about-row__card--back" aria-hidden="true" />
+            <div className="about-row__card about-row__card--front" aria-hidden="true" />
+            <div className="about-row__photo-container">
+              <Image
+                src="/images/nci-bela-vista.avif"
+                alt="Educador social ensinando jovens"
+                width={600}
+                height={450}
+                sizes="(max-width: 768px) 100vw, 600px"
+                className="about-row__image"
+              />
+            </div>
           </div>
         </div>
       </section>
 
       {/* Nosso Objetivo Section */}
       <section className="about-section about-section--alt">
-        <div className="container about-section__container">
-          <div className="about-section__image-wrapper">
-            <Image
-              src="/images/nci-bela-vista.jpg"
-              alt="Educador social ensinando jovens"
-              width={600}
-              height={450}
-              className="about-section__image"
-            />
+        <div className="container about-header">
+          <h2 className="about-header__title">Nosso Objetivo</h2>
+        </div>
+
+        <div className="container about-row">
+          <div className="about-row__text">
+            <h3 className="about-row__heading">Missão</h3>
+            <p className="about-row__paragraph">
+              Nossa missão primordial é promover a dignidade humana e a autovalorização de famílias e indivíduos em situação de vulnerabilidade e risco social. Através do acolhimento afetivo e de uma educação cidadã, atuamos como um agente de emancipação para que cada pessoa se torne protagonista de sua história.
+            </p>
+            <p className="about-row__paragraph">
+              Trabalhamos para estruturar redes de apoio eficientes que facilitem o desenvolvimento integral das crianças, a qualificação profissional de jovens e adultos para o mercado de trabalho, e a convivência e bem-estar de idosos, garantindo suporte humanizado em cada etapa da vida.
+            </p>
           </div>
-          <div className="about-section__content">
-            <h2 className="about-section__title">Nosso objetivo</h2>
-            <p className="about-section__text">
-              O objetivo primordial da SOBEI é promover o equilíbrio social, a educação de qualidade e a capacitação para o mercado de trabalho, atuando de forma integral no desenvolvimento de comunidades vulneráveis da zona sul de São Paulo.
+          <div className="about-row__image-wrapper">
+            <div className="about-row__card about-row__card--back" aria-hidden="true" />
+            <div className="about-row__card about-row__card--front" aria-hidden="true" />
+            <div className="about-row__photo-container">
+              <Image
+                src="/images/cedesp-qualificacao.avif"
+                alt="Qualificação profissional no CEDESP"
+                width={600}
+                height={450}
+                sizes="(max-width: 768px) 100vw, 600px"
+                className="about-row__image"
+              />
+            </div>
+          </div>
+        </div>
+
+        <div className="container about-row about-row--reverse">
+          <div className="about-row__text">
+            <h3 className="about-row__heading">Visão e Valores</h3>
+            <p className="about-row__paragraph">
+              Buscamos ser referência de excelência nacional na cocriação e execução de políticas públicas integradas nas áreas de educação e assistência social. Almejamos liderar iniciativas que unam qualidade pedagógica, transparência de gestão e um impacto social sustentável na comunidade.
             </p>
-            <p className="about-section__text">
-              Através de programas educacionais inovadores nas creches, oficinas de capacitação profissional nos CEDESPs, e atividades intergeracionais nos CCINTERs, a instituição busca capacitar indivíduos para que se tornem agentes de mudança de suas próprias realidades, fortalecendo vínculos familiares e promovendo a cidadania ativa.
+            <p className="about-row__paragraph">
+              Nossa conduta diária é pautada por cinco pilares essenciais: a ética nas relações, o respeito profundo à diversidade humana, a solidariedade prática no cotidiano, o acolhimento afetuoso que gera segurança, e o permanente compromisso com a transformação social e igualdade.
             </p>
+          </div>
+          <div className="about-row__image-wrapper">
+            <div className="about-row__card about-row__card--back" aria-hidden="true" />
+            <div className="about-row__card about-row__card--front" aria-hidden="true" />
+            <div className="about-row__photo-container">
+              <Image
+                src="/images/cei-leblon.avif"
+                alt="CEI Leblon — atividades com crianças"
+                width={600}
+                height={450}
+                sizes="(max-width: 768px) 100vw, 600px"
+                className="about-row__image"
+              />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Eventos Section */}
+      <section className="about-section">
+        {/* Section Header */}
+        <div className="container about-header">
+          <h2 className="about-header__title">Nossos Eventos</h2>
+        </div>
+
+        <div className="container about-events" style={{ marginTop: '0' }}>
+          <div className="events-grid">
+            {/* Event 1 */}
+            <div className="event-card">
+              <div className="event-card__video-wrapper">
+                <EventVideo 
+                  src="/videos/Churrasco.mp4" 
+                  poster="/images/Churrasco-poster.webp"
+                  title="Churrasco Beneficente da SOBEI" 
+                />
+              </div>
+              <div className="event-card__content">
+                <h4 className="event-card__title">Churrasco Beneficente</h4>
+                <p className="event-card__text">
+                  Um momento especial de celebração e fraternidade que reúne voluntários, parceiros e a comunidade em uma grande festa gastronômica. Cada adesão ajuda a manter a excelência no atendimento gratuito das nossas creches e projetos sociais.
+                </p>
+              </div>
+            </div>
+
+            {/* Event 2 */}
+            <div className="event-card">
+              <div className="event-card__video-wrapper">
+                <EventVideo 
+                  src="/videos/Feijoada.mp4" 
+                  poster="/images/Feijoada-poster.webp"
+                  title="Feijoada Solidária da SOBEI" 
+                />
+              </div>
+              <div className="event-card__content">
+                <h4 className="event-card__title">Feijoada Solidária</h4>
+                <p className="event-card__text">
+                  Uma tradição repleta de sabor, afeto e união. Nossa feijoada mobiliza a comunidade em prol do desenvolvimento humano e da garantia de direitos para mais de 7 mil pessoas assistidas diariamente.
+                </p>
+              </div>
+            </div>
+
+            {/* Event 3 */}
+            <div className="event-card">
+              <div className="event-card__video-wrapper">
+                <EventVideo 
+                  src="/videos/FestaJunina.mp4" 
+                  poster="/images/FestaJunina-poster.webp"
+                  title="Grande Festa Junina da SOBEI" 
+                />
+              </div>
+              <div className="event-card__content">
+                <h4 className="event-card__title">Grande Festa Junina</h4>
+                <p className="event-card__text">
+                  A celebração mais calorosa do ano! Com quadrilhas animadas, barracas de brincadeiras e pratos típicos preparados com muito carinho, este evento celebra a cultura popular e fortalece os laços comunitários.
+                </p>
+              </div>
+            </div>
+
+            {/* Event 4 */}
+            <div className="event-card">
+              <div className="event-card__video-wrapper">
+                <EventVideo 
+                  src="/videos/BrooklinFest.mp4" 
+                  poster="/images/BrooklinFest-poster.webp"
+                  title="SOBEI no BrooklinFest" 
+                />
+              </div>
+              <div className="event-card__content">
+                <h4 className="event-card__title">SOBEI no BrooklinFest</h4>
+                <p className="event-card__text">
+                  Nossa presença marcante em um dos maiores festivais multiculturais de São Paulo. Apresentamos à cidade o impacto dos nossos programas sociais e a rica produção artesanal desenvolvida em nossas oficinas comunitárias.
+                </p>
+              </div>
+            </div>
           </div>
         </div>
       </section>

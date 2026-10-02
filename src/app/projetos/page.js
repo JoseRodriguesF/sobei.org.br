@@ -2,9 +2,9 @@
 
 import React, { Suspense } from 'react';
 import { useSearchParams } from 'next/navigation';
-import Image from 'next/image';
-import Link from 'next/link';
+import VacantImage from '@/components/VacantImage';
 import { projectsData } from '@/lib/data';
+import ContactForm from '@/components/ContactForm';
 
 function ProjectsContent() {
   const searchParams = useSearchParams();
@@ -25,12 +25,10 @@ function ProjectsContent() {
               
               {/* Left Column: Photo */}
               <div className="unit-detail__image-wrapper">
-                <Image
+                <VacantImage
                   src={project.image}
                   alt={project.title}
-                  fill
                   className="unit-detail__image"
-                  priority
                 />
               </div>
 
@@ -49,9 +47,6 @@ function ProjectsContent() {
                     <ul className="detail-card__list" style={{ marginTop: '5px', marginBottom: '0' }}>
                       {project.benefits.map((benefit, index) => (
                         <li key={index} className="detail-card__list-item">
-                          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" style={{ marginTop: '2px' }}>
-                            <polyline points="20 6 9 17 4 12" />
-                          </svg>
                           <span style={{ fontSize: '13px', fontWeight: '500' }}>{benefit}</span>
                         </li>
                       ))}
@@ -67,6 +62,9 @@ function ProjectsContent() {
               <h3 className="unit-detail__section-title">Sobre o Projeto</h3>
               <p className="unit-detail__text">{project.description}</p>
             </div>
+
+            {/* Contact / Registration Form */}
+            <ContactForm unitTitle={project.title} />
           </main>
 
         </div>

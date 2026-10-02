@@ -2,8 +2,9 @@
 
 import React, { Suspense } from 'react';
 import { useSearchParams } from 'next/navigation';
-import Image from 'next/image';
+import VacantImage from '@/components/VacantImage';
 import { unitsData } from '@/lib/data';
+import ContactForm from '@/components/ContactForm';
 
 function UnitsContent() {
   const searchParams = useSearchParams();
@@ -24,12 +25,10 @@ function UnitsContent() {
               
               {/* Left Column: Photo */}
               <div className="unit-detail__image-wrapper">
-                <Image
+                <VacantImage
                   src={unit.image}
                   alt={unit.name}
-                  fill
                   className="unit-detail__image"
-                  priority
                 />
               </div>
 
@@ -64,6 +63,9 @@ function UnitsContent() {
               <h3 className="unit-detail__section-title">Sobre a Unidade</h3>
               <p className="unit-detail__text">{unit.description}</p>
             </div>
+
+            {/* Contact / Registration Form */}
+            <ContactForm unitTitle={unit.name} />
           </main>
 
         </div>

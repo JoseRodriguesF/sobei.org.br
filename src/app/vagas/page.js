@@ -4,6 +4,7 @@ import React, { useState, useMemo, useEffect } from 'react';
 import { unitsData } from '@/lib/data';
 import { fetchVagasPublicas } from '@/lib/api';
 import Link from 'next/link';
+import CustomSelect from '@/components/CustomSelect';
 
 const MODALIDADE_LABELS = {
   presencial: 'Presencial',
@@ -36,9 +37,12 @@ export default function VagasPage() {
     loadVagas();
   }, []);
 
-  // Get unique units for filters
-  const units = useMemo(() => {
-    return Object.values(unitsData).map(unit => unit.name);
+  // Get unique units for filters (as options for CustomSelect)
+  const unitOptions = useMemo(() => {
+    return Object.values(unitsData).map(unit => ({
+      value: unit.name,
+      label: unit.name,
+    }));
   }, []);
 
   // Sort and filter logic
@@ -49,7 +53,11 @@ export default function VagasPage() {
         (vaga.titulo || '').toLowerCase().includes(searchQuery.toLowerCase()) ||
         (vaga.descricao || '').toLowerCase().includes(searchQuery.toLowerCase());
       
-      const matchesUnit = !selectedUnit || (vaga.unidade || '').includes(selectedUnit.split(' ')[1] || selectedUnit);
+      const matchesUnit = !selectedUnit || (() => {
+        const normVaga = (vaga.unidade || '').toLowerCase();
+        const normSelected = selectedUnit.toLowerCase().replace(/^cei\s+/, '').trim();
+        return normVaga.includes(normSelected) || selectedUnit.toLowerCase().includes(normVaga);
+      })();
 
       return matchesSearch && matchesUnit;
     });
@@ -66,6 +74,9 @@ export default function VagasPage() {
   const totalFilteredCount = useMemo(() => {
     return sortedVagas.length;
   }, [sortedVagas]);
+
+  // Whether any filter is active
+  const hasActiveFilters = searchQuery || selectedUnit;
 
   return (
     <div>
@@ -101,21 +112,16 @@ export default function VagasPage() {
             />
           </div>
 
-
-
-          {/* Unit / Location */}
+          {/* Unit / Location — CustomSelect padronizado */}
           <div className="filter-group">
             <label className="filter-group__label">Unidade</label>
-            <select 
-              value={selectedUnit} 
-              onChange={(e) => setSelectedUnit(e.target.value)}
-              className="filter-group__select"
-            >
-              <option value="">Todas as unidades</option>
-              {units.map((unit, idx) => (
-                <option key={idx} value={unit}>{unit}</option>
-              ))}
-            </select>
+            <CustomSelect
+              value={selectedUnit}
+              onChange={(val) => setSelectedUnit(val)}
+              options={unitOptions}
+              defaultOption="Todas as unidades"
+              className="filter-group__custom-select"
+            />
           </div>
 
         </div>
@@ -126,13 +132,25 @@ export default function VagasPage() {
 
         {/* Jobs list board */}
         {loading ? (
-          <div className="jobs-empty">Carregando vagas...</div>
+          <div className="jobs-container" role="status" aria-live="polite">
+            <div className="jobs-list">
+              {[1, 2, 3].map((n) => (
+                <div key={n} className="job-card" style={{ opacity: 0.6, pointerEvents: 'none' }}>
+                  <div className="job-card__info" style={{ width: '100%' }}>
+                    <div style={{ width: '50%', height: '20px', backgroundColor: '#e2e8f0', borderRadius: '4px', marginBottom: '10px' }} />
+                    <div style={{ width: '35%', height: '14px', backgroundColor: '#edf2f7', borderRadius: '4px', marginBottom: '8px' }} />
+                    <div style={{ width: '25%', height: '14px', backgroundColor: '#edf2f7', borderRadius: '4px' }} />
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
         ) : (
           <div className="jobs-container">
             {totalFilteredCount > 0 ? (
-              <div className="jobs-list">
+              <div className="jobs-list" role="feed" aria-busy={loading}>
                 {sortedVagas.map((vaga) => (
-                  <div className="job-card fade-in" key={vaga.id}>
+                  <article className="job-card fade-in" key={vaga.id}>
                     
                     {/* Job metadata and info */}
                     <div className="job-card__info">
@@ -148,17 +166,23 @@ export default function VagasPage() {
                       <Link 
                         href={`/vagas/${vaga.id}`}
                         className="job-card__btn"
+                        aria-label={`Ver detalhes da vaga ${vaga.titulo}`}
                       >
                         Ver detalhes
                       </Link>
                     </div>
 
-                  </div>
+                  </article>
                 ))}
               </div>
             ) : (
-              <div className="jobs-empty">
-                Nenhuma vaga encontrada para os filtros selecionados.
+              <div className="jobs-empty-state fade-in" role="status">
+                <h3 className="jobs-empty-state__title">Nenhuma vaga encontrada</h3>
+                <p className="jobs-empty-state__text">
+                  {hasActiveFilters 
+                    ? 'Não encontramos vagas para os filtros selecionados.'
+                    : 'No momento não há vagas disponíveis. Fique atento, novas oportunidades podem surgir a qualquer momento!'}
+                </p>
               </div>
             )}
           </div>

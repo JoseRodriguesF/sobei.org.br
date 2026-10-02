@@ -19,7 +19,7 @@ export default function Footer() {
               className="footer__logo-img"
             />
             <p className="footer__description">
-              A Sociedade Beneficente Equilíbrio de Interlagos (SOBEI) é uma organização social privada sem fins lucrativos fundada em 1984, dedicada a transformar vidas através da assistência social, educação e desenvolvimento profissional.
+              A Sociedade Beneficente Equilíbrio de Interlagos - SOBEI, fundada em 31 de março de 1984, dedica-se há 42 anos a melhorar a qualidade de vida e a promover o acolhimento, a educação e a cidadania nas comunidades da Zona Sul de São Paulo.
             </p>
           </div>
 

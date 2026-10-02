@@ -4,7 +4,7 @@
 
 :root {
   /* ---- Cores Primárias ---- */
-  --color-primary: #1B1464;         /* Azul escuro/roxo principal da SOBEI */
+  --color-primary: #1B1464;         /* Azul escuro principal da SOBEI (igual à plataforma de administração) */
   --color-primary-dark: #120E45;
   --color-primary-deeper: #0D0A33;
   --color-primary-light: #2A1F8A;
